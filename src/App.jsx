@@ -13,11 +13,10 @@ import Overview from './pages/Overview';
 
 function App() {
   const [page, setPage] = useState("animelist");
-  const [selectedPage, setSelectedPage] = useState('animelist');
 
   return (
     <>
-      <MyContext.Provider value={{page, setPage, selectedPage, setSelectedPage}}>
+      <MyContext.Provider value={{page, setPage}}>
         {page === "overview" && <Overview />}
         {page === "animelist" && <AnimeList />}
         {page === "mangalist" && <MangaList />}
