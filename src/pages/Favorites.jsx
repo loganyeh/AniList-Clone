@@ -1,4 +1,5 @@
 import { rukia, banner, bleach, naruto, logo, csm } from "../assets/animes";
+import { denji, giyuu, ichigo, itadori, okarun, zoro } from "../assets/characters";
 import { useContext } from "react";
 import { MyContext } from "../context/MyContext";
 
@@ -40,14 +41,14 @@ function Favorites(){
                             <span className='row-start-11 row-end-12 col-start-3 col-end-4 flex justify-start items-center mt-2 pt-6 ml-1 text-2xl text-gray-700 font-semibold'>rukia</span>
                         </div>
                         <div className='h-14 w-10/12 flex justify-around items-center text-lg font-semibold text-gray-500'>
-                            <span onClick={() => setPage('animelist')}>Overview</span>
+                            <span onClick={() => setPage('overview')}>Overview</span>
                             <span onClick={() => setPage('animelist')} className='text-blue-500'>Anime List</span>
                             <span onClick={() => setPage('mangalist')}>Manga List</span>
                             <span onClick={() => setPage('favorites')}>Favorites</span>
-                            <span onClick={() => setPage('animelist')}>Stats</span>
-                            <span onClick={() => setPage('animelist')}>Social</span>
-                            <span onClick={() => setPage('animelist')}>Reviews</span>
-                            <span onClick={() => setPage('animelist')}>Submissions</span>
+                            <span onClick={() => setPage('stats')}>Stats</span>
+                            <span onClick={() => setPage('social')}>Social</span>
+                            <span onClick={() => setPage('reviews')}>Reviews</span>
+                            <span onClick={() => setPage('submissions')}>Submissions</span>
                         </div>
                     </div>
                 
@@ -73,8 +74,8 @@ function Favorites(){
                                 <div className="h-10 w-26 flex justify-center items-center bg-blue-500 font-semibold text-white text-lg rounded">Reorder</div>
                             </div>
                             <div className="h-4/5 w-full mt-4 flex justify-start flex-wrap bg-white rounded">
-                                <div className="h-50 w-40 flex flex-row justify-start m-5 bg-center bg-cover rounded-xl" style={{backgroundImage: `url(${naruto})`}}></div>
-                                <div className="h-50 w-40 flex flex-row justify-start m-5 bg-center bg-cover rounded-xl" style={{backgroundImage: `url(${csm})`}}></div>
+                                <div className="h-50 w-40 flex flex-row justify-start m-5 bg-center bg-cover rounded-xl" style={{backgroundImage: `url(${denji})`}}></div>
+                                <div className="h-50 w-40 flex flex-row justify-start m-5 bg-center bg-cover rounded-xl" style={{backgroundImage: `url(${zoro})`}}></div>
                             </div>
                         </div>
 

@@ -43,14 +43,14 @@ function MangaList(){
                     <span className='row-start-11 row-end-12 col-start-3 col-end-4 flex justify-start items-center mt-2 pt-6 ml-1 text-2xl text-gray-700 font-semibold'>rukia</span>
                     </div>
                     <div className='h-14 w-10/12 flex justify-around items-center text-lg font-semibold text-gray-500'>
-                    <span onClick={() => setPage('animelist')}>Overview</span>
+                    <span onClick={() => setPage('overview')}>Overview</span>
                     <span onClick={() => setPage('animelist')} className='text-blue-500'>Anime List</span>
                     <span onClick={() => setPage('mangalist')}>Manga List</span>
-                    <span onClick={() => setPage('favorites')}>Favorites</span>
-                    <span onClick={() => setPage('animelist')}>Stats</span>
-                    <span onClick={() => setPage('animelist')}>Social</span>
-                    <span onClick={() => setPage('animelist')}>Reviews</span>
-                    <span onClick={() => setPage('animelist')}>Submissions</span>
+                    <span onClick={() => setPage("favorites")}>Favorites</span>
+                    <span onClick={() => setPage("stats")}>Stats</span>
+                    <span onClick={() => setPage("social")}>Social</span>
+                    <span onClick={() => setPage("reviews")}>Reviews</span>
+                    <span onClick={() => setPage("submissions")}>Submissions</span>
                     </div>
                 </div>
                 
@@ -69,9 +69,9 @@ function MangaList(){
                         <div className='h-11/12 w-full flex flex-col justify-around mt-2'>
                         <span className='h-8 w-full flex items-center pl-3 text-gray-600 font-semibold bg-white rounded'>All</span>
                         <span className='h-8 w-full flex items-center pl-3 text-gray-500'>Reading</span>
+                        <span className='h-8 w-full flex items-center pl-3 text-gray-500'>Rereading</span>
                         <span className='h-8 w-full flex items-center pl-3 text-gray-500'>Completed</span>
                         <span className='h-8 w-full flex items-center pl-3 text-gray-500'>Paused</span>
-                        {/* <span className='h-8 w-full flex items-center pl-3 text-gray-500'>Dropped</span> */}
                         <span className='h-8 w-full flex items-center pl-3 text-gray-500'>Planning</span>
                         </div>
                     </div>
