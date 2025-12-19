@@ -14,11 +14,6 @@ import { MyContext } from "../context/MyContext";
 
 function Overview() {
   const { page, setPage } = useContext(MyContext);
-    const isBlue = selectedPage === "overview";
-
-    function handleBlue(){
-        setSelectedPage("animelist");
-    }
 
   return (
     <>
@@ -74,7 +69,13 @@ function Overview() {
               </span>
             </div>
             <div className="h-14 w-10/12 flex justify-around items-center text-lg font-semibold text-gray-500">
-              <span onClick={() => {setPage("overview")}}>Overview</span>
+              <span
+                onClick={() => {
+                  setPage("overview");
+                }}
+              >
+                Overview
+              </span>
               <span
                 onClick={() => {
                   setPage("animelist");
@@ -103,7 +104,7 @@ function Overview() {
             id="profile-body"
             className="h-full w-full flex flex-row border-t-1 border-gray-300 bg-gray-200"
           >
-            <div className="h-50 w-full border-2 border-red-600"></div>
+            <div className="h-50 w-full border-2 border-red-600">OVERVIEW</div>
           </div>
         </div>
       </div>
@@ -115,7 +116,9 @@ function Overview() {
         <div className="h-90 w-full flex flex-row justify-center items-center bg-gray-900 font-light text-xl text-gray-200">
           <div className="h-1/3 w-4/12 flex justify-center">
             <div className="flex flex-col justify-start items-center">
-              <div className="w-full font-normal text-3xl text-blue-400 whitespace-nowrap">Site Theme</div>
+              <div className="w-full font-normal text-3xl text-blue-400 whitespace-nowrap">
+                Site Theme
+              </div>
               <div className="w-full flex justify-start text-4xl">
                 <i className="bx bx-sun p-2"></i>
                 <i className="bx bxs-sun p-2"></i>
