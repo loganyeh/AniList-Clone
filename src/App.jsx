@@ -7,12 +7,13 @@ import Stats from './pages/Stats';
 import Social from './pages/Social';
 import Reviews from './pages/Reviews';
 import Submissions from './pages/Submissions';
+import WIP from './pages/WIP';
 import { useState, useContext } from 'react';
 import { MyContext } from './context/MyContext';
 import Overview from './pages/Overview';
 
 function App() {
-  const [page, setPage] = useState("animelist");
+  const [page, setPage] = useState("overview");
 
   return (
     <>
@@ -25,6 +26,7 @@ function App() {
         {page === "social" && <Social />}
         {page === "reviews" && <Reviews />}
         {page === "submissions" && <Submissions />}
+        {page === "wip" && <WIP />}
       </MyContext.Provider>
     </>
   )

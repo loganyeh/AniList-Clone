@@ -29,12 +29,12 @@ function AnimeList() {
           </div>
           <div className="h-full w-2/4">
             <div className="h-full w-full flex justify-between items-center font-light text-xl text-gray-200">
-              <div>Home</div>
-              <div>Profile</div>
-              <div>Anime List</div>
-              <div>Manga List</div>
-              <div>Browse</div>
-              <div>Forum</div>
+              <div onClick={() => setPage("wip")}>Home</div>
+              <div onClick={() => setPage("overview")}>Profile</div>
+              <div onClick={() => setPage("animelist")}>Anime List</div>
+              <div onClick={() => setPage("mangalist")}>Manga List</div>
+              <div onClick={() => setPage("wip")}>Browse</div>
+              <div onClick={() => setPage("wip")}>Forum</div>
             </div>
           </div>
 

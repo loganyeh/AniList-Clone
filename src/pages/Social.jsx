@@ -21,12 +21,12 @@ function Social() {
           </div>
           <div className="h-full w-2/4">
             <div className="h-full w-full flex justify-between items-center font-light text-xl text-gray-200">
-              <div>Home</div>
-              <div>Profile</div>
-              <div>Anime List</div>
-              <div>Manga List</div>
-              <div>Browse</div>
-              <div>Forum</div>
+              <div onClick={() => setPage("wip")}>Home</div>
+              <div onClick={() => setPage("overview")}>Profile</div>
+              <div onClick={() => setPage("animelist")}>Anime List</div>
+              <div onClick={() => setPage("mangalist")}>Manga List</div>
+              <div onClick={() => setPage("wip")}>Browse</div>
+              <div onClick={() => setPage("wip")}>Forum</div>
             </div>
           </div>
           <div className="h-full w-1/4 flex justify-center items-center">
@@ -104,6 +104,10 @@ function Social() {
                   </span>
                 </div>
               </div>
+            </div>
+
+            <div className="h-130 w-4/5 flex justify-center items-start pt-20 font-light text-gray-800 text-2xl">
+              Following 0 users ｡ﾟヽ(ﾟ´Д｀)ﾉﾟ｡
             </div>
           </div>
         </div>

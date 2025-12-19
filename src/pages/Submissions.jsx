@@ -21,12 +21,12 @@ function Submissions() {
           </div>
           <div className="h-full w-2/4">
             <div className="h-full w-full flex justify-between items-center font-light text-xl text-gray-200">
-              <div>Home</div>
-              <div>Profile</div>
-              <div>Anime List</div>
-              <div>Manga List</div>
-              <div>Browse</div>
-              <div>Forum</div>
+              <div onClick={() => setPage("wip")}>Home</div>
+              <div onClick={() => setPage("overview")}>Profile</div>
+              <div onClick={() => setPage("animelist")}>Anime List</div>
+              <div onClick={() => setPage("mangalist")}>Manga List</div>
+              <div onClick={() => setPage("wip")}>Browse</div>
+              <div onClick={() => setPage("wip")}>Forum</div>
             </div>
           </div>
           <div className="h-full w-1/4 flex justify-center items-center">
@@ -107,10 +107,8 @@ function Submissions() {
             </div>
 
             <div className="h-130 w-4/5 flex justify-center items-start pt-20 font-light text-gray-800 text-2xl">
-                No anime submissions yet (◕︿◕✿)
+              No anime submissions yet (◕︿◕✿)
             </div>
-
-
           </div>
         </div>
       </div>
@@ -122,7 +120,9 @@ function Submissions() {
         <div className="h-90 w-full flex flex-row justify-center items-center bg-gray-900 font-light text-xl text-gray-200">
           <div className="h-1/3 w-4/12 flex justify-center">
             <div className="flex flex-col justify-start items-center">
-              <div className="w-full font-normal text-3xl text-blue-400 whitespace-nowrap">Site Theme</div>
+              <div className="w-full font-normal text-3xl text-blue-400 whitespace-nowrap">
+                Site Theme
+              </div>
               <div className="w-full flex justify-start text-4xl">
                 <i className="bx bx-sun p-2"></i>
                 <i className="bx bxs-sun p-2"></i>

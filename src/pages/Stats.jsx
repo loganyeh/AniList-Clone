@@ -21,12 +21,12 @@ function Stats() {
           </div>
           <div className="h-full w-2/4">
             <div className="h-full w-full flex justify-between items-center font-light text-xl text-gray-200">
-              <div>Home</div>
-              <div>Profile</div>
-              <div>Anime List</div>
-              <div>Manga List</div>
-              <div>Browse</div>
-              <div>Forum</div>
+              <div onClick={() => setPage("wip")}>Home</div>
+              <div onClick={() => setPage("overview")}>Profile</div>
+              <div onClick={() => setPage("animelist")}>Anime List</div>
+              <div onClick={() => setPage("mangalist")}>Manga List</div>
+              <div onClick={() => setPage("wip")}>Browse</div>
+              <div onClick={() => setPage("wip")}>Forum</div>
             </div>
           </div>
           <div className="h-full w-1/4 flex justify-center items-center">
@@ -132,7 +132,6 @@ function Stats() {
                 </div>
               </div>
             </div>
-
 
             <div className="h-auto w-8/12">
               {/* ANIME STATISTICS BLOCK */}
@@ -389,70 +388,93 @@ function Stats() {
               <div className="h-85 w-full flex justify-around items-center mb-15">
                 {/* PIE CHART 1 */}
                 <div className="h-full w-1/4 flex flex-col items-center bg-white rounded-xl shadow-lg">
-                  <div className="h-2/12 w-10/12 flex items-center text-xl font-semibold text-gray-500">Format Distribution</div>
+                  <div className="h-2/12 w-10/12 flex items-center text-xl font-semibold text-gray-500">
+                    Format Distribution
+                  </div>
                   <div className="h-5/12 w-10/12 flex justify-center items-center text-xl font-semibold text-gray-500">
-                    <i className='bx bx-pie-chart-alt-2 text-9xl'></i>
+                    <i className="bx bx-pie-chart-alt-2 text-9xl"></i>
                   </div>
                   <div className="h-5/12 w-10/12 flex flex-col justify-around text-md font-semibold text-white">
                     <div className="h-9 w-full flex justify-between items-center bg-blue-400 rounded-lg">
                       <div className="pl-3">TV</div>
-                      <div className="h-full w-14 flex justify-center items-center bg-blue-300 opacity-100 rounded-lg">68%</div>
+                      <div className="h-full w-14 flex justify-center items-center bg-blue-300 opacity-100 rounded-lg">
+                        68%
+                      </div>
                     </div>
                     <div className="h-9 w-full flex justify-between items-center bg-gray-700 rounded-lg">
                       <div className="pl-3">MOVIE</div>
-                      <div className="h-full w-14 flex justify-center items-center bg-gray-400 opacity-100 rounded-lg">11%</div>
+                      <div className="h-full w-14 flex justify-center items-center bg-gray-400 opacity-100 rounded-lg">
+                        11%
+                      </div>
                     </div>
                     <div className="h-9 w-full flex justify-between items-center bg-red-500 rounded-lg">
                       <div className="pl-3">OVA</div>
-                      <div className="h-full w-14 flex justify-center items-center bg-red-300 opacity-100 rounded-lg">10%</div>
+                      <div className="h-full w-14 flex justify-center items-center bg-red-300 opacity-100 rounded-lg">
+                        10%
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 {/* PIE CHART 2 */}
                 <div className="h-full w-1/4 flex flex-col items-center bg-white rounded-xl shadow-lg">
-                  <div className="h-2/12 w-10/12 flex items-center text-xl font-semibold text-gray-500">Status Distribution</div>
+                  <div className="h-2/12 w-10/12 flex items-center text-xl font-semibold text-gray-500">
+                    Status Distribution
+                  </div>
                   <div className="h-5/12 w-10/12 flex justify-center items-center text-xl font-semibold text-gray-500">
-                    <i className='bx bx-pie-chart-alt-2 text-9xl'></i>
+                    <i className="bx bx-pie-chart-alt-2 text-9xl"></i>
                   </div>
                   <div className="h-5/12 w-10/12 flex flex-col justify-around text-md font-semibold text-white">
                     <div className="h-9 w-full flex justify-between items-center bg-blue-400 rounded-lg">
                       <div className="pl-3">Planning</div>
-                      <div className="h-full w-14 flex justify-center items-center bg-blue-300 opacity-100 rounded-lg">68%</div>
+                      <div className="h-full w-14 flex justify-center items-center bg-blue-300 opacity-100 rounded-lg">
+                        68%
+                      </div>
                     </div>
                     <div className="h-9 w-full flex justify-between items-center bg-gray-700 rounded-lg">
                       <div className="pl-3">Completed</div>
-                      <div className="h-full w-14 flex justify-center items-center bg-gray-400 opacity-100 rounded-lg">24%</div>
+                      <div className="h-full w-14 flex justify-center items-center bg-gray-400 opacity-100 rounded-lg">
+                        24%
+                      </div>
                     </div>
                     <div className="h-9 w-full flex justify-between items-center bg-red-500 rounded-lg">
                       <div className="pl-3">Paused</div>
-                      <div className="h-full w-14 flex justify-center items-center bg-red-300 opacity-100 rounded-lg">5%</div>
+                      <div className="h-full w-14 flex justify-center items-center bg-red-300 opacity-100 rounded-lg">
+                        5%
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 {/* PIE CHART 3 */}
                 <div className="h-full w-1/4 flex flex-col items-center bg-white rounded-xl shadow-lg">
-                  <div className="h-2/12 w-10/12 flex items-center text-xl font-semibold text-gray-500">Country Distribution</div>
+                  <div className="h-2/12 w-10/12 flex items-center text-xl font-semibold text-gray-500">
+                    Country Distribution
+                  </div>
                   <div className="h-5/12 w-10/12 flex justify-center items-center text-xl font-semibold text-gray-500">
-                    <i className='bx bx-pie-chart-alt-2 text-9xl'></i>
+                    <i className="bx bx-pie-chart-alt-2 text-9xl"></i>
                   </div>
                   <div className="h-5/12 w-10/12 flex flex-col justify-around text-md font-semibold text-white">
                     <div className="h-9 w-full flex justify-between items-center bg-blue-400 rounded-lg">
                       <div className="pl-3">Japan</div>
-                      <div className="h-full w-14 flex justify-center items-center bg-blue-300 opacity-100 rounded-lg">96%</div>
+                      <div className="h-full w-14 flex justify-center items-center bg-blue-300 opacity-100 rounded-lg">
+                        96%
+                      </div>
                     </div>
                     <div className="h-9 w-full flex justify-between items-center bg-gray-700 rounded-lg">
                       <div className="pl-3">China</div>
-                      <div className="h-full w-14 flex justify-center items-center bg-gray-400 opacity-100 rounded-lg">3%</div>
+                      <div className="h-full w-14 flex justify-center items-center bg-gray-400 opacity-100 rounded-lg">
+                        3%
+                      </div>
                     </div>
                     <div className="h-9 w-full flex justify-between items-center bg-red-500 rounded-lg">
                       <div className="pl-3">South Korea</div>
-                      <div className="h-full w-14 flex justify-center items-center bg-red-300 opacity-100 rounded-lg">1%</div>
+                      <div className="h-full w-14 flex justify-center items-center bg-red-300 opacity-100 rounded-lg">
+                        1%
+                      </div>
                     </div>
                   </div>
                 </div>
-
               </div>
 
               {/* RELEASE YEAR BLOCK */}
@@ -478,9 +500,7 @@ function Stats() {
 
                   {/* CHART - Release Year */}
                   <div className="h-70 w-full bg-white rounded-xl shadow-lg">
-                    <div className="h-3/4 w-full flex">
-                      
-                    </div>
+                    <div className="h-3/4 w-full flex"></div>
                     <div className="h-1/4 w-full flex justify-around bg-gray-300 rounded-b-xl">
                       <div className="h-full w-auto flex justify-center items-center font-bold text-gray-600 text-lg">
                         2020
@@ -500,7 +520,6 @@ function Stats() {
                       <div className="h-full w-auto flex justify-center items-center font-bold text-gray-600 text-lg">
                         2025
                       </div>
-
                     </div>
                   </div>
                 </div>
@@ -529,9 +548,7 @@ function Stats() {
 
                   {/* CHART - Watch Year */}
                   <div className="h-70 w-full bg-white rounded-xl shadow-lg">
-                    <div className="h-3/4 w-full flex">
-                      
-                    </div>
+                    <div className="h-3/4 w-full flex"></div>
                     <div className="h-1/4 w-full flex justify-around bg-gray-300 rounded-b-xl">
                       <div className="h-full w-auto flex justify-center items-center font-bold text-gray-600 text-lg">
                         2023
@@ -542,13 +559,10 @@ function Stats() {
                       <div className="h-full w-auto flex justify-center items-center font-bold text-gray-600 text-lg">
                         2025
                       </div>
-
                     </div>
                   </div>
                 </div>
               </div>
-
-
             </div>
           </div>
         </div>
