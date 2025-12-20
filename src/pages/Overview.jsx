@@ -41,7 +41,7 @@ function Overview() {
               <div onClick={() => setPage("overview")}>Profile</div>
               <div onClick={() => setPage("animelist")}>Anime List</div>
               <div onClick={() => setPage("mangalist")}>Manga List</div>
-              <div onClick={() => setPage("wip")}>Browse</div>
+              <div onClick={() => setPage("browse")}>Browse</div>
               <div onClick={() => setPage("wip")}>Forum</div>
             </div>
           </div>
@@ -110,7 +110,7 @@ function Overview() {
           {/* ANIME LIST - BODY */}
           <div id="profile-body" className="h-full w-full flex flex-row border-t-1 border-gray-300 bg-gray-200">
             {/* WORKING */}
-            <div className="h-auto w-full flex justify-center border-2 border-red-600">
+            <div className="h-auto w-full flex justify-center">
                 
                 {/* LEFT SIDE - OVERVIEW */}
                 <div className="h-full w-1/3">
@@ -164,7 +164,7 @@ function Overview() {
                   </div>
 
                   {/* CHARACTERS */}
-                  <div className="h-auto w-auto mt-5">
+                  <div className="h-auto w-auto mt-5 mb-40">
                     <div className="h-15 w-full flex items-center font-semibold text-xl text-gray-600">Anime</div>
                     <div className="min-h-100 w-full flex justify-around flex-wrap p-5 bg-white rounded-lg shadow-lg">
                       <div className="h-40 w-30 bg-center bg-cover rounded" style={{backgroundImage: `url(${denji})`}}></div>
@@ -179,7 +179,7 @@ function Overview() {
   
 
                 {/* RIGHT SIDE - OVERVIEW */}
-                <div className="h-full w-1/2 flex flex-col justify-start items-center border-2 border-red-600">
+                <div className="h-full w-1/2 flex flex-col justify-start items-center">
 
                   {/* TOTAL ANIME */}
                   <div className="h-70 w-215 mt-10">
@@ -253,20 +253,23 @@ function Overview() {
                   </div>
 
                   {/* WATCH HISTORY */}
-                  <div className="h-auto w-full flex flex-col items-center border-2 border-red-600">
-                    <div className="h-25 w-215 my-3 flex border-2 bg-white border-black rounded-lg shadow-md">
-                      <div className="h-full w-20 bg-center bg-cover border-2 border-red-600 rounded-l-lg" style={{backgroundImage: `url(${naruto})`}}></div>
-                      <div className="h-full w-10/12 flex justify-center items-center border-2 border-red-600">
-                        <div className="h-1/2 w-full flex items-center pl-4 font-light text-lg text-gray-500 border-2 border-red-600">Watched Episode 1 of<span className="pl-1 font-light text-lg text-blue-400">Naruto</span></div>
+                  <div className="h-auto w-full flex flex-col items-center">
+                    {/* 1 WATCH HISTORY */}
+                    <div className="h-25 w-215 my-3 flex bg-white rounded-lg shadow-md">
+                      <div className="h-full w-20 bg-center bg-cover rounded-l-lg" style={{backgroundImage: `url(${naruto})`}}></div>
+                      <div className="h-full w-10/12 flex justify-center items-center">
+                        <div className="h-1/2 w-full flex items-center pl-4 font-light text-lg text-gray-500">Watched Episode 1 of<span className="pl-1 font-light text-lg text-blue-400">Naruto</span></div>
                       </div>
-                      <div className="h-full w-2/12 flex flex-col items-center justify-center border-2 border-red-600">
-                        <div className="h-1/2 w-full flex justify-center items-center font-normal text-lg text-gray-600 border-2 border-red-600">2 Days Ago</div>
-                        <div className="h-1/2 w-8/12 flex justify-end items-center border-2 border-red-600">
-                          <i className='bx bxs-chat' ></i>
-                          <i className='bx bxs-heart' ></i>
+                      <div className="h-full w-2/12 flex flex-col items-center justify-center">
+                        <div className="h-1/2 w-full flex justify-center items-center font-normal text-lg text-gray-600">2 Days Ago</div>
+                        <div className="h-1/2 w-8/12 flex justify-end items-center">
+                          <i className='bx bxs-chat h-auto w-auto mr-1 text-blue-300 text-2xl' ></i>
+                          <i className='bx bxs-heart h-auto w-auto text-blue-300 text-2xl' ></i>
                         </div>
                       </div>
                     </div>
+
+                    
                   </div>
 
 

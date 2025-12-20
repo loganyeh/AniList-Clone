@@ -8,12 +8,13 @@ import Social from './pages/Social';
 import Reviews from './pages/Reviews';
 import Submissions from './pages/Submissions';
 import WIP from './pages/WIP';
+import Browse from './pages/Browse';
 import { useState, useContext } from 'react';
 import { MyContext } from './context/MyContext';
 import Overview from './pages/Overview';
 
 function App() {
-  const [page, setPage] = useState("overview");
+  const [page, setPage] = useState("browse");
 
   return (
     <>
@@ -27,6 +28,8 @@ function App() {
         {page === "reviews" && <Reviews />}
         {page === "submissions" && <Submissions />}
         {page === "wip" && <WIP />}
+        {/* TOP NAVBAR */}
+        {page === "browse" && <Browse />}
       </MyContext.Provider>
     </>
   )

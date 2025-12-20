@@ -33,7 +33,7 @@ function AnimeList() {
               <div onClick={() => setPage("overview")}>Profile</div>
               <div onClick={() => setPage("animelist")}>Anime List</div>
               <div onClick={() => setPage("mangalist")}>Manga List</div>
-              <div onClick={() => setPage("wip")}>Browse</div>
+              <div onClick={() => setPage("browse")}>Browse</div>
               <div onClick={() => setPage("wip")}>Forum</div>
             </div>
           </div>

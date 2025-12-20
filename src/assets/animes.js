@@ -8,6 +8,8 @@ import jjk from "./jjk.jpg";
 import mha from "./mha.jpg";
 import naruto from "./naruto.jpg";
 import demon_slayer from "./demon_slayer.jpg";
+import haikyu from "./anime covers/haikyu.jpg"
+import onepiece from "./anime covers/onepiece.jpg";
 
 export {
     rukia,
@@ -18,5 +20,7 @@ export {
     jjk,
     mha, 
     naruto,
-    demon_slayer
+    demon_slayer,
+    haikyu,
+    onepiece
 }
