@@ -1,793 +1,1125 @@
 import {
-    rukia,
-    banner,
-    bleach,
-    logo,
-    csm,
-    jjk,
-    mha,
-    naruto,
-    demon_slayer,
-    haikyu,
-    onepiece,
-    frieren,
-  } from "../assets/animes";
-  import { useContext } from "react";
-  import { MyContext } from "../context/MyContext";
-  import Footer from "../components/Shell/Footer";
-  
-  function Browse() {
-    const { page, setPage } = useContext(MyContext);
-  
-    return (
-      <>
-        {/* HEADER, NAV BAR, BANNER/PFP, MID NAVBAR */}
-        <div className="flex flex-col">
-          {/* NAV BAR */}
-          <div className="h-24 w-full flex bg-gray-900 opacity-100">
-            <div className="h-full w-1/4 flex justify-center items-center">
-              <div
-                className="h-20 w-20 bg-center bg-cover"
-                style={{ backgroundImage: `url(${logo})` }}
-              ></div>
-            </div>
-            <div className="h-full w-2/4">
-              <div className="h-full w-full flex justify-between items-center font-light text-xl text-gray-200">
-                <div onClick={() => setPage("wip")}>Home</div>
-                <div onClick={() => setPage("overview")}>Profile</div>
-                <div onClick={() => setPage("animelist")}>Anime List</div>
-                <div onClick={() => setPage("mangalist")}>Manga List</div>
-                <div onClick={() => setPage("browse")}>Browse</div>
-                <div onClick={() => setPage("wip")}>Forum</div>
+  rukia,
+  banner,
+  bleach,
+  logo,
+  csm,
+  jjk,
+  mha,
+  naruto,
+  demon_slayer,
+  haikyu,
+  onepiece,
+  frieren,
+} from "../assets/animes";
+import { useContext } from "react";
+import { MyContext } from "../context/MyContext";
+import Footer from "../components/Shell/Footer";
+import GlobalNav from "../components/Shell/GlobalNav";
+
+function Browse() {
+  const { page, setPage } = useContext(MyContext);
+
+  return (
+    <>
+      {/* HEADER, NAV BAR, BANNER/PFP, MID NAVBAR */}
+      <div className="relative">
+        <GlobalNav />
+
+        <div
+          id="anime-list-page"
+          className="h-auto w-screen flex justify-center items-center pt-24 bg-gray-200"
+        >
+          {/* ANIME LIST - BODY */}
+          <div id="profile-body" className="h-auto w-10/12 flex flex-col">
+            {/* <div className="h-130 w-full flex justify-center items-start pt-20 font-light text-gray-800 text-3xl border-2 border-black"> No reviews yet ｡ﾟヽ(ﾟ´Д｀)ﾉﾟ｡</div> */}
+
+            {/* SEARCH FILTERS */}
+            <div className="h-30 w-full mt-10 mb-15 flex justify-between">
+              <div className="h-full w-10/12 flex justify-around">
+                {/* SEARCH */}
+                <div className="h-30 w-70">
+                  <div className="h-1/2 w-full flex justify-start items-center pl-2 text-xl font-semibold text-gray-700">
+                    Search
+                  </div>
+                  <div className="h-14 w-11/12 flex justify-between ml-4 bg-white rounded-lg shadow-lg">
+                    <div className="h-full w-15 flex justify-center items-center">
+                      <i className="bx bx-search text-2xl text-gray-400"></i>
+                    </div>
+                    <input
+                      type="text"
+                      className="h-full w-47 text-xl text-gray-600"
+                    />
+                  </div>
+                </div>
+                {/* Genres */}
+                <div className="h-30 w-70">
+                  <div className="h-1/2 w-full flex justify-start items-center pl-2 text-xl font-semibold text-gray-700">
+                    Genres
+                  </div>
+                  <div className="h-14 w-11/12 flex justify-between ml-4 bg-white rounded-lg shadow-lg">
+                    <input
+                      type="text"
+                      className="h-full w-52 ml-3 pl-3 text-xl"
+                      placeholder="Any"
+                    />
+                    <div className="h-full w-10 flex justify-center items-center">
+                      <i className="bx bx-chevron-down pr-4 text-3xl text-gray-400"></i>
+                    </div>
+                  </div>
+                </div>
+                {/* Year */}
+                <div className="h-30 w-70">
+                  <div className="h-1/2 w-full flex justify-start items-center pl-2 text-xl font-semibold text-gray-700">
+                    Year
+                  </div>
+                  <div className="h-14 w-11/12 flex justify-between ml-4 bg-white rounded-lg shadow-lg">
+                    <input
+                      type="text"
+                      className="h-full w-52 ml-3 pl-3 text-xl"
+                      placeholder="Any"
+                    />
+                    <div className="h-full w-10 flex justify-center items-center">
+                      <i className="bx bx-chevron-down pr-4 text-3xl text-gray-400"></i>
+                    </div>
+                  </div>
+                </div>
+                {/* Season */}
+                <div className="h-30 w-70">
+                  <div className="h-1/2 w-full flex justify-start items-center pl-2 text-xl font-semibold text-gray-700">
+                    Season
+                  </div>
+                  <div className="h-14 w-11/12 flex justify-between ml-4 bg-white rounded-lg shadow-lg">
+                    <input
+                      type="text"
+                      className="h-full w-52 ml-3 pl-3 text-xl"
+                      placeholder="Any"
+                    />
+                    <div className="h-full w-10 flex justify-center items-center">
+                      <i className="bx bx-chevron-down pr-4 text-3xl text-gray-400"></i>
+                    </div>
+                  </div>
+                </div>
+                {/* Format */}
+                <div className="h-30 w-70">
+                  <div className="h-1/2 w-full flex justify-start items-center pl-2 text-xl font-semibold text-gray-700">
+                    Format
+                  </div>
+                  <div className="h-14 w-11/12 flex justify-between ml-4 bg-white rounded-lg shadow-lg">
+                    <input
+                      type="text"
+                      className="h-full w-52 ml-3 pl-3 text-xl"
+                      placeholder="Any"
+                    />
+                    <div className="h-full w-10 flex justify-center items-center">
+                      <i className="bx bx-chevron-down pr-4 text-3xl text-gray-400"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="h-full w-1/12 flex justify-end items-end">
+                <div className="h-12 w-12 flex justify-center items-center mb-2 bg-white rounded-lg shadow-md">
+                  <i className="bx bx-slider flex justify-center items-center text-3xl text-gray-400"></i>
+                </div>
               </div>
             </div>
-  
-            <div className="h-full w-1/4 flex justify-center items-center">
-              <div className="h-full w-auto flex justify-between items-center">
-                <i className="w-12 bx bx-search text-white text-3xl"></i>
-                <div
-                  className="h-14 w-14 bg-center bg-cover rounded"
-                  style={{ backgroundImage: `url(${rukia})` }}
-                ></div>
-                <i className="w-10 bx bx-chevron-down text-white text-3xl"></i>
+
+            {/* TRENDING NOW BLOCK */}
+            <div className="h-auto w-full mb-15">
+              <div className="h-17 w-full flex justify-between items-center">
+                <div className="h-full w-1/2 flex justify-start items-center font-semibold text-gray-700 text-xl">
+                  TRENDING NOW
+                </div>
+                <div className="h-full w-1/2 flex justify-end items-center font-semibold text-gray-500 text-md">
+                  View All
+                </div>
+              </div>
+              <div className="h-auto w-full flex flex-wrap justify-around items-center">
+                <div className="h-full w-63 m-2">
+                  <div
+                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
+                    style={{ backgroundImage: `url(${demon_slayer})` }}
+                  ></div>
+                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
+                    Demon Slayer
+                  </div>
+                </div>
+                <div className="h-full w-63 m-2">
+                  <div
+                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
+                    style={{ backgroundImage: `url(${jjk})` }}
+                  ></div>
+                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
+                    Jujutsu Kaisen
+                  </div>
+                </div>
+                <div className="h-full w-63 m-2">
+                  <div
+                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
+                    style={{ backgroundImage: `url(${mha})` }}
+                  ></div>
+                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
+                    My Hero Acadamia
+                  </div>
+                </div>
+                <div className="h-full w-63 m-2">
+                  <div
+                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
+                    style={{ backgroundImage: `url(${csm})` }}
+                  ></div>
+                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
+                    Chainsaw Man
+                  </div>
+                </div>
+                <div className="h-full w-63 m-2">
+                  <div
+                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
+                    style={{ backgroundImage: `url(${naruto})` }}
+                  ></div>
+                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
+                    Naruto
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* POPULAR THIS SEASON BLOCK */}
+            <div className="h-auto w-full mb-15">
+              <div className="h-17 w-full flex justify-between items-center">
+                <div className="h-full w-1/2 flex justify-start items-center font-semibold text-gray-700 text-xl">
+                  POPULAR THIS SEASON
+                </div>
+                <div className="h-full w-1/2 flex justify-end items-center font-semibold text-gray-500 text-md">
+                  View All
+                </div>
+              </div>
+              <div className="h-auto w-full flex flex-wrap justify-around items-center">
+                <div className="h-full w-63 m-2">
+                  <div
+                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
+                    style={{ backgroundImage: `url(${haikyu})` }}
+                  ></div>
+                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
+                    Haikyu
+                  </div>
+                </div>
+                <div className="h-full w-63 m-2">
+                  <div
+                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
+                    style={{ backgroundImage: `url(${jjk})` }}
+                  ></div>
+                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
+                    Jujutsu Kaisen
+                  </div>
+                </div>
+                <div className="h-full w-63 m-2">
+                  <div
+                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
+                    style={{ backgroundImage: `url(${mha})` }}
+                  ></div>
+                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
+                    My Hero Acadamia
+                  </div>
+                </div>
+                <div className="h-full w-63 m-2">
+                  <div
+                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
+                    style={{ backgroundImage: `url(${csm})` }}
+                  ></div>
+                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
+                    Chainsaw Man
+                  </div>
+                </div>
+                <div className="h-full w-63 m-2">
+                  <div
+                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
+                    style={{ backgroundImage: `url(${naruto})` }}
+                  ></div>
+                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
+                    Naruto
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* UPCOMING NEXT SEASON BLOCK */}
+            <div className="h-auto w-full mb-15">
+              <div className="h-17 w-full flex justify-between items-center">
+                <div className="h-full w-1/2 flex justify-start items-center font-semibold text-gray-700 text-xl">
+                  UPCOMING NEXT SEASON
+                </div>
+                <div className="h-full w-1/2 flex justify-end items-center font-semibold text-gray-500 text-md">
+                  View All
+                </div>
+              </div>
+              <div className="h-auto w-full flex flex-wrap justify-around items-center">
+                <div className="h-full w-63 m-2">
+                  <div
+                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
+                    style={{ backgroundImage: `url(${haikyu})` }}
+                  ></div>
+                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
+                    Haikyu
+                  </div>
+                </div>
+                <div className="h-full w-63 m-2">
+                  <div
+                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
+                    style={{ backgroundImage: `url(${jjk})` }}
+                  ></div>
+                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
+                    Jujutsu Kaisen
+                  </div>
+                </div>
+                <div className="h-full w-63 m-2">
+                  <div
+                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
+                    style={{ backgroundImage: `url(${mha})` }}
+                  ></div>
+                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
+                    My Hero Acadamia
+                  </div>
+                </div>
+                <div className="h-full w-63 m-2">
+                  <div
+                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
+                    style={{ backgroundImage: `url(${csm})` }}
+                  ></div>
+                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
+                    Chainsaw Man
+                  </div>
+                </div>
+                <div className="h-full w-63 m-2">
+                  <div
+                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
+                    style={{ backgroundImage: `url(${naruto})` }}
+                  ></div>
+                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
+                    Naruto
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ALL TIME POPULAR BLOCK */}
+            <div className="h-auto w-full mb-15">
+              <div className="h-17 w-full flex justify-between items-center">
+                <div className="h-full w-1/2 flex justify-start items-center font-semibold text-gray-700 text-xl">
+                  ALL TIME POPULAR
+                </div>
+                <div className="h-full w-1/2 flex justify-end items-center font-semibold text-gray-500 text-md">
+                  View All
+                </div>
+              </div>
+              <div className="h-auto w-full flex flex-wrap justify-around items-center">
+                <div className="h-full w-63 m-2">
+                  <div
+                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
+                    style={{ backgroundImage: `url(${haikyu})` }}
+                  ></div>
+                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
+                    Haikyu
+                  </div>
+                </div>
+                <div className="h-full w-63 m-2">
+                  <div
+                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
+                    style={{ backgroundImage: `url(${naruto})` }}
+                  ></div>
+                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
+                    Naruto
+                  </div>
+                </div>
+                <div className="h-full w-63 m-2">
+                  <div
+                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
+                    style={{ backgroundImage: `url(${onepiece})` }}
+                  ></div>
+                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
+                    One Piece
+                  </div>
+                </div>
+                <div className="h-full w-63 m-2">
+                  <div
+                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
+                    style={{ backgroundImage: `url(${csm})` }}
+                  ></div>
+                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
+                    Chainsaw Man
+                  </div>
+                </div>
+                <div className="h-full w-63 m-2">
+                  <div
+                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
+                    style={{ backgroundImage: `url(${naruto})` }}
+                  ></div>
+                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
+                    Naruto
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* TOP 100 ANIMES */}
+            <div className="h-auto w-full mb-15">
+              <div className="h-17 w-full flex justify-between items-center">
+                <div className="h-full w-1/2 flex justify-start items-center font-semibold text-gray-700 text-xl">
+                  TOP 100 ANIME
+                </div>
+                <div className="h-full w-1/2 flex justify-end items-center font-semibold text-gray-500 text-md">
+                  View All
+                </div>
+              </div>
+
+              {/* TOP 1 ANIME */}
+              <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
+                <div className="h-30 w-full flex">
+                  <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
+                    #1
+                  </div>
+                  <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
+                    {/* ANIME COVER */}
+                    <div className="h-full w-1/12 flex justify-center items-center">
+                      <div
+                        className="h-25 w-20 bg-center bg-cover rounded"
+                        style={{ backgroundImage: `url(${frieren})` }}
+                      ></div>
+                    </div>
+                    {/* TITLE CARD & CATEGORIES */}
+                    <div className="h-full w-5/12">
+                      <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">
+                        Frieren: Beyond Journey's End
+                      </div>
+                      <div className="h-1/2 w-full flex justify-around items-center">
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          adventure
+                        </div>
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          drama
+                        </div>
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          fantasy
+                        </div>
+                      </div>
+                    </div>
+                    {/* ANIME SCORING PERCENTAGE */}
+                    <div className="h-full w-6/12 flex">
+                      {/* PERCENTAGE */}
+                      <div className="h-full w-1/3 flex">
+                        <div className="h-full w-1/4 flex justify-center items-center">
+                          <i class="bx bx-smile text-5xl text-green-500"></i>
+                        </div>
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            91%
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            361451 users
+                          </div>
+                        </div>
+                      </div>
+                      {/* TV SHOW */}
+                      <div className="h-full w-1/3 flex justify-center items-center">
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            TV Show
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            28 episodes
+                          </div>
+                        </div>
+                      </div>
+                      {/* FALL 2023 */}
+                      <div className="h-full w-1/3 flex justify-center items-center">
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            Fall 2023
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            Finished
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 2 */}
+              <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
+                <div className="h-30 w-full flex">
+                  <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
+                    #2
+                  </div>
+                  <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
+                    {/* ANIME COVER */}
+                    <div className="h-full w-1/12 flex justify-center items-center">
+                      <div
+                        className="h-25 w-20 bg-center bg-cover rounded"
+                        style={{ backgroundImage: `url(${frieren})` }}
+                      ></div>
+                    </div>
+                    {/* TITLE CARD & CATEGORIES */}
+                    <div className="h-full w-5/12">
+                      <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">
+                        Frieren: Beyond Journey's End
+                      </div>
+                      <div className="h-1/2 w-full flex justify-around items-center">
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          adventure
+                        </div>
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          drama
+                        </div>
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          fantasy
+                        </div>
+                      </div>
+                    </div>
+                    {/* ANIME SCORING PERCENTAGE */}
+                    <div className="h-full w-6/12 flex">
+                      {/* PERCENTAGE */}
+                      <div className="h-full w-1/3 flex">
+                        <div className="h-full w-1/4 flex justify-center items-center">
+                          <i class="bx bx-smile text-5xl text-green-500"></i>
+                        </div>
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            91%
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            361451 users
+                          </div>
+                        </div>
+                      </div>
+                      {/* TV SHOW */}
+                      <div className="h-full w-1/3 flex justify-center items-center">
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            TV Show
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            28 episodes
+                          </div>
+                        </div>
+                      </div>
+                      {/* FALL 2023 */}
+                      <div className="h-full w-1/3 flex justify-center items-center">
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            Fall 2023
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            Finished
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 3 */}
+              <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
+                <div className="h-30 w-full flex">
+                  <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
+                    #3
+                  </div>
+                  <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
+                    {/* ANIME COVER */}
+                    <div className="h-full w-1/12 flex justify-center items-center">
+                      <div
+                        className="h-25 w-20 bg-center bg-cover rounded"
+                        style={{ backgroundImage: `url(${frieren})` }}
+                      ></div>
+                    </div>
+                    {/* TITLE CARD & CATEGORIES */}
+                    <div className="h-full w-5/12">
+                      <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">
+                        Frieren: Beyond Journey's End
+                      </div>
+                      <div className="h-1/2 w-full flex justify-around items-center">
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          adventure
+                        </div>
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          drama
+                        </div>
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          fantasy
+                        </div>
+                      </div>
+                    </div>
+                    {/* ANIME SCORING PERCENTAGE */}
+                    <div className="h-full w-6/12 flex">
+                      {/* PERCENTAGE */}
+                      <div className="h-full w-1/3 flex">
+                        <div className="h-full w-1/4 flex justify-center items-center">
+                          <i class="bx bx-smile text-5xl text-green-500"></i>
+                        </div>
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            91%
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            361451 users
+                          </div>
+                        </div>
+                      </div>
+                      {/* TV SHOW */}
+                      <div className="h-full w-1/3 flex justify-center items-center">
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            TV Show
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            28 episodes
+                          </div>
+                        </div>
+                      </div>
+                      {/* FALL 2023 */}
+                      <div className="h-full w-1/3 flex justify-center items-center">
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            Fall 2023
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            Finished
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 4 */}
+              <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
+                <div className="h-30 w-full flex">
+                  <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
+                    #4
+                  </div>
+                  <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
+                    {/* ANIME COVER */}
+                    <div className="h-full w-1/12 flex justify-center items-center">
+                      <div
+                        className="h-25 w-20 bg-center bg-cover rounded"
+                        style={{ backgroundImage: `url(${frieren})` }}
+                      ></div>
+                    </div>
+                    {/* TITLE CARD & CATEGORIES */}
+                    <div className="h-full w-5/12">
+                      <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">
+                        Frieren: Beyond Journey's End
+                      </div>
+                      <div className="h-1/2 w-full flex justify-around items-center">
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          adventure
+                        </div>
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          drama
+                        </div>
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          fantasy
+                        </div>
+                      </div>
+                    </div>
+                    {/* ANIME SCORING PERCENTAGE */}
+                    <div className="h-full w-6/12 flex">
+                      {/* PERCENTAGE */}
+                      <div className="h-full w-1/3 flex">
+                        <div className="h-full w-1/4 flex justify-center items-center">
+                          <i class="bx bx-smile text-5xl text-green-500"></i>
+                        </div>
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            91%
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            361451 users
+                          </div>
+                        </div>
+                      </div>
+                      {/* TV SHOW */}
+                      <div className="h-full w-1/3 flex justify-center items-center">
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            TV Show
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            28 episodes
+                          </div>
+                        </div>
+                      </div>
+                      {/* FALL 2023 */}
+                      <div className="h-full w-1/3 flex justify-center items-center">
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            Fall 2023
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            Finished
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 5 */}
+              <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
+                <div className="h-30 w-full flex">
+                  <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
+                    #5
+                  </div>
+                  <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
+                    {/* ANIME COVER */}
+                    <div className="h-full w-1/12 flex justify-center items-center">
+                      <div
+                        className="h-25 w-20 bg-center bg-cover rounded"
+                        style={{ backgroundImage: `url(${frieren})` }}
+                      ></div>
+                    </div>
+                    {/* TITLE CARD & CATEGORIES */}
+                    <div className="h-full w-5/12">
+                      <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">
+                        Frieren: Beyond Journey's End
+                      </div>
+                      <div className="h-1/2 w-full flex justify-around items-center">
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          adventure
+                        </div>
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          drama
+                        </div>
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          fantasy
+                        </div>
+                      </div>
+                    </div>
+                    {/* ANIME SCORING PERCENTAGE */}
+                    <div className="h-full w-6/12 flex">
+                      {/* PERCENTAGE */}
+                      <div className="h-full w-1/3 flex">
+                        <div className="h-full w-1/4 flex justify-center items-center">
+                          <i class="bx bx-smile text-5xl text-green-500"></i>
+                        </div>
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            91%
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            361451 users
+                          </div>
+                        </div>
+                      </div>
+                      {/* TV SHOW */}
+                      <div className="h-full w-1/3 flex justify-center items-center">
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            TV Show
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            28 episodes
+                          </div>
+                        </div>
+                      </div>
+                      {/* FALL 2023 */}
+                      <div className="h-full w-1/3 flex justify-center items-center">
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            Fall 2023
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            Finished
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 6 */}
+              <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
+                <div className="h-30 w-full flex">
+                  <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
+                    #6
+                  </div>
+                  <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
+                    {/* ANIME COVER */}
+                    <div className="h-full w-1/12 flex justify-center items-center">
+                      <div
+                        className="h-25 w-20 bg-center bg-cover rounded"
+                        style={{ backgroundImage: `url(${frieren})` }}
+                      ></div>
+                    </div>
+                    {/* TITLE CARD & CATEGORIES */}
+                    <div className="h-full w-5/12">
+                      <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">
+                        Frieren: Beyond Journey's End
+                      </div>
+                      <div className="h-1/2 w-full flex justify-around items-center">
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          adventure
+                        </div>
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          drama
+                        </div>
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          fantasy
+                        </div>
+                      </div>
+                    </div>
+                    {/* ANIME SCORING PERCENTAGE */}
+                    <div className="h-full w-6/12 flex">
+                      {/* PERCENTAGE */}
+                      <div className="h-full w-1/3 flex">
+                        <div className="h-full w-1/4 flex justify-center items-center">
+                          <i class="bx bx-smile text-5xl text-green-500"></i>
+                        </div>
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            91%
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            361451 users
+                          </div>
+                        </div>
+                      </div>
+                      {/* TV SHOW */}
+                      <div className="h-full w-1/3 flex justify-center items-center">
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            TV Show
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            28 episodes
+                          </div>
+                        </div>
+                      </div>
+                      {/* FALL 2023 */}
+                      <div className="h-full w-1/3 flex justify-center items-center">
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            Fall 2023
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            Finished
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 7 */}
+              <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
+                <div className="h-30 w-full flex">
+                  <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
+                    #7
+                  </div>
+                  <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
+                    {/* ANIME COVER */}
+                    <div className="h-full w-1/12 flex justify-center items-center">
+                      <div
+                        className="h-25 w-20 bg-center bg-cover rounded"
+                        style={{ backgroundImage: `url(${frieren})` }}
+                      ></div>
+                    </div>
+                    {/* TITLE CARD & CATEGORIES */}
+                    <div className="h-full w-5/12">
+                      <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">
+                        Frieren: Beyond Journey's End
+                      </div>
+                      <div className="h-1/2 w-full flex justify-around items-center">
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          adventure
+                        </div>
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          drama
+                        </div>
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          fantasy
+                        </div>
+                      </div>
+                    </div>
+                    {/* ANIME SCORING PERCENTAGE */}
+                    <div className="h-full w-6/12 flex">
+                      {/* PERCENTAGE */}
+                      <div className="h-full w-1/3 flex">
+                        <div className="h-full w-1/4 flex justify-center items-center">
+                          <i class="bx bx-smile text-5xl text-green-500"></i>
+                        </div>
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            91%
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            361451 users
+                          </div>
+                        </div>
+                      </div>
+                      {/* TV SHOW */}
+                      <div className="h-full w-1/3 flex justify-center items-center">
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            TV Show
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            28 episodes
+                          </div>
+                        </div>
+                      </div>
+                      {/* FALL 2023 */}
+                      <div className="h-full w-1/3 flex justify-center items-center">
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            Fall 2023
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            Finished
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 8 */}
+              <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
+                <div className="h-30 w-full flex">
+                  <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
+                    #8
+                  </div>
+                  <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
+                    {/* ANIME COVER */}
+                    <div className="h-full w-1/12 flex justify-center items-center">
+                      <div
+                        className="h-25 w-20 bg-center bg-cover rounded"
+                        style={{ backgroundImage: `url(${frieren})` }}
+                      ></div>
+                    </div>
+                    {/* TITLE CARD & CATEGORIES */}
+                    <div className="h-full w-5/12">
+                      <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">
+                        Frieren: Beyond Journey's End
+                      </div>
+                      <div className="h-1/2 w-full flex justify-around items-center">
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          adventure
+                        </div>
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          drama
+                        </div>
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          fantasy
+                        </div>
+                      </div>
+                    </div>
+                    {/* ANIME SCORING PERCENTAGE */}
+                    <div className="h-full w-6/12 flex">
+                      {/* PERCENTAGE */}
+                      <div className="h-full w-1/3 flex">
+                        <div className="h-full w-1/4 flex justify-center items-center">
+                          <i class="bx bx-smile text-5xl text-green-500"></i>
+                        </div>
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            91%
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            361451 users
+                          </div>
+                        </div>
+                      </div>
+                      {/* TV SHOW */}
+                      <div className="h-full w-1/3 flex justify-center items-center">
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            TV Show
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            28 episodes
+                          </div>
+                        </div>
+                      </div>
+                      {/* FALL 2023 */}
+                      <div className="h-full w-1/3 flex justify-center items-center">
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            Fall 2023
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            Finished
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 9 */}
+              <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
+                <div className="h-30 w-full flex">
+                  <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
+                    #9
+                  </div>
+                  <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
+                    {/* ANIME COVER */}
+                    <div className="h-full w-1/12 flex justify-center items-center">
+                      <div
+                        className="h-25 w-20 bg-center bg-cover rounded"
+                        style={{ backgroundImage: `url(${frieren})` }}
+                      ></div>
+                    </div>
+                    {/* TITLE CARD & CATEGORIES */}
+                    <div className="h-full w-5/12">
+                      <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">
+                        Frieren: Beyond Journey's End
+                      </div>
+                      <div className="h-1/2 w-full flex justify-around items-center">
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          adventure
+                        </div>
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          drama
+                        </div>
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          fantasy
+                        </div>
+                      </div>
+                    </div>
+                    {/* ANIME SCORING PERCENTAGE */}
+                    <div className="h-full w-6/12 flex">
+                      {/* PERCENTAGE */}
+                      <div className="h-full w-1/3 flex">
+                        <div className="h-full w-1/4 flex justify-center items-center">
+                          <i class="bx bx-smile text-5xl text-green-500"></i>
+                        </div>
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            91%
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            361451 users
+                          </div>
+                        </div>
+                      </div>
+                      {/* TV SHOW */}
+                      <div className="h-full w-1/3 flex justify-center items-center">
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            TV Show
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            28 episodes
+                          </div>
+                        </div>
+                      </div>
+                      {/* FALL 2023 */}
+                      <div className="h-full w-1/3 flex justify-center items-center">
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            Fall 2023
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            Finished
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 10 */}
+              <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
+                <div className="h-30 w-full flex">
+                  <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
+                    #10
+                  </div>
+                  <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
+                    {/* ANIME COVER */}
+                    <div className="h-full w-1/12 flex justify-center items-center">
+                      <div
+                        className="h-25 w-20 bg-center bg-cover rounded"
+                        style={{ backgroundImage: `url(${frieren})` }}
+                      ></div>
+                    </div>
+                    {/* TITLE CARD & CATEGORIES */}
+                    <div className="h-full w-5/12">
+                      <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">
+                        Frieren: Beyond Journey's End
+                      </div>
+                      <div className="h-1/2 w-full flex justify-around items-center">
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          adventure
+                        </div>
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          drama
+                        </div>
+                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
+                          fantasy
+                        </div>
+                      </div>
+                    </div>
+                    {/* ANIME SCORING PERCENTAGE */}
+                    <div className="h-full w-6/12 flex">
+                      {/* PERCENTAGE */}
+                      <div className="h-full w-1/3 flex">
+                        <div className="h-full w-1/4 flex justify-center items-center">
+                          <i class="bx bx-smile text-5xl text-green-500"></i>
+                        </div>
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            91%
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            361451 users
+                          </div>
+                        </div>
+                      </div>
+                      {/* TV SHOW */}
+                      <div className="h-full w-1/3 flex justify-center items-center">
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            TV Show
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            28 episodes
+                          </div>
+                        </div>
+                      </div>
+                      {/* FALL 2023 */}
+                      <div className="h-full w-1/3 flex justify-center items-center">
+                        <div className="h-full w-3/4">
+                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
+                            Fall 2023
+                          </div>
+                          <div className="h-1/2 w-full font-normal text-gray-500">
+                            Finished
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          {/* END OF TOP NAV BAR */}
-  
-          <div id="anime-list-page" className="h-auto w-screen flex justify-center items-center bg-gray-200">
-
-            {/* ANIME LIST - BODY */}
-            <div id="profile-body" className="h-auto w-10/12 flex flex-col">
-              {/* <div className="h-130 w-full flex justify-center items-start pt-20 font-light text-gray-800 text-3xl border-2 border-black"> No reviews yet ｡ﾟヽ(ﾟ´Д｀)ﾉﾟ｡</div> */}
-
-                {/* SEARCH FILTERS */}
-                <div className="h-30 w-full mt-10 mb-15 flex justify-between">
-                    <div className="h-full w-10/12 flex justify-around">
-
-                        {/* SEARCH */}
-                        <div className="h-30 w-70">
-                            <div className="h-1/2 w-full flex justify-start items-center pl-2 text-xl font-semibold text-gray-700">Search</div>
-                            <div className="h-14 w-11/12 flex justify-between ml-4 bg-white rounded-lg shadow-lg">
-                                    <div className="h-full w-15 flex justify-center items-center">
-                                        <i className='bx bx-search text-2xl text-gray-400'></i>
-                                    </div>
-                                    <input type="text" className="h-full w-47 text-xl text-gray-600"/>
-                            </div>
-                        </div>
-                        {/* Genres */}
-                        <div className="h-30 w-70">
-                            <div className="h-1/2 w-full flex justify-start items-center pl-2 text-xl font-semibold text-gray-700">Genres</div>
-                            <div className="h-14 w-11/12 flex justify-between ml-4 bg-white rounded-lg shadow-lg">
-                                    <input type="text" className="h-full w-52 ml-3 pl-3 text-xl" placeholder="Any" />
-                                    <div className="h-full w-10 flex justify-center items-center"><i className='bx bx-chevron-down pr-4 text-3xl text-gray-400'></i></div>
-                            </div>
-                        </div>
-                        {/* Year */}
-                        <div className="h-30 w-70">
-                            <div className="h-1/2 w-full flex justify-start items-center pl-2 text-xl font-semibold text-gray-700">Year</div>
-                            <div className="h-14 w-11/12 flex justify-between ml-4 bg-white rounded-lg shadow-lg">
-                                    <input type="text" className="h-full w-52 ml-3 pl-3 text-xl" placeholder="Any" />
-                                    <div className="h-full w-10 flex justify-center items-center"><i className='bx bx-chevron-down pr-4 text-3xl text-gray-400'></i></div>
-                            </div>
-                        </div>
-                        {/* Season */}
-                        <div className="h-30 w-70">
-                            <div className="h-1/2 w-full flex justify-start items-center pl-2 text-xl font-semibold text-gray-700">Season</div>
-                            <div className="h-14 w-11/12 flex justify-between ml-4 bg-white rounded-lg shadow-lg">
-                                    <input type="text" className="h-full w-52 ml-3 pl-3 text-xl" placeholder="Any" />
-                                    <div className="h-full w-10 flex justify-center items-center"><i className='bx bx-chevron-down pr-4 text-3xl text-gray-400'></i></div>
-                            </div>
-                        </div>
-                        {/* Format */}
-                        <div className="h-30 w-70">
-                            <div className="h-1/2 w-full flex justify-start items-center pl-2 text-xl font-semibold text-gray-700">Format</div>
-                            <div className="h-14 w-11/12 flex justify-between ml-4 bg-white rounded-lg shadow-lg">
-                                    <input type="text" className="h-full w-52 ml-3 pl-3 text-xl" placeholder="Any" />
-                                    <div className="h-full w-10 flex justify-center items-center"><i className='bx bx-chevron-down pr-4 text-3xl text-gray-400'></i></div>
-                            </div>
-                        </div>
-                        
-
-                    </div>
-                    <div className="h-full w-1/12 flex justify-end items-end">
-                        <div className="h-12 w-12 flex justify-center items-center mb-2 bg-white rounded-lg shadow-md">
-                            <i className='bx bx-slider flex justify-center items-center text-3xl text-gray-400'></i>
-                        </div>
-                    </div>
-                </div>
-
-                {/* TRENDING NOW BLOCK */}
-                <div className="h-auto w-full mb-15">
-                    <div className="h-17 w-full flex justify-between items-center">
-                        <div className="h-full w-1/2 flex justify-start items-center font-semibold text-gray-700 text-xl">TRENDING NOW</div>
-                        <div className="h-full w-1/2 flex justify-end items-center font-semibold text-gray-500 text-md">View All</div>
-                    </div>
-                    <div className="h-auto w-full flex flex-wrap justify-around items-center">
-
-                        <div className="h-full w-63 m-2">
-                            <div className="h-80 w-full bg-center bg-cover rounded-xl shadow-md" style={{backgroundImage: `url(${demon_slayer})`}}></div>
-                            <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">Demon Slayer</div>
-                        </div>
-                        <div className="h-full w-63 m-2">
-                            <div className="h-80 w-full bg-center bg-cover rounded-xl shadow-md" style={{backgroundImage: `url(${jjk})`}}></div>
-                            <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">Jujutsu Kaisen</div>
-                        </div>
-                        <div className="h-full w-63 m-2">
-                            <div className="h-80 w-full bg-center bg-cover rounded-xl shadow-md" style={{backgroundImage: `url(${mha})`}}></div>
-                            <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">My Hero Acadamia</div>
-                        </div>
-                        <div className="h-full w-63 m-2">
-                            <div className="h-80 w-full bg-center bg-cover rounded-xl shadow-md" style={{backgroundImage: `url(${csm})`}}></div>
-                            <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">Chainsaw Man</div>
-                        </div>
-                        <div className="h-full w-63 m-2">
-                            <div className="h-80 w-full bg-center bg-cover rounded-xl shadow-md" style={{backgroundImage: `url(${naruto})`}}></div>
-                            <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">Naruto</div>
-                        </div>
-                       
-                        
-                    </div>
-                </div>
-
-                {/* POPULAR THIS SEASON BLOCK */}
-                <div className="h-auto w-full mb-15">
-                    <div className="h-17 w-full flex justify-between items-center">
-                        <div className="h-full w-1/2 flex justify-start items-center font-semibold text-gray-700 text-xl">POPULAR THIS SEASON</div>
-                        <div className="h-full w-1/2 flex justify-end items-center font-semibold text-gray-500 text-md">View All</div>
-                    </div>
-                    <div className="h-auto w-full flex flex-wrap justify-around items-center">
-
-                        <div className="h-full w-63 m-2">
-                            <div className="h-80 w-full bg-center bg-cover rounded-xl shadow-md" style={{backgroundImage: `url(${haikyu})`}}></div>
-                            <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">Haikyu</div>
-                        </div>
-                        <div className="h-full w-63 m-2">
-                            <div className="h-80 w-full bg-center bg-cover rounded-xl shadow-md" style={{backgroundImage: `url(${jjk})`}}></div>
-                            <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">Jujutsu Kaisen</div>
-                        </div>
-                        <div className="h-full w-63 m-2">
-                            <div className="h-80 w-full bg-center bg-cover rounded-xl shadow-md" style={{backgroundImage: `url(${mha})`}}></div>
-                            <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">My Hero Acadamia</div>
-                        </div>
-                        <div className="h-full w-63 m-2">
-                            <div className="h-80 w-full bg-center bg-cover rounded-xl shadow-md" style={{backgroundImage: `url(${csm})`}}></div>
-                            <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">Chainsaw Man</div>
-                        </div>
-                        <div className="h-full w-63 m-2">
-                            <div className="h-80 w-full bg-center bg-cover rounded-xl shadow-md" style={{backgroundImage: `url(${naruto})`}}></div>
-                            <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">Naruto</div>
-                        </div>
-                       
-                        
-                    </div>
-                </div>
-
-                {/* UPCOMING NEXT SEASON BLOCK */}
-                <div className="h-auto w-full mb-15">
-                    <div className="h-17 w-full flex justify-between items-center">
-                        <div className="h-full w-1/2 flex justify-start items-center font-semibold text-gray-700 text-xl">UPCOMING NEXT SEASON</div>
-                        <div className="h-full w-1/2 flex justify-end items-center font-semibold text-gray-500 text-md">View All</div>
-                    </div>
-                    <div className="h-auto w-full flex flex-wrap justify-around items-center">
-
-                        <div className="h-full w-63 m-2">
-                            <div className="h-80 w-full bg-center bg-cover rounded-xl shadow-md" style={{backgroundImage: `url(${haikyu})`}}></div>
-                            <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">Haikyu</div>
-                        </div>
-                        <div className="h-full w-63 m-2">
-                            <div className="h-80 w-full bg-center bg-cover rounded-xl shadow-md" style={{backgroundImage: `url(${jjk})`}}></div>
-                            <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">Jujutsu Kaisen</div>
-                        </div>
-                        <div className="h-full w-63 m-2">
-                            <div className="h-80 w-full bg-center bg-cover rounded-xl shadow-md" style={{backgroundImage: `url(${mha})`}}></div>
-                            <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">My Hero Acadamia</div>
-                        </div>
-                        <div className="h-full w-63 m-2">
-                            <div className="h-80 w-full bg-center bg-cover rounded-xl shadow-md" style={{backgroundImage: `url(${csm})`}}></div>
-                            <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">Chainsaw Man</div>
-                        </div>
-                        <div className="h-full w-63 m-2">
-                            <div className="h-80 w-full bg-center bg-cover rounded-xl shadow-md" style={{backgroundImage: `url(${naruto})`}}></div>
-                            <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">Naruto</div>
-                        </div>
-                       
-                        
-                    </div>
-                </div>
-
-                {/* ALL TIME POPULAR BLOCK */}
-                <div className="h-auto w-full mb-15">
-                    <div className="h-17 w-full flex justify-between items-center">
-                        <div className="h-full w-1/2 flex justify-start items-center font-semibold text-gray-700 text-xl">ALL TIME POPULAR</div>
-                        <div className="h-full w-1/2 flex justify-end items-center font-semibold text-gray-500 text-md">View All</div>
-                    </div>
-                    <div className="h-auto w-full flex flex-wrap justify-around items-center">
-
-                        <div className="h-full w-63 m-2">
-                            <div className="h-80 w-full bg-center bg-cover rounded-xl shadow-md" style={{backgroundImage: `url(${haikyu})`}}></div>
-                            <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">Haikyu</div>
-                        </div>
-                        <div className="h-full w-63 m-2">
-                            <div className="h-80 w-full bg-center bg-cover rounded-xl shadow-md" style={{backgroundImage: `url(${naruto})`}}></div>
-                            <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">Naruto</div>
-                        </div>
-                        <div className="h-full w-63 m-2">
-                            <div className="h-80 w-full bg-center bg-cover rounded-xl shadow-md" style={{backgroundImage: `url(${onepiece})`}}></div>
-                            <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">One Piece</div>
-                        </div>
-                        <div className="h-full w-63 m-2">
-                            <div className="h-80 w-full bg-center bg-cover rounded-xl shadow-md" style={{backgroundImage: `url(${csm})`}}></div>
-                            <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">Chainsaw Man</div>
-                        </div>
-                        <div className="h-full w-63 m-2">
-                            <div className="h-80 w-full bg-center bg-cover rounded-xl shadow-md" style={{backgroundImage: `url(${naruto})`}}></div>
-                            <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">Naruto</div>
-                        </div>
-                       
-                        
-                    </div>
-                </div>
-
-                {/* TOP 100 ANIMES */}
-                <div className="h-auto w-full mb-15">
-
-                    <div className="h-17 w-full flex justify-between items-center">
-                        <div className="h-full w-1/2 flex justify-start items-center font-semibold text-gray-700 text-xl">TOP 100 ANIME</div>
-                        <div className="h-full w-1/2 flex justify-end items-center font-semibold text-gray-500 text-md">View All</div>
-                    </div>
-
-                    {/* TOP 1 ANIME */}
-                    <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
-                        <div className="h-30 w-full flex">
-                            <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">#1</div>
-                            <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
-                                {/* ANIME COVER */}
-                                <div className="h-full w-1/12 flex justify-center items-center">
-                                    <div className="h-25 w-20 bg-center bg-cover rounded" style={{backgroundImage: `url(${frieren})`}}></div>
-                                </div>
-                                {/* TITLE CARD & CATEGORIES */}
-                                <div className="h-full w-5/12">
-                                    <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">Frieren: Beyond Journey's End</div>
-                                    <div className="h-1/2 w-full flex justify-around items-center">
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">adventure</div>
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">drama</div>
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">fantasy</div>
-                                    </div>
-                                </div>
-                                {/* ANIME SCORING PERCENTAGE */}
-                                <div className="h-full w-6/12 flex">
-                                    {/* PERCENTAGE */}
-                                    <div className="h-full w-1/3 flex">
-                                        <div className="h-full w-1/4 flex justify-center items-center">
-                                            <i class='bx bx-smile text-5xl text-green-500' ></i>
-                                        </div>
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">91%</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">361451 users</div>
-                                        </div>
-                                    </div>
-                                    {/* TV SHOW */}
-                                    <div className="h-full w-1/3 flex justify-center items-center">
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">TV Show</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">28 episodes</div>
-                                        </div>
-                                    </div>
-                                    {/* FALL 2023 */}
-                                    <div className="h-full w-1/3 flex justify-center items-center">
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">Fall 2023</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">Finished</div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* 2 */}
-                    <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
-                        <div className="h-30 w-full flex">
-                            <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">#2</div>
-                            <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
-                                {/* ANIME COVER */}
-                                <div className="h-full w-1/12 flex justify-center items-center">
-                                    <div className="h-25 w-20 bg-center bg-cover rounded" style={{backgroundImage: `url(${frieren})`}}></div>
-                                </div>
-                                {/* TITLE CARD & CATEGORIES */}
-                                <div className="h-full w-5/12">
-                                    <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">Frieren: Beyond Journey's End</div>
-                                    <div className="h-1/2 w-full flex justify-around items-center">
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">adventure</div>
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">drama</div>
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">fantasy</div>
-                                    </div>
-                                </div>
-                                {/* ANIME SCORING PERCENTAGE */}
-                                <div className="h-full w-6/12 flex">
-                                    {/* PERCENTAGE */}
-                                    <div className="h-full w-1/3 flex">
-                                        <div className="h-full w-1/4 flex justify-center items-center">
-                                            <i class='bx bx-smile text-5xl text-green-500' ></i>
-                                        </div>
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">91%</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">361451 users</div>
-                                        </div>
-                                    </div>
-                                    {/* TV SHOW */}
-                                    <div className="h-full w-1/3 flex justify-center items-center">
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">TV Show</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">28 episodes</div>
-                                        </div>
-                                    </div>
-                                    {/* FALL 2023 */}
-                                    <div className="h-full w-1/3 flex justify-center items-center">
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">Fall 2023</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">Finished</div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* 3 */}
-                    <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
-                        <div className="h-30 w-full flex">
-                            <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">#3</div>
-                            <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
-                                {/* ANIME COVER */}
-                                <div className="h-full w-1/12 flex justify-center items-center">
-                                    <div className="h-25 w-20 bg-center bg-cover rounded" style={{backgroundImage: `url(${frieren})`}}></div>
-                                </div>
-                                {/* TITLE CARD & CATEGORIES */}
-                                <div className="h-full w-5/12">
-                                    <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">Frieren: Beyond Journey's End</div>
-                                    <div className="h-1/2 w-full flex justify-around items-center">
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">adventure</div>
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">drama</div>
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">fantasy</div>
-                                    </div>
-                                </div>
-                                {/* ANIME SCORING PERCENTAGE */}
-                                <div className="h-full w-6/12 flex">
-                                    {/* PERCENTAGE */}
-                                    <div className="h-full w-1/3 flex">
-                                        <div className="h-full w-1/4 flex justify-center items-center">
-                                            <i class='bx bx-smile text-5xl text-green-500' ></i>
-                                        </div>
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">91%</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">361451 users</div>
-                                        </div>
-                                    </div>
-                                    {/* TV SHOW */}
-                                    <div className="h-full w-1/3 flex justify-center items-center">
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">TV Show</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">28 episodes</div>
-                                        </div>
-                                    </div>
-                                    {/* FALL 2023 */}
-                                    <div className="h-full w-1/3 flex justify-center items-center">
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">Fall 2023</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">Finished</div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* 4 */}
-                    <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
-                        <div className="h-30 w-full flex">
-                            <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">#4</div>
-                            <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
-                                {/* ANIME COVER */}
-                                <div className="h-full w-1/12 flex justify-center items-center">
-                                    <div className="h-25 w-20 bg-center bg-cover rounded" style={{backgroundImage: `url(${frieren})`}}></div>
-                                </div>
-                                {/* TITLE CARD & CATEGORIES */}
-                                <div className="h-full w-5/12">
-                                    <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">Frieren: Beyond Journey's End</div>
-                                    <div className="h-1/2 w-full flex justify-around items-center">
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">adventure</div>
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">drama</div>
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">fantasy</div>
-                                    </div>
-                                </div>
-                                {/* ANIME SCORING PERCENTAGE */}
-                                <div className="h-full w-6/12 flex">
-                                    {/* PERCENTAGE */}
-                                    <div className="h-full w-1/3 flex">
-                                        <div className="h-full w-1/4 flex justify-center items-center">
-                                            <i class='bx bx-smile text-5xl text-green-500' ></i>
-                                        </div>
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">91%</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">361451 users</div>
-                                        </div>
-                                    </div>
-                                    {/* TV SHOW */}
-                                    <div className="h-full w-1/3 flex justify-center items-center">
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">TV Show</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">28 episodes</div>
-                                        </div>
-                                    </div>
-                                    {/* FALL 2023 */}
-                                    <div className="h-full w-1/3 flex justify-center items-center">
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">Fall 2023</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">Finished</div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* 5 */}
-                    <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
-                        <div className="h-30 w-full flex">
-                            <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">#5</div>
-                            <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
-                                {/* ANIME COVER */}
-                                <div className="h-full w-1/12 flex justify-center items-center">
-                                    <div className="h-25 w-20 bg-center bg-cover rounded" style={{backgroundImage: `url(${frieren})`}}></div>
-                                </div>
-                                {/* TITLE CARD & CATEGORIES */}
-                                <div className="h-full w-5/12">
-                                    <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">Frieren: Beyond Journey's End</div>
-                                    <div className="h-1/2 w-full flex justify-around items-center">
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">adventure</div>
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">drama</div>
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">fantasy</div>
-                                    </div>
-                                </div>
-                                {/* ANIME SCORING PERCENTAGE */}
-                                <div className="h-full w-6/12 flex">
-                                    {/* PERCENTAGE */}
-                                    <div className="h-full w-1/3 flex">
-                                        <div className="h-full w-1/4 flex justify-center items-center">
-                                            <i class='bx bx-smile text-5xl text-green-500' ></i>
-                                        </div>
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">91%</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">361451 users</div>
-                                        </div>
-                                    </div>
-                                    {/* TV SHOW */}
-                                    <div className="h-full w-1/3 flex justify-center items-center">
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">TV Show</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">28 episodes</div>
-                                        </div>
-                                    </div>
-                                    {/* FALL 2023 */}
-                                    <div className="h-full w-1/3 flex justify-center items-center">
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">Fall 2023</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">Finished</div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* 6 */}
-                    <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
-                        <div className="h-30 w-full flex">
-                            <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">#6</div>
-                            <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
-                                {/* ANIME COVER */}
-                                <div className="h-full w-1/12 flex justify-center items-center">
-                                    <div className="h-25 w-20 bg-center bg-cover rounded" style={{backgroundImage: `url(${frieren})`}}></div>
-                                </div>
-                                {/* TITLE CARD & CATEGORIES */}
-                                <div className="h-full w-5/12">
-                                    <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">Frieren: Beyond Journey's End</div>
-                                    <div className="h-1/2 w-full flex justify-around items-center">
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">adventure</div>
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">drama</div>
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">fantasy</div>
-                                    </div>
-                                </div>
-                                {/* ANIME SCORING PERCENTAGE */}
-                                <div className="h-full w-6/12 flex">
-                                    {/* PERCENTAGE */}
-                                    <div className="h-full w-1/3 flex">
-                                        <div className="h-full w-1/4 flex justify-center items-center">
-                                            <i class='bx bx-smile text-5xl text-green-500' ></i>
-                                        </div>
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">91%</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">361451 users</div>
-                                        </div>
-                                    </div>
-                                    {/* TV SHOW */}
-                                    <div className="h-full w-1/3 flex justify-center items-center">
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">TV Show</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">28 episodes</div>
-                                        </div>
-                                    </div>
-                                    {/* FALL 2023 */}
-                                    <div className="h-full w-1/3 flex justify-center items-center">
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">Fall 2023</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">Finished</div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* 7 */}
-                    <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
-                        <div className="h-30 w-full flex">
-                            <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">#7</div>
-                            <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
-                                {/* ANIME COVER */}
-                                <div className="h-full w-1/12 flex justify-center items-center">
-                                    <div className="h-25 w-20 bg-center bg-cover rounded" style={{backgroundImage: `url(${frieren})`}}></div>
-                                </div>
-                                {/* TITLE CARD & CATEGORIES */}
-                                <div className="h-full w-5/12">
-                                    <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">Frieren: Beyond Journey's End</div>
-                                    <div className="h-1/2 w-full flex justify-around items-center">
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">adventure</div>
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">drama</div>
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">fantasy</div>
-                                    </div>
-                                </div>
-                                {/* ANIME SCORING PERCENTAGE */}
-                                <div className="h-full w-6/12 flex">
-                                    {/* PERCENTAGE */}
-                                    <div className="h-full w-1/3 flex">
-                                        <div className="h-full w-1/4 flex justify-center items-center">
-                                            <i class='bx bx-smile text-5xl text-green-500' ></i>
-                                        </div>
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">91%</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">361451 users</div>
-                                        </div>
-                                    </div>
-                                    {/* TV SHOW */}
-                                    <div className="h-full w-1/3 flex justify-center items-center">
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">TV Show</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">28 episodes</div>
-                                        </div>
-                                    </div>
-                                    {/* FALL 2023 */}
-                                    <div className="h-full w-1/3 flex justify-center items-center">
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">Fall 2023</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">Finished</div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* 8 */}
-                    <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
-                        <div className="h-30 w-full flex">
-                            <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">#8</div>
-                            <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
-                                {/* ANIME COVER */}
-                                <div className="h-full w-1/12 flex justify-center items-center">
-                                    <div className="h-25 w-20 bg-center bg-cover rounded" style={{backgroundImage: `url(${frieren})`}}></div>
-                                </div>
-                                {/* TITLE CARD & CATEGORIES */}
-                                <div className="h-full w-5/12">
-                                    <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">Frieren: Beyond Journey's End</div>
-                                    <div className="h-1/2 w-full flex justify-around items-center">
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">adventure</div>
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">drama</div>
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">fantasy</div>
-                                    </div>
-                                </div>
-                                {/* ANIME SCORING PERCENTAGE */}
-                                <div className="h-full w-6/12 flex">
-                                    {/* PERCENTAGE */}
-                                    <div className="h-full w-1/3 flex">
-                                        <div className="h-full w-1/4 flex justify-center items-center">
-                                            <i class='bx bx-smile text-5xl text-green-500' ></i>
-                                        </div>
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">91%</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">361451 users</div>
-                                        </div>
-                                    </div>
-                                    {/* TV SHOW */}
-                                    <div className="h-full w-1/3 flex justify-center items-center">
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">TV Show</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">28 episodes</div>
-                                        </div>
-                                    </div>
-                                    {/* FALL 2023 */}
-                                    <div className="h-full w-1/3 flex justify-center items-center">
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">Fall 2023</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">Finished</div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* 9 */}
-                    <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
-                        <div className="h-30 w-full flex">
-                            <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">#9</div>
-                            <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
-                                {/* ANIME COVER */}
-                                <div className="h-full w-1/12 flex justify-center items-center">
-                                    <div className="h-25 w-20 bg-center bg-cover rounded" style={{backgroundImage: `url(${frieren})`}}></div>
-                                </div>
-                                {/* TITLE CARD & CATEGORIES */}
-                                <div className="h-full w-5/12">
-                                    <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">Frieren: Beyond Journey's End</div>
-                                    <div className="h-1/2 w-full flex justify-around items-center">
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">adventure</div>
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">drama</div>
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">fantasy</div>
-                                    </div>
-                                </div>
-                                {/* ANIME SCORING PERCENTAGE */}
-                                <div className="h-full w-6/12 flex">
-                                    {/* PERCENTAGE */}
-                                    <div className="h-full w-1/3 flex">
-                                        <div className="h-full w-1/4 flex justify-center items-center">
-                                            <i class='bx bx-smile text-5xl text-green-500' ></i>
-                                        </div>
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">91%</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">361451 users</div>
-                                        </div>
-                                    </div>
-                                    {/* TV SHOW */}
-                                    <div className="h-full w-1/3 flex justify-center items-center">
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">TV Show</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">28 episodes</div>
-                                        </div>
-                                    </div>
-                                    {/* FALL 2023 */}
-                                    <div className="h-full w-1/3 flex justify-center items-center">
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">Fall 2023</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">Finished</div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* 10 */}
-                    <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
-                        <div className="h-30 w-full flex">
-                            <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">#10</div>
-                            <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
-                                {/* ANIME COVER */}
-                                <div className="h-full w-1/12 flex justify-center items-center">
-                                    <div className="h-25 w-20 bg-center bg-cover rounded" style={{backgroundImage: `url(${frieren})`}}></div>
-                                </div>
-                                {/* TITLE CARD & CATEGORIES */}
-                                <div className="h-full w-5/12">
-                                    <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">Frieren: Beyond Journey's End</div>
-                                    <div className="h-1/2 w-full flex justify-around items-center">
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">adventure</div>
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">drama</div>
-                                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">fantasy</div>
-                                    </div>
-                                </div>
-                                {/* ANIME SCORING PERCENTAGE */}
-                                <div className="h-full w-6/12 flex">
-                                    {/* PERCENTAGE */}
-                                    <div className="h-full w-1/3 flex">
-                                        <div className="h-full w-1/4 flex justify-center items-center">
-                                            <i class='bx bx-smile text-5xl text-green-500' ></i>
-                                        </div>
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">91%</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">361451 users</div>
-                                        </div>
-                                    </div>
-                                    {/* TV SHOW */}
-                                    <div className="h-full w-1/3 flex justify-center items-center">
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">TV Show</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">28 episodes</div>
-                                        </div>
-                                    </div>
-                                    {/* FALL 2023 */}
-                                    <div className="h-full w-1/3 flex justify-center items-center">
-                                        <div className="h-full w-3/4">
-                                            <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">Fall 2023</div>
-                                            <div className="h-1/2 w-full font-normal text-gray-500">Finished</div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-                </div>
-
-
-
-
-            </div>
-
-
-          </div>
-
         </div>
+      </div>
 
-        {/* FOOTER */}
-        <Footer />
-        {/* ============================ */}
-      </>
-    );
-  }
-  
-  export default Browse;
-  
+      {/* FOOTER */}
+      <Footer />
+      {/* ============================ */}
+    </>
+  );
+}
+
+export default Browse;

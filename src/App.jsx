@@ -14,7 +14,7 @@ import { MyContext } from './context/MyContext';
 import Overview from './pages/Overview';
 
 function App() {
-  const [page, setPage] = useState("browse");
+  const [page, setPage] = useState("animelist");
 
   return (
     <>
