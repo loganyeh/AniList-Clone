@@ -1,6 +1,9 @@
 import { banner, rukia,  } from "../../assets/animes";
+import { useContext } from "react";
+import { MyContext } from "../../context/MyContext";
 
 function BannerAndMidNav() {
+    const { page, setPage } = useContext(MyContext);
     
   return (
     <>
