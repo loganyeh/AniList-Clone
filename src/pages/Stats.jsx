@@ -8,6 +8,7 @@ import ChartBlock from "../components/overviewPage/ChartBlock";
 import BubbleTitle from "../components/overviewPage/BubbleTitle";
 import ChartGraph from "../components/overviewPage/ChartGraph";
 import ChartXAxis from "../components/overviewPage/ChartXAxis";
+import PieChart from "../components/overviewPage/PieChart";
 
 function Stats() {
   return (
@@ -175,94 +176,13 @@ function Stats() {
               {/* PIE CHARTS BLOCK */}
               <div className="h-85 w-full flex justify-around items-center mb-15">
                 {/* PIE CHART 1 */}
-                <div className="h-full w-1/4 flex flex-col items-center bg-white rounded-xl shadow-lg">
-                  <div className="h-2/12 w-10/12 flex items-center text-xl font-semibold text-gray-500">
-                    Format Distribution
-                  </div>
-                  <div className="h-5/12 w-10/12 flex justify-center items-center text-xl font-semibold text-gray-500">
-                    <i className="bx bx-pie-chart-alt-2 text-9xl"></i>
-                  </div>
-                  <div className="h-5/12 w-10/12 flex flex-col justify-around text-md font-semibold text-white">
-                    <div className="h-9 w-full flex justify-between items-center bg-blue-400 rounded-lg">
-                      <div className="pl-3">TV</div>
-                      <div className="h-full w-14 flex justify-center items-center bg-blue-300 opacity-100 rounded-lg">
-                        68%
-                      </div>
-                    </div>
-                    <div className="h-9 w-full flex justify-between items-center bg-gray-700 rounded-lg">
-                      <div className="pl-3">MOVIE</div>
-                      <div className="h-full w-14 flex justify-center items-center bg-gray-400 opacity-100 rounded-lg">
-                        11%
-                      </div>
-                    </div>
-                    <div className="h-9 w-full flex justify-between items-center bg-red-500 rounded-lg">
-                      <div className="pl-3">OVA</div>
-                      <div className="h-full w-14 flex justify-center items-center bg-red-300 opacity-100 rounded-lg">
-                        10%
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <PieChart heading={"Format Distribution"} title1={"TV"} title2={"MOVIE"} title3={"OVA"} num1={"68"} num2={"11"} num3={"10"} />
 
                 {/* PIE CHART 2 */}
-                <div className="h-full w-1/4 flex flex-col items-center bg-white rounded-xl shadow-lg">
-                  <div className="h-2/12 w-10/12 flex items-center text-xl font-semibold text-gray-500">
-                    Status Distribution
-                  </div>
-                  <div className="h-5/12 w-10/12 flex justify-center items-center text-xl font-semibold text-gray-500">
-                    <i className="bx bx-pie-chart-alt-2 text-9xl"></i>
-                  </div>
-                  <div className="h-5/12 w-10/12 flex flex-col justify-around text-md font-semibold text-white">
-                    <div className="h-9 w-full flex justify-between items-center bg-blue-400 rounded-lg">
-                      <div className="pl-3">Planning</div>
-                      <div className="h-full w-14 flex justify-center items-center bg-blue-300 opacity-100 rounded-lg">
-                        68%
-                      </div>
-                    </div>
-                    <div className="h-9 w-full flex justify-between items-center bg-gray-700 rounded-lg">
-                      <div className="pl-3">Completed</div>
-                      <div className="h-full w-14 flex justify-center items-center bg-gray-400 opacity-100 rounded-lg">
-                        24%
-                      </div>
-                    </div>
-                    <div className="h-9 w-full flex justify-between items-center bg-red-500 rounded-lg">
-                      <div className="pl-3">Paused</div>
-                      <div className="h-full w-14 flex justify-center items-center bg-red-300 opacity-100 rounded-lg">
-                        5%
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <PieChart heading={"Status Distribution"} title1={"TV"} title2={"MOVIE"} title3={"OVA"} num1={"68"} num2={"24"} num3={"5"} />
 
                 {/* PIE CHART 3 */}
-                <div className="h-full w-1/4 flex flex-col items-center bg-white rounded-xl shadow-lg">
-                  <div className="h-2/12 w-10/12 flex items-center text-xl font-semibold text-gray-500">
-                    Country Distribution
-                  </div>
-                  <div className="h-5/12 w-10/12 flex justify-center items-center text-xl font-semibold text-gray-500">
-                    <i className="bx bx-pie-chart-alt-2 text-9xl"></i>
-                  </div>
-                  <div className="h-5/12 w-10/12 flex flex-col justify-around text-md font-semibold text-white">
-                    <div className="h-9 w-full flex justify-between items-center bg-blue-400 rounded-lg">
-                      <div className="pl-3">Japan</div>
-                      <div className="h-full w-14 flex justify-center items-center bg-blue-300 opacity-100 rounded-lg">
-                        96%
-                      </div>
-                    </div>
-                    <div className="h-9 w-full flex justify-between items-center bg-gray-700 rounded-lg">
-                      <div className="pl-3">China</div>
-                      <div className="h-full w-14 flex justify-center items-center bg-gray-400 opacity-100 rounded-lg">
-                        3%
-                      </div>
-                    </div>
-                    <div className="h-9 w-full flex justify-between items-center bg-red-500 rounded-lg">
-                      <div className="pl-3">South Korea</div>
-                      <div className="h-full w-14 flex justify-center items-center bg-red-300 opacity-100 rounded-lg">
-                        1%
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <PieChart heading={"Country Distribution"} title1={"TV"} title2={"MOVIE"} title3={"OVA"} num1={"96"} num2={"3"} num3={"1"} />
               </div>
 
               {/* RELEASE YEAR BLOCK */}
