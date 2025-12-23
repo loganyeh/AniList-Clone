@@ -53,7 +53,7 @@ function Overview() {
                 <ActivityBlock />
 
                 {/* GENRE OVERVIEW */}
-                <GenreBlock />
+                {/* <GenreBlock /> */}
 
                 <FavoriteBlock height={"auto"} title={"Anime"}>
                   <FavoritePoster img={naruto} />
