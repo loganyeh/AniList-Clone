@@ -7,6 +7,8 @@ import { MyContext } from "../context/MyContext";
 import Footer from "../components/Shell/Footer";
 import GlobalNav from "../components/Shell/GlobalNav";
 import BannerAndMidNav from "../components/Shell/BannerAndMidNav";
+import ListSelectMenu from "../components/lists/sideBar/ListSelectMenu";
+import ListTitles from "../components/lists/sideBar/ListTitles";
 
 function Stats() {
   const { page, setPage } = useContext(MyContext);
@@ -28,53 +30,20 @@ function Stats() {
             {/* NAVBAR */}
             <div className="h-full w-1/5 flex flex-col items-end">
               {/* LISTS CONTAINER */}
-              <div id="list-div" className="h-70 w-59 flex flex-col mt-8 mr-16">
-                <div className="h-1/12 w-full flex items-center text-lg text-gray-500">
-                  Anime Stats
-                </div>
-                {/* INNER NESTED */}
-                <div className="h-11/12 w-full flex flex-col justify-around mt-2">
-                  <span className="h-8 w-full flex items-center pl-3 text-gray-600 font-semibold bg-white rounded">
-                    Overview
-                  </span>
-                  <span className="h-8 w-full flex items-center pl-3 text-gray-500">
-                    Genres
-                  </span>
-                  <span className="h-8 w-full flex items-center pl-3 text-gray-500">
-                    Tags
-                  </span>
-                  <span className="h-8 w-full flex items-center pl-3 text-gray-500">
-                    Voice Actors
-                  </span>
-                  <span className="h-8 w-full flex items-center pl-3 text-gray-500">
-                    Studios
-                  </span>
-                  <span className="h-8 w-full flex items-center pl-3 text-gray-500">
-                    Staff
-                  </span>
-                </div>
-              </div>
-
-              <div id="list-div" className="h-50 w-59 flex flex-col mt-8 mr-16">
-                <div className="h-1/12 w-full flex items-center text-lg text-gray-500">
-                  Manga Stats
-                </div>
-                {/* INNER NESTED */}
-                <div className="h-11/12 w-full flex flex-col justify-around mt-2">
-                  <span className="h-8 w-full flex items-center pl-3 text-gray-600 font-semibold bg-white rounded">
-                    Overview
-                  </span>
-                  <span className="h-8 w-full flex items-center pl-3 text-gray-500">
-                    Genres
-                  </span>
-                  <span className="h-8 w-full flex items-center pl-3 text-gray-500">
-                    Tags
-                  </span>
-                  <span className="h-8 w-full flex items-center pl-3 text-gray-500">
-                    Staff
-                  </span>
-                </div>
-              </div>
+              <ListSelectMenu height={"70"} listName={"Anime Stats"}>
+                <ListTitles title={"Overview"}/>
+                <ListTitles title={"Genres"}/>
+                <ListTitles title={"Tags"}/>
+                <ListTitles title={"Voice Actors"}/>
+                <ListTitles title={"Studios"}/>
+                <ListTitles title={"Staff"}/>
+              </ListSelectMenu>
+              <ListSelectMenu height={"50"} listName={"Manga Stats"}>
+                <ListTitles title={"Overview"}/>
+                <ListTitles title={"Genres"}/>
+                <ListTitles title={"Tags"}/>
+                <ListTitles title={"Staff"}/>
+              </ListSelectMenu>
             </div>
 
             <div className="h-auto w-8/12">
@@ -512,10 +481,7 @@ function Stats() {
         </div>
       </div>
 
-      {/* ============================ */}
-      {/* FOOTER */}
       <Footer />
-      {/* ============================ */}
     </>
   );
 }

@@ -8,12 +8,24 @@ import {
   mha,
   naruto,
   demon_slayer,
+  haikyu,
+  onepiece,
+  frieren,
 } from "../assets/animes";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { MyContext } from "../context/MyContext";
 import Footer from "../components/Shell/Footer";
 import GlobalNav from "../components/Shell/GlobalNav";
 import BannerAndMidNav from "../components/Shell/BannerAndMidNav";
+import ListingBlock from "../components/lists/ListingBlock";
+import AnimeCell from "../components/lists/AnimeCell";
+import FormatListView from "../components/lists/FormatListView";
+import ListSelectMenu from "../components/lists/sideBar/ListSelectMenu";
+import ListTitles from "../components/lists/sideBar/ListTitles";
+import DropdownMenu from "../components/lists/sideBar/DropdownMenu";
+import DropdownButton from "../components/lists/sideBar/DropdownButton";
+import YearSlider from "../components/lists/sideBar/YearSlider";
+import FilterSearchBar from "../components/lists/sideBar/FilterSearchBar";
 
 function AnimeList() {
   const { page, setPage } = useContext(MyContext);
@@ -28,348 +40,102 @@ function AnimeList() {
           <BannerAndMidNav />
 
           {/* ANIME LIST - BODY */}
+          {/* ================== */}
           <div
             id="profile-body"
             className="h-full w-full flex flex-row border-t-1 border-gray-300 bg-gray-200"
           >
             {/* BODY NAVBAR */}
             <div className="h-full w-1/5 flex flex-col items-end">
-              <form className="h-13 w-58 mt-8 mr-16">
-                <input
-                  type="text"
-                  id="filter-input"
-                  className="h-full w-full pl-8 bg-white rounded"
-                  placeholder="Filter"
-                />
-              </form>
-
-              {/* LISTS CONTAINER */}
-              <div id="list-div" className="h-70 w-59 flex flex-col mt-8 mr-16">
-                <div className="h-1/12 w-full flex items-center text-lg text-gray-500">
-                  Lists
-                </div>
-                {/* INNER NESTED */}
-                <div className="h-11/12 w-full flex flex-col justify-around mt-2">
-                  <span className="h-8 w-full flex items-center pl-3 text-gray-600 font-semibold bg-white rounded">
-                    All
-                  </span>
-                  <span className="h-8 w-full flex items-center pl-3 text-gray-500">
-                    Watching
-                  </span>
-                  <span className="h-8 w-full flex items-center pl-3 text-gray-500">
-                    Completed
-                  </span>
-                  <span className="h-8 w-full flex items-center pl-3 text-gray-500">
-                    Paused
-                  </span>
-                  <span className="h-8 w-full flex items-center pl-3 text-gray-500">
-                    Dropped
-                  </span>
-                  <span className="h-8 w-full flex items-center pl-3 text-gray-500">
-                    Planning
-                  </span>
-                </div>
-              </div>
-
+              <FilterSearchBar />
+              {/* List Select Menu */}
+              <ListSelectMenu height={"70"} listName={"Lists"}>
+                <ListTitles title={"All"} />
+                <ListTitles title={"Watching"} />
+                <ListTitles title={"Completed"} />
+                <ListTitles title={"Paused"} />
+                <ListTitles title={"Dropped"} />
+                <ListTitles title={"Planning"} />
+              </ListSelectMenu>
+              {/* ============== */}
               {/* FILTERS */}
-              <div id="list-div" className="h-65 w-59 mt-7 mr-16">
-                <div className="h-1/12 w-full flex text-lg text-gray-500">
-                  Filters
-                </div>
-                <div className="h-11/12 w-full flex flex-col justify-around mt-3">
-                  <button className="h-10 w-full flex justify-start items-center mt-1 pl-4 bg-white text-md text-gray-400 rounded">
-                    <div className="w-full flex justify-between pr-4">
-                      <span>Format</span>
-                      <span>\/</span>
-                    </div>
-                  </button>
-                  <button className="h-10 w-full flex justify-start items-center mt-1 pl-4 bg-white text-md text-gray-400 rounded">
-                    <div className="w-full flex justify-between pr-4">
-                      <span>Status</span>
-                      <span>\/</span>
-                    </div>
-                  </button>
-                  <button className="h-10 w-full flex justify-start items-center mt-1 pl-4 bg-white text-md text-gray-400 rounded">
-                    <div className="w-full flex justify-between pr-4">
-                      <span>Genres</span>
-                      <span>\/</span>
-                    </div>
-                  </button>
-                  <button className="h-10 w-full flex justify-start items-center mt-1 pl-4 bg-white text-md text-gray-400 rounded">
-                    <div className="w-full flex justify-between pr-4">
-                      <span>Country</span>
-                      <span>\/</span>
-                    </div>
-                  </button>
-                </div>
-              </div>
-
+              <DropdownMenu height={"65"} menuName={"Filters"}>
+                <DropdownButton dropdownName={"Format"} />
+                <DropdownButton dropdownName={"Status"} />
+                <DropdownButton dropdownName={"Genres"} />
+                <DropdownButton dropdownName={"Country"} />
+              </DropdownMenu>
               {/* YEAR */}
-              <div id="list-div" className="h-20 w-59 flex flex-col mt-7 mr-16">
-                <div className="h-12 w-full flex items-center text-lg text-gray-500">
-                  Year
-                </div>
-                {/* INNER NESTED */}
-                <div className="h-2 w-full flex flex-col justify-around mt-1 bg-white"></div>
-              </div>
-
+              <YearSlider />
               {/* SORT */}
-              <div id="list-div" className="h-24 w-59 flex flex-col mt-4 mr-16">
-                <div className="h-14 w-full flex items-center text-lg text-gray-500">
-                  Sort
-                </div>
-                {/* INNER NESTED */}
-                <div className="h-11/12 w-full flex flex-col mt-1">
-                  <button className="h-10 w-full flex justify-start items-center mt-1 pl-4 bg-white text-md text-gray-400 rounded">
-                    <div className="w-full flex justify-between pr-4">
-                      <span>Score</span>
-                      <span>\/</span>
-                    </div>
-                  </button>
-                </div>
-              </div>
+              <DropdownMenu height={"24"} menuName={"Sort"}>
+                <DropdownButton dropdownName={"Score"} />
+              </DropdownMenu>
             </div>
+            {/* ================== */}
 
             {/* -------------------- */}
             {/* LISTING BODY SHWS IN HERE */}
             <div className="h-full w-4/5">
-              {/*  */}
-              <div className="h-20 w-11/12 flex justify-end items-center">
-                <div className="h-auto w-auto flex justify-center items-center bg-white rounded">
-                  <i className="bx bx-list-ul h-full w-1/3 flex justify-center items-center m-2 text-3xl text-blue-400 cursor-pointer"></i>
-                  <i className="bx bx-list-ol h-full w-1/3 flex justify-center items-center m-2 text-3xl cursor-pointer"></i>
-                  <i className="bx bxs-grid-alt h-full w-1/3 flex justify-center items-center m-2 text-3xl cursor-pointer"></i>
-                </div>
-              </div>
+              <FormatListView />
 
-              {/* WATCHING HEADER */}
-              <div className="h-auto w-11/12">
-                <div className="h-12 w-full flex items-start pl-4 text-2xl font-light text-gray-800">
-                  Watching
-                </div>
-
-                <div className="bg-white rounded">
-                  <div
-                    id="watching-header"
-                    className="h-20 w-full flex justify-between items-center text-xl font-medium text-gray-800"
-                  >
-                    <div className="h-full w-1/2 flex items-center pl-29 ">
-                      Title
-                    </div>
-                    <div className="h-full w-1/2 flex justify-around items-center">
-                      <span>Score</span>
-                      <span>Progress</span>
-                      <span>Type</span>
-                    </div>
-                  </div>
-
-                  {/* BLEACH */}
-                  <div className="h-20 w-full flex justify-around items-center text-lg font-light text-gray-800 hover:bg-blue-400">
-                    <div className="h-full w-1/2 flex items-center">
-                      <div
-                        className="h-17 w-17 flex justify-center items-center ml-6 bg-cover bg-center rounded"
-                        style={{ backgroundImage: `url(${bleach})` }}
-                      ></div>
-                      <div className="h-full w-auto flex justify-center items-center ml-6">
-                        Bleach
-                      </div>
-                    </div>
-                    <div className="h-full w-1/2 flex justify-around items-center">
-                      <span>10/10</span>
-                      <span>20/366</span>
-                      <span>TV</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* COMPLETED SECTION */}
-              <div className="h-15 w-11/12 flex justify-end items-center">
-                <div className="h-auto w-auto flex justify-center items-center bg-white rounded"></div>
-              </div>
-              {/* COMPLETED HEADER */}
-              <div className="h-auto w-11/12">
-                <div className="h-12 w-full flex items-start pl-4 text-2xl font-light text-gray-800">
-                  Completed
-                </div>
-
-                <div className="bg-white rounded">
-                  <div
-                    id="watching-header"
-                    className="h-20 w-full flex justify-between items-center text-xl font-medium text-gray-800"
-                  >
-                    <div className="h-full w-1/2 flex items-center pl-29 ">
-                      Title
-                    </div>
-                    <div className="h-full w-1/2 flex justify-around items-center">
-                      <span>Score</span>
-                      <span>Progress</span>
-                      <span>Type</span>
-                    </div>
-                  </div>
-
-                  {/* NARUTO */}
-                  <div className="h-20 w-full flex justify-around items-center text-lg font-light text-gray-800 hover:bg-blue-400">
-                    <div className="h-full w-1/2 flex items-center">
-                      <div
-                        className="h-17 w-17 flex justify-center items-center ml-6 bg-cover bg-center rounded"
-                        style={{ backgroundImage: `url(${naruto})` }}
-                      ></div>
-                      <div className="h-full w-auto flex justify-center items-center ml-6">
-                        Naruto
-                      </div>
-                    </div>
-                    <div className="h-full w-1/2 flex justify-around items-center">
-                      <span>10/10</span>
-                      <span>20/366</span>
-                      <span>TV</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Paused SECTION */}
-              <div className="h-15 w-11/12 flex justify-end items-center">
-                <div className="h-auto w-auto flex justify-center items-center bg-white rounded"></div>
-              </div>
-              {/* Paused HEADER */}
-              <div className="h-auto w-11/12">
-                <div className="h-12 w-full flex items-start pl-4 text-2xl font-light text-gray-800">
-                  Paused
-                </div>
-
-                <div className="bg-white rounded">
-                  <div
-                    id="watching-header"
-                    className="h-20 w-full flex justify-between items-center text-xl font-medium text-gray-800"
-                  >
-                    <div className="h-full w-1/2 flex items-center pl-29 ">
-                      Title
-                    </div>
-                    <div className="h-full w-1/2 flex justify-around items-center">
-                      <span>Score</span>
-                      <span>Progress</span>
-                      <span>Type</span>
-                    </div>
-                  </div>
-
-                  {/* JJK */}
-                  <div className="h-20 w-full flex justify-around items-center text-lg font-light text-gray-800 hover:bg-blue-400">
-                    <div className="h-full w-1/2 flex items-center">
-                      <div
-                        className="h-17 w-17 flex justify-center items-center ml-6 bg-cover bg-center rounded"
-                        style={{ backgroundImage: `url(${jjk})` }}
-                      ></div>
-                      <div className="h-full w-auto flex justify-center items-center ml-6">
-                        Jujutsu Kaisen
-                      </div>
-                    </div>
-                    <div className="h-full w-1/2 flex justify-around items-center">
-                      <span>10/10</span>
-                      <span>20/366</span>
-                      <span>TV</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* Dropped SECTION */}
-              <div className="h-15 w-11/12 flex justify-end items-center">
-                <div className="h-auto w-auto flex justify-center items-center bg-white rounded"></div>
-              </div>
-              {/* Dropped HEADER */}
-              <div className="h-auto w-11/12">
-                <div className="h-12 w-full flex items-start pl-4 text-2xl font-light text-gray-800">
-                  Dropped
-                </div>
-
-                <div className="bg-white rounded">
-                  <div
-                    id="watching-header"
-                    className="h-20 w-full flex justify-between items-center text-xl font-medium text-gray-800"
-                  >
-                    <div className="h-full w-1/2 flex items-center pl-29 ">
-                      Title
-                    </div>
-                    <div className="h-full w-1/2 flex justify-around items-center">
-                      <span>Score</span>
-                      <span>Progress</span>
-                      <span>Type</span>
-                    </div>
-                  </div>
-
-                  {/* MHA */}
-                  <div className="h-20 w-full flex justify-around items-center text-lg font-light text-gray-800 hover:bg-blue-400">
-                    <div className="h-full w-1/2 flex items-center">
-                      <div
-                        className="h-17 w-17 flex justify-center items-center ml-6 bg-cover bg-center rounded"
-                        style={{ backgroundImage: `url(${mha})` }}
-                      ></div>
-                      <div className="h-full w-auto flex justify-center items-center ml-6">
-                        My Hero Acadamia
-                      </div>
-                    </div>
-                    <div className="h-full w-1/2 flex justify-around items-center">
-                      <span>10/10</span>
-                      <span>20/366</span>
-                      <span>TV</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Planning SECTION */}
-              <div className="h-15 w-11/12 flex justify-end items-center">
-                <div className="h-auto w-auto flex justify-center items-center bg-white rounded"></div>
-              </div>
-              {/* Planning HEADER */}
-              <div className="h-auto w-11/12 mb-20">
-                <div className="h-12 w-full flex items-start pl-4 text-2xl font-light text-gray-800">
-                  Planning
-                </div>
-
-                <div className="bg-white rounded">
-                  <div
-                    id="watching-header"
-                    className="h-20 w-full flex justify-between items-center text-xl font-medium text-gray-800"
-                  >
-                    <div className="h-full w-1/2 flex items-center pl-29 ">
-                      Title
-                    </div>
-                    <div className="h-full w-1/2 flex justify-around items-center">
-                      <span>Score</span>
-                      <span>Progress</span>
-                      <span>Type</span>
-                    </div>
-                  </div>
-
-                  {/* CSM */}
-                  <div className="h-20 w-full flex justify-around items-center text-lg font-light text-gray-800 hover:bg-blue-400">
-                    <div className="h-full w-1/2 flex items-center">
-                      <div
-                        className="h-17 w-17 flex justify-center items-center ml-6 bg-cover bg-center rounded"
-                        style={{ backgroundImage: `url(${csm})` }}
-                      ></div>
-                      <div className="h-full w-auto flex justify-center items-center ml-6">
-                        Chainsaw Man
-                      </div>
-                    </div>
-                    <div className="h-full w-1/2 flex justify-around items-center">
-                      <span>10/10</span>
-                      <span>20/366</span>
-                      <span>TV</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ListingBlock
+                headingTitle={"Watching"}
+                progressTitle={"Progress"}
+              >
+                <AnimeCell
+                  animeCover={bleach}
+                  title={"Bleach"}
+                  progress={"20/366"}
+                  type={"TV"}
+                />
+              </ListingBlock>
+              <ListingBlock
+                headingTitle={"Completed"}
+                progressTitle={"Progress"}
+              >
+                <AnimeCell
+                  animeCover={naruto}
+                  title={"Naruto"}
+                  score={"10"}
+                  progress={"220"}
+                  type={"TV"}
+                />
+              </ListingBlock>
+              <ListingBlock headingTitle={"Paused"} progressTitle={"Progress"}>
+                <AnimeCell
+                  animeCover={csm}
+                  title={"Chainsaw Man"}
+                  progress={"8/12"}
+                  type={"TV"}
+                />
+              </ListingBlock>
+              <ListingBlock headingTitle={"Dropped"} progressTitle={"Progress"}>
+                <AnimeCell
+                  animeCover={jjk}
+                  title={"JUJUTSU KAISEN Season 2"}
+                  progress={"9/23"}
+                  type={"TV"}
+                />
+              </ListingBlock>
+              <ListingBlock
+                headingTitle={"Planning"}
+                progressTitle={"Progress"}
+              >
+                <AnimeCell
+                  animeCover={mha}
+                  title={"My Hero Acadamia"}
+                  progress={"0/10"}
+                  type={"TV"}
+                />
+              </ListingBlock>
             </div>
+            {/* =================== */}
           </div>
         </div>
       </div>
 
-      {/* ============================ */}
-      {/* FOOTER */}
       <Footer />
-      {/* ============================ */}
     </>
   );
 }

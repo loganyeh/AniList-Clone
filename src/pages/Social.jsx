@@ -7,6 +7,8 @@ import { MyContext } from "../context/MyContext";
 import Footer from "../components/Shell/Footer";
 import GlobalNav from "../components/Shell/GlobalNav";
 import BannerAndMidNav from "../components/Shell/BannerAndMidNav";
+import ListSelectMenu from "../components/lists/sideBar/ListSelectMenu";
+import ListTitles from "../components/lists/sideBar/ListTitles";
 
 function Social() {
   const { page, setPage } = useContext(MyContext);
@@ -28,26 +30,12 @@ function Social() {
             {/* NAVBAR */}
             <div className="h-full w-1/5 mb-80 flex flex-col items-end">
               {/* LISTS CONTAINER */}
-              <div id="list-div" className="h-50 w-59 flex flex-col mt-8 mr-16">
-                <div className="h-1/12 w-full flex items-center text-lg text-gray-500">
-                  Social
-                </div>
-                {/* INNER NESTED */}
-                <div className="h-11/12 w-full flex flex-col justify-around mt-2">
-                  <span className="h-8 w-full flex items-center pl-3 text-gray-600 font-semibold bg-white rounded">
-                    Following
-                  </span>
-                  <span className="h-8 w-full flex items-center pl-3 text-gray-500">
-                    Followers
-                  </span>
-                  <span className="h-8 w-full flex items-center pl-3 text-gray-500">
-                    Forum Threads
-                  </span>
-                  <span className="h-8 w-full flex items-center pl-3 text-gray-500">
-                    Forum Comments
-                  </span>
-                </div>
-              </div>
+            <ListSelectMenu height={"50"} listName={"Social"}>
+              <ListTitles title={"Following"} />
+              <ListTitles title={"Followers"} />
+              <ListTitles title={"Forum Threads"} />
+              <ListTitles title={"Forum Comments"} />
+            </ListSelectMenu>
             </div>
 
             <div className="h-130 w-4/5 flex justify-center items-start pt-20 font-light text-gray-800 text-2xl">
@@ -57,10 +45,7 @@ function Social() {
         </div>
       </div>
 
-      {/* ============================ */}
-      {/* FOOTER */}
       <Footer />
-      {/* ============================ */}
     </>
   );
 }
