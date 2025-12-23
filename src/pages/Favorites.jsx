@@ -14,7 +14,6 @@ import GlobalNav from "../components/Shell/GlobalNav";
 import BannerAndMidNav from "../components/Shell/BannerAndMidNav";
 
 function Favorites() {
-  const { page, setPage } = useContext(MyContext);
 
   return (
     <>

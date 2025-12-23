@@ -1,9 +1,3 @@
-import rukia from "../assets/rukia.jpg";
-import banner from "../assets/banner.jpg";
-import bleach from "../assets/bleach.jpg";
-import logo from "../assets/logo.png";
-import { useContext } from "react";
-import { MyContext } from "../context/MyContext";
 import Footer from "../components/Shell/Footer";
 import GlobalNav from "../components/Shell/GlobalNav";
 import BannerAndMidNav from "../components/Shell/BannerAndMidNav";
@@ -11,7 +5,6 @@ import ListSelectMenu from "../components/lists/sideBar/ListSelectMenu";
 import ListTitles from "../components/lists/sideBar/ListTitles";
 
 function Stats() {
-  const { page, setPage } = useContext(MyContext);
 
   return (
     <>

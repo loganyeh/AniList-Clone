@@ -12,8 +12,6 @@ import {
   onepiece,
   frieren,
 } from "../assets/animes";
-import { useContext, useState } from "react";
-import { MyContext } from "../context/MyContext";
 import Footer from "../components/Shell/Footer";
 import GlobalNav from "../components/Shell/GlobalNav";
 import BannerAndMidNav from "../components/Shell/BannerAndMidNav";
@@ -28,7 +26,6 @@ import YearSlider from "../components/lists/sideBar/YearSlider";
 import FilterSearchBar from "../components/lists/sideBar/FilterSearchBar";
 
 function AnimeList() {
-  const { page, setPage } = useContext(MyContext);
 
   return (
     <>
