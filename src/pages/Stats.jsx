@@ -176,13 +176,37 @@ function Stats() {
               {/* PIE CHARTS BLOCK */}
               <div className="h-85 w-full flex justify-around items-center mb-15">
                 {/* PIE CHART 1 */}
-                <PieChart heading={"Format Distribution"} title1={"TV"} title2={"MOVIE"} title3={"OVA"} num1={"68"} num2={"11"} num3={"10"} />
+                <PieChart
+                  heading={"Format Distribution"}
+                  title1={"TV"}
+                  title2={"MOVIE"}
+                  title3={"OVA"}
+                  num1={"68"}
+                  num2={"11"}
+                  num3={"10"}
+                />
 
                 {/* PIE CHART 2 */}
-                <PieChart heading={"Status Distribution"} title1={"TV"} title2={"MOVIE"} title3={"OVA"} num1={"68"} num2={"24"} num3={"5"} />
+                <PieChart
+                  heading={"Status Distribution"}
+                  title1={"TV"}
+                  title2={"MOVIE"}
+                  title3={"OVA"}
+                  num1={"68"}
+                  num2={"24"}
+                  num3={"5"}
+                />
 
                 {/* PIE CHART 3 */}
-                <PieChart heading={"Country Distribution"} title1={"TV"} title2={"MOVIE"} title3={"OVA"} num1={"96"} num2={"3"} num3={"1"} />
+                <PieChart
+                  heading={"Country Distribution"}
+                  title1={"TV"}
+                  title2={"MOVIE"}
+                  title3={"OVA"}
+                  num1={"96"}
+                  num2={"3"}
+                  num3={"1"}
+                />
               </div>
 
               {/* RELEASE YEAR BLOCK */}
