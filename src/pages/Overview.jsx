@@ -22,6 +22,11 @@ import { MyContext } from "../context/MyContext";
 import GlobalNav from "../components/Shell/GlobalNav";
 import Footer from "../components/Shell/Footer";
 import BannerAndMidNav from "../components/Shell/BannerAndMidNav";
+import TotalBlock from "../components/overviewPage/TotalBlock";
+import FavoriteBlock from "../components/overviewPage/FavoriteBlock";
+import FavoritePoster from "../components/overviewPage/FavoritePoster";
+import ActivityBlock from "../components/overviewPage/ActivityBlock";
+import GenreBlock from "../components/overviewPage/GenreBlock";
 
 function Overview() {
   const { page, setPage } = useContext(MyContext);
@@ -43,223 +48,34 @@ function Overview() {
             {/* WORKING */}
             <div className="h-auto w-full flex justify-center">
               {/* LEFT SIDE - OVERVIEW */}
-              <div className="h-full w-1/3">
+              <div className="h-full w-1/3 pb-20">
                 {/* ACTIVITY HISTORY */}
-                <div className="h-auto w-auto">
-                  <div className="h-15 w-full flex items-center font-semibold text-xl text-gray-600">
-                    Activity History
-                  </div>
-                  <div className="h-65 w-full flex flex-wrap p-5 bg-white rounded-lg shadow-lg">
-                    <div className="h-5 w-5 m-1 bg-blue-400 rounded"></div>
-                    <div className="h-5 w-5 m-1 bg-blue-400 rounded"></div>
-                  </div>
-                </div>
+                <ActivityBlock />
 
                 {/* GENRE OVERVIEW */}
-                <div className="h-auto w-auto mt-5">
-                  <div className="h-15 w-full flex items-center font-semibold text-xl text-gray-600">
-                    Genre Overview
-                  </div>
-                  <div className="h-24 w-full flex flex-col items-center bg-white rounded-lg shadow-lg">
-                    <div className="h-1/3 w-130 mt-4 flex justify-between items-center">
-                      <div className="h-full w-30 flex justify-center items-center text-white text-xl font-light bg-green-400 rounded-lg">
-                        Comedy
-                      </div>
-                      <div className="h-full w-30 flex justify-center items-center text-white text-xl font-light bg-blue-400 rounded-lg">
-                        Action
-                      </div>
-                      <div className="h-full w-30 flex justify-center items-center text-white text-xl font-light bg-purple-400 rounded-lg">
-                        Supernatural
-                      </div>
-                      <div className="h-full w-30 flex justify-center items-center text-white text-xl font-light bg-pink-400 rounded-lg">
-                        Drama
-                      </div>
-                    </div>
-                    <div className="h-1/3 w-130 flex justify-between items-center">
-                      <div className="h-full w-30 flex justify-center items-center text-gray-400 text-sm font-light">
-                        <span className="pr-1 text-lg text-green-400">51</span>
-                        Entries
-                      </div>
-                      <div className="h-full w-30 flex justify-center items-center text-gray-400 text-sm font-light">
-                        <span className="pr-1 text-lg text-blue-400">46</span>
-                        Entries
-                      </div>
-                      <div className="h-full w-30 flex justify-center items-center text-gray-400 text-sm font-light">
-                        <span className="pr-1 text-lg text-purple-400">38</span>
-                        Entries
-                      </div>
-                      <div className="h-full w-30 flex justify-center items-center text-gray-400 text-sm font-light">
-                        <span className="pr-1 text-lg text-pink-400">33</span>
-                        Entries
-                      </div>
-                    </div>
-                    <div className="h-1/3 w-full flex items-end">
-                      <div className="h-3 w-4/12 bg-green-400 rounded-bl-sm"></div>
-                      <div className="h-3 w-2/12 bg-blue-400"></div>
-                      <div className="h-3 w-2/12 bg-purple-400"></div>
-                      <div className="h-3 w-2/12 bg-pink-400"></div>
-                      <div className="h-3 w-1/12 bg-red-500"></div>
-                      <div className="h-3 w-1/12 bg-orange-400"></div>
-                    </div>
-                  </div>
-                </div>
+                <GenreBlock />
 
-                {/* ANIME SHOWS */}
-                <div className="h-auto w-auto mt-5">
-                  <div className="h-15 w-full flex items-center font-semibold text-xl text-gray-600">
-                    Anime
-                  </div>
-                  <div className="min-h-100 w-full flex justify-around flex-wrap p-5 bg-white rounded-lg shadow-lg">
-                    <div
-                      className="h-40 w-30 bg-center bg-cover rounded"
-                      style={{ backgroundImage: `url(${naruto})` }}
-                    ></div>
-                    <div
-                      className="h-40 w-30 bg-center bg-cover rounded"
-                      style={{ backgroundImage: `url(${csm})` }}
-                    ></div>
-                    <div
-                      className="h-40 w-30 bg-center bg-cover rounded"
-                      style={{ backgroundImage: `url(${mha})` }}
-                    ></div>
-                    <div
-                      className="h-40 w-30 bg-center bg-cover rounded"
-                      style={{ backgroundImage: `url(${bleach})` }}
-                    ></div>
-                    <div
-                      className="h-40 w-30 bg-center bg-cover rounded"
-                      style={{ backgroundImage: `url(${demon_slayer})` }}
-                    ></div>
-                  </div>
-                </div>
+                <FavoriteBlock height={"auto"} title={"Anime"}>
+                  <FavoritePoster img={naruto} />
+                  <FavoritePoster img={csm} />
+                  <FavoritePoster img={mha} />
+                  <FavoritePoster img={bleach} />
+                  <FavoritePoster img={demon_slayer} />
+                </FavoriteBlock>
 
-                {/* CHARACTERS */}
-                <div className="h-auto w-auto mt-5 mb-40">
-                  <div className="h-15 w-full flex items-center font-semibold text-xl text-gray-600">
-                    Anime
-                  </div>
-                  <div className="min-h-100 w-full flex justify-around flex-wrap p-5 bg-white rounded-lg shadow-lg">
-                    <div
-                      className="h-40 w-30 bg-center bg-cover rounded"
-                      style={{ backgroundImage: `url(${denji})` }}
-                    ></div>
-                    <div
-                      className="h-40 w-30 bg-center bg-cover rounded"
-                      style={{ backgroundImage: `url(${ichigo})` }}
-                    ></div>
-                    <div
-                      className="h-40 w-30 bg-center bg-cover rounded"
-                      style={{ backgroundImage: `url(${itadori})` }}
-                    ></div>
-                    <div
-                      className="h-40 w-30 bg-center bg-cover rounded"
-                      style={{ backgroundImage: `url(${zoro})` }}
-                    ></div>
-                    <div
-                      className="h-40 w-30 bg-center bg-cover rounded"
-                      style={{ backgroundImage: `url(${giyuu})` }}
-                    ></div>
-                  </div>
-                </div>
+                <FavoriteBlock height={"auto"} title={"Characters"}>
+                  <FavoritePoster img={denji} />
+                  <FavoritePoster img={ichigo} />
+                  <FavoritePoster img={itadori} />
+                  <FavoritePoster img={zoro} />
+                  <FavoritePoster img={giyuu} />
+                </FavoriteBlock>
               </div>
 
               {/* RIGHT SIDE - OVERVIEW */}
               <div className="h-full w-1/2 flex flex-col justify-start items-center">
-                {/* TOTAL ANIME */}
-                <div className="h-70 w-215 mt-10">
-                  <div className="h-55 w-full flex flex-col items-center bg-white rounded-lg shadow-lg">
-                    <div className="h-55 w-full mt-4 flex justify-between items-center">
-                      <div className="h-full w-1/3 flex flex-col justify-center items-center">
-                        <div className="font-semibold text-xl text-blue-400">
-                          73
-                        </div>
-                        <div className="font-light text-lg text-gray-500">
-                          Total Anime
-                        </div>
-                      </div>
-                      <div className="h-full w-1/3 flex flex-col justify-center items-center">
-                        <div className="font-semibold text-xl text-blue-400">
-                          28.4
-                        </div>
-                        <div className="font-light text-lg text-gray-500">
-                          Days Watched
-                        </div>
-                      </div>
-                      <div className="h-full w-1/3 flex flex-col justify-center items-center">
-                        <div className="font-semibold text-xl text-blue-400">
-                          78.2
-                        </div>
-                        <div className="font-light text-lg text-gray-500">
-                          Mean Score
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="h-1/3 w-full flex flex-wrap bg-gray-300">
-                      <div className="h-12 w-full flex justify-around items-center text-md text-gray-600 font-light">
-                        <div className="h-full w-1/3 flex justify-center items-center">
-                          10
-                        </div>
-                        <div className="h-full w-1/3 flex justify-center items-center">
-                          30
-                        </div>
-                        <div className="h-full w-1/3 flex justify-center items-center">
-                          50
-                        </div>
-                      </div>
-                      <div className="h-3 w-1/2 bg-blue-400 rounded-bl-sm rounded-r-sm"></div>
-                      <div className="h-3 w-1/2 bg-gray-400 rounded-br-sm"></div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* TOTAL MANGA */}
-                <div className="h-70 w-215">
-                  <div className="h-55 w-full flex flex-col items-center bg-white rounded-lg shadow-lg">
-                    <div className="h-55 w-full mt-4 flex justify-between items-center">
-                      <div className="h-full w-1/3 flex flex-col justify-center items-center">
-                        <div className="font-semibold text-xl text-blue-400">
-                          12
-                        </div>
-                        <div className="font-light text-lg text-gray-500">
-                          Total Manga
-                        </div>
-                      </div>
-                      <div className="h-full w-1/3 flex flex-col justify-center items-center">
-                        <div className="font-semibold text-xl text-blue-400">
-                          674
-                        </div>
-                        <div className="font-light text-lg text-gray-500">
-                          Chapters Read
-                        </div>
-                      </div>
-                      <div className="h-full w-1/3 flex flex-col justify-center items-center">
-                        <div className="font-semibold text-xl text-blue-400">
-                          85.0
-                        </div>
-                        <div className="font-light text-lg text-gray-500">
-                          Mean Score
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="h-1/3 w-full flex flex-wrap bg-gray-300">
-                      <div className="h-12 w-full flex justify-around items-center text-md text-gray-600 font-light">
-                        <div className="h-full w-1/3 flex justify-center items-center">
-                          100
-                        </div>
-                        <div className="h-full w-1/3 flex justify-center items-center">
-                          500
-                        </div>
-                        <div className="h-full w-1/3 flex justify-center items-center">
-                          100
-                        </div>
-                      </div>
-                      <div className="h-3 w-2/3 bg-blue-400 rounded-bl-sm rounded-r-sm"></div>
-                      <div className="h-3 w-1/3 bg-gray-400 rounded-br-sm"></div>
-                    </div>
-                  </div>
-                </div>
+                <TotalBlock watchedTitle={"Total Anime"} totalWatched={"73"} timeTitle={"Days Watched"} time={"28.4"} mean={"78.4"} firstNum={"10"} secondNum={"20"} thirdNum={"30"}  />
+                <TotalBlock watchedTitle={"Total Manga"} totalWatched={"12"} timeTitle={"Chapters Read"} time={"674"} mean={"85.0"} firstNum={"100"} secondNum={"500"} thirdNum={"1000"}  />
 
                 {/* ACTIVITY */}
                 <div className="h-35 w-215">
@@ -312,10 +128,7 @@ function Overview() {
         </div>
       </div>
 
-      {/* ============================ */}
-      {/* FOOTER */}
       <Footer />
-      {/* ============================ */}
     </>
   );
 }
