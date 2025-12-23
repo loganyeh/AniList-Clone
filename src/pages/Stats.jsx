@@ -3,9 +3,13 @@ import GlobalNav from "../components/Shell/GlobalNav";
 import BannerAndMidNav from "../components/Shell/BannerAndMidNav";
 import ListSelectMenu from "../components/lists/sideBar/ListSelectMenu";
 import ListTitles from "../components/lists/sideBar/ListTitles";
+import StatsBlock from "../components/overviewPage/StatsBlock";
+import ChartBlock from "../components/overviewPage/ChartBlock";
+import ChartDataBubble from "../components/overviewPage/ChartDataBubble";
+import ChartGraph from "../components/overviewPage/ChartGraph";
+import ChartXAxis from "../components/overviewPage/ChartXAxis";
 
 function Stats() {
-
   return (
     <>
       {/* DESIGNING THE ANIME LIST PAGE FIRST */}
@@ -24,114 +28,23 @@ function Stats() {
             <div className="h-full w-1/5 flex flex-col items-end">
               {/* LISTS CONTAINER */}
               <ListSelectMenu height={"70"} listName={"Anime Stats"}>
-                <ListTitles title={"Overview"}/>
-                <ListTitles title={"Genres"}/>
-                <ListTitles title={"Tags"}/>
-                <ListTitles title={"Voice Actors"}/>
-                <ListTitles title={"Studios"}/>
-                <ListTitles title={"Staff"}/>
+                <ListTitles title={"Overview"} />
+                <ListTitles title={"Genres"} />
+                <ListTitles title={"Tags"} />
+                <ListTitles title={"Voice Actors"} />
+                <ListTitles title={"Studios"} />
+                <ListTitles title={"Staff"} />
               </ListSelectMenu>
               <ListSelectMenu height={"50"} listName={"Manga Stats"}>
-                <ListTitles title={"Overview"}/>
-                <ListTitles title={"Genres"}/>
-                <ListTitles title={"Tags"}/>
-                <ListTitles title={"Staff"}/>
+                <ListTitles title={"Overview"} />
+                <ListTitles title={"Genres"} />
+                <ListTitles title={"Tags"} />
+                <ListTitles title={"Staff"} />
               </ListSelectMenu>
             </div>
 
             <div className="h-auto w-8/12">
-              {/* ANIME STATISTICS BLOCK */}
-              <div className="h-80 w-11/12 flex flex-wrap my-15">
-                {/* STAT 1 */}
-                <div className="h-1/2 w-1/3 flex justify-center items-center">
-                  <div className="h-16 w-16 flex justify-center items-center ml-20 bg-white rounded-full shadow-md">
-                    <i className="bx bx-tv text-4xl text-gray-500"></i>
-                  </div>
-                  <div className="h-full w-1/2 flex flex-col justify-center items-center ml-6">
-                    <div className="h-20 w-full flex justify-start items-end text-blue-400 text-5xl font-semibold">
-                      73
-                    </div>
-                    <div className="h-15 w-full flex justify-start items-start text-gray-500 text-lg font-semibold whitespace-nowrap">
-                      Total Anime
-                    </div>
-                  </div>
-                </div>
-
-                {/* STAT 2 */}
-                <div className="h-1/2 w-1/3 flex justify-center items-center">
-                  <div className="h-16 w-16 flex justify-center items-center ml-20 bg-white rounded-full shadow-md">
-                    <i class="bx bx-play text-4xl text-gray-500"></i>
-                  </div>
-                  <div className="h-full w-1/2 flex flex-col justify-center items-center ml-6">
-                    <div className="h-20 w-full flex justify-start items-end text-blue-400 text-5xl font-semibold">
-                      1725
-                    </div>
-                    <div className="h-15 w-full flex justify-start items-start text-gray-500 text-lg font-semibold whitespace-nowrap">
-                      Episodes Watched
-                    </div>
-                  </div>
-                </div>
-
-                {/* STAT 3 */}
-                <div className="h-1/2 w-1/3 flex justify-center items-center">
-                  <div className="h-16 w-16 flex justify-center items-center ml-20 bg-white rounded-full shadow-md">
-                    <i className="bx bx-calendar-alt text-4xl text-gray-500"></i>
-                  </div>
-                  <div className="h-full w-1/2 flex flex-col justify-center items-center ml-6">
-                    <div className="h-20 w-full flex justify-start items-end text-blue-400 text-5xl font-semibold">
-                      28.4
-                    </div>
-                    <div className="h-15 w-full flex justify-start items-start text-gray-500 text-lg font-semibold whitespace-nowrap">
-                      Days Watched
-                    </div>
-                  </div>
-                </div>
-
-                {/* STAT 4 */}
-                <div className="h-1/2 w-1/3 flex justify-center items-center">
-                  <div className="h-16 w-16 flex justify-center items-center ml-20 bg-white rounded-full shadow-md">
-                    <i className="bx bx-hourglass text-4xl text-gray-500"></i>
-                  </div>
-                  <div className="h-full w-1/2 flex flex-col justify-center items-center ml-6">
-                    <div className="h-20 w-full flex justify-start items-end text-blue-400 text-5xl font-semibold">
-                      40.3
-                    </div>
-                    <div className="h-15 w-full flex justify-start items-start text-gray-500 text-lg font-semibold whitespace-nowrap">
-                      Days Planned
-                    </div>
-                  </div>
-                </div>
-
-                {/* STAT 5 */}
-                <div className="h-1/2 w-1/3 flex justify-center items-center">
-                  <div className="h-16 w-16 flex justify-center items-center ml-20 bg-white rounded-full shadow-md">
-                    <i className="bx bx-plus text-4xl text-gray-500"></i>
-                  </div>
-                  <div className="h-full w-1/2 flex flex-col justify-center items-center ml-6">
-                    <div className="h-20 w-full flex justify-start items-end text-blue-400 text-5xl font-semibold">
-                      78.15
-                    </div>
-                    <div className="h-15 w-full flex justify-start items-start text-gray-500 text-lg font-semibold whitespace-nowrap">
-                      Mean Score
-                    </div>
-                  </div>
-                </div>
-
-                {/* STAT 6 */}
-                <div className="h-1/2 w-1/3 flex justify-center items-center">
-                  <div className="h-16 w-16 flex justify-center items-center ml-20 bg-white rounded-full shadow-md">
-                    <i className="bx bx-minus text-4xl text-gray-500"></i>
-                  </div>
-                  <div className="h-full w-1/2 flex flex-col justify-center items-center ml-6">
-                    <div className="h-20 w-full flex justify-start items-end text-blue-400 text-5xl font-semibold">
-                      14.4
-                    </div>
-                    <div className="h-15 w-full flex justify-start items-start text-gray-500 text-lg font-semibold whitespace-nowrap">
-                      Standard Deviation
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <StatsBlock />
 
               {/* SCORE CHART BLOCK */}
               <div className="h-80 w-full mb-25">
