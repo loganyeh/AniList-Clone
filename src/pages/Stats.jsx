@@ -4,10 +4,6 @@ import BannerAndMidNav from "../components/Shell/BannerAndMidNav";
 import ListSelectMenu from "../components/lists/sideBar/ListSelectMenu";
 import ListTitles from "../components/lists/sideBar/ListTitles";
 import StatsBlock from "../components/overviewPage/StatsBlock";
-import ChartBlock from "../components/overviewPage/ChartBlock";
-import ChartDataBubble from "../components/overviewPage/ChartDataBubble";
-import ChartGraph from "../components/overviewPage/ChartGraph";
-import ChartXAxis from "../components/overviewPage/ChartXAxis";
 
 function Stats() {
   return (
@@ -46,6 +42,8 @@ function Stats() {
             <div className="h-auto w-8/12">
               <StatsBlock />
 
+
+              {/* +========== BEGIN */}
               {/* SCORE CHART BLOCK */}
               <div className="h-80 w-full mb-25">
                 {/* TITLE - SCORE */}
@@ -126,6 +124,8 @@ function Stats() {
                   </div>
                 </div>
               </div>
+
+              {/* =================== */}
 
               {/* EPISODE COUNT BLOCK */}
               <div className="h-80 w-full mb-25">
