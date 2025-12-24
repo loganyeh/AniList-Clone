@@ -1,22 +1,8 @@
-import {
-  rukia,
-  banner,
-  bleach,
-  logo,
-  csm,
-  jjk,
-  mha,
-  naruto,
-  demon_slayer,
-} from "../assets/animes";
-import { useContext } from "react";
-import { MyContext } from "../context/MyContext";
 import Footer from "../components/Shell/Footer";
 import GlobalNav from "../components/Shell/GlobalNav";
 import BannerAndMidNav from "../components/Shell/BannerAndMidNav";
 
 function Reviews() {
-  const { page, setPage } = useContext(MyContext);
 
   return (
     <>

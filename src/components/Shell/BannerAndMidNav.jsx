@@ -1,9 +1,17 @@
 import { banner, rukia,  } from "../../assets/animes";
-import { useContext } from "react";
-import { MyContext } from "../../context/MyContext";
+import { Link } from "react-router-dom";
 
 function BannerAndMidNav() {
-    const { page, setPage } = useContext(MyContext);
+  const linkData = [
+    {to: "/overview", title: "Overview"},
+    {to: "/", title: "Anime List"},
+    {to: "/mangalist", title: "Manga List"},
+    {to: "/favorites", title: "Favorites"},
+    {to: "/stats", title: "Stats"},
+    {to: "/social", title: "Social"},
+    {to: "/reviews", title: "Reviews"},
+    {to: "/submissions", title: "Submissions"},
+  ]
     
   return (
     <>
@@ -25,19 +33,11 @@ function BannerAndMidNav() {
           </span>
         </div>
         <div className="h-14 w-10/12 flex justify-around items-center text-lg font-semibold text-gray-500">
-          <span onClick={() => setPage("overview")}>Overview</span>
-          <span onClick={() => setPage("animelist")} className="text-blue-500">
-            Anime List
-          </span>
-          <span onClick={() => setPage("mangalist")}>Manga List</span>
-          <span onClick={() => setPage("favorites")}>Favorites</span>
-          <span onClick={() => setPage("stats")}>Stats</span>
-          <span onClick={() => setPage("social")}>Social</span>
-          <span onClick={() => setPage("reviews")}>Reviews</span>
-          <span onClick={() => setPage("submissions")}>Submissions</span>
+          {linkData.map((link, index) => {
+            return <Link key={index} to={link.to} className="hover:text-blue-500 active:text-blue-700">{link.title}</Link>
+          })}
         </div>
       </div>
-      {/* =================== End of BANNER & MID NAV BAR */}
     </>
   );
 }

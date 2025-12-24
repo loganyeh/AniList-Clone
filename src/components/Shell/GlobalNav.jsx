@@ -1,17 +1,19 @@
 import { rukia, logo } from "../../assets/animes";
-import { useContext } from "react";
-import { MyContext } from "../../context/MyContext";
+import { Link } from "react-router-dom";
 
 function GlobalNav() {
-  const { page, setPage } = useContext(MyContext);
+  const linkData = [
+    {to: "/wip", title: "Home"},
+    {to: "/overview", title: "Profile"},
+    {to: "/", title: "Anime List"},
+    {to: "/mangalist", title: "Manga List"},
+    {to: "/browse", title: "Browse"},
+    {to: "/wip", title: "Forum"},
+  ]
 
   return (
     <>
-      {/* ================================= */}
-      {/* GLOBAL NAV */}
-      {/* ================================= */}
       <div className="absolute h-24 w-full flex bg-gray-900 opacity-100">
-        {/* LEFT SIDE LOGO */}
         <div className="h-full w-1/4 flex justify-center items-center">
           <div
             className="h-20 w-20 bg-center bg-cover"
@@ -21,12 +23,9 @@ function GlobalNav() {
         {/* MIDDLE NAV ELEMENTS */}
         <div className="h-full w-2/4">
           <div className="h-full w-full flex justify-between items-center font-light text-xl text-gray-200">
-            <div onClick={() => setPage("wip")}>Home</div>
-            <div onClick={() => setPage("overview")}>Profile</div>
-            <div onClick={() => setPage("animelist")}>Anime List</div>
-            <div onClick={() => setPage("mangalist")}>Manga List</div>
-            <div onClick={() => setPage("browse")}>Browse</div>
-            <div onClick={() => setPage("wip")}>Forum</div>
+            {linkData.map((link, index) => {
+              return <Link key={index} to={link.to} className="hover:text-white">{link.title}</Link>
+            })}
           </div>
         </div>
         {/* RIGHT SEARCH & PROFILE */}
@@ -41,7 +40,6 @@ function GlobalNav() {
           </div>
         </div>
       </div>
-      {/* ============================== End of GLOBAL NAV */}
     </>
   );
 }

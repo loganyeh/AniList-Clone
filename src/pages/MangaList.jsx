@@ -1,17 +1,3 @@
-import {
-  rukia,
-  banner,
-  bleach,
-  logo,
-  csm,
-  jjk,
-  mha,
-  naruto,
-  demon_slayer,
-  haikyu,
-  onepiece,
-  frieren,
-} from "../assets/animes";
 import Footer from "../components/Shell/Footer";
 import GlobalNav from "../components/Shell/GlobalNav";
 import BannerAndMidNav from "../components/Shell/BannerAndMidNav";
@@ -24,8 +10,12 @@ import DropdownMenu from "../components/lists/sideBar/DropdownMenu";
 import DropdownButton from "../components/lists/sideBar/DropdownButton";
 import YearSlider from "../components/lists/sideBar/YearSlider";
 import FilterSearchBar from "../components/lists/sideBar/FilterSearchBar";
+// mangaData
+import { readingML, rereadingML, completedML, pausedML, planningML } from "../data/animeDataArrays";
 
 function MangaList() {
+  const listTitlesArr = ["All", "Reading", "Rereading", "Completed", "Paused", "Planning"];
+  const dropdownBtnNamesArr = ["Format", "Status", "Genres", "Country"];  
 
   return (
     <>
@@ -46,19 +36,15 @@ function MangaList() {
               <FilterSearchBar />
               {/* LISTS CONTAINER */}
               <ListSelectMenu height={"70"} listName={"Lists"}>
-                <ListTitles title={"All"} />
-                <ListTitles title={"Reading"} />
-                <ListTitles title={"Rereading"} />
-                <ListTitles title={"Completed"} />
-                <ListTitles title={"Paused"} />
-                <ListTitles title={"Planning"} />
+                {listTitlesArr.map((title, index) => {
+                  return <ListTitles key={index} title={title} />
+                })}
               </ListSelectMenu>
               {/* FILTERS */}
               <DropdownMenu height={"65"} menuName={"Filters"}>
-                <DropdownButton dropdownName={"Format"} />
-                <DropdownButton dropdownName={"Status"} />
-                <DropdownButton dropdownName={"Genres"} />
-                <DropdownButton dropdownName={"Country"} />
+                {dropdownBtnNamesArr.map((name, index) => {
+                  return <DropdownButton key={index} dropdownName={name} />
+                })}
               </DropdownMenu>
               {/* YEAR */}
               <YearSlider />
@@ -73,60 +59,43 @@ function MangaList() {
               <FormatListView />
 
               {/* ========================== */}
+              {/* Reading */}
               <ListingBlock headingTitle={"Reading"} progressTitle={"Chapters"}>
-                <AnimeCell
-                  animeCover={bleach}
-                  title={"Bleach"}
-                  score={"0/10"}
-                  progress={"0/10"}
-                  type={"Manga"}
-                />
+                {readingML.map((manga) => {
+                  return <AnimeCell key={manga.id} animeCover={manga.cover} title={manga.title} score={manga.score} progress={manga.progress} type={manga.type} />
+                })}
               </ListingBlock>
-              <ListingBlock
-                headingTitle={"Rereading"}
-                progressTitle={"Chapters"}
-              >
-                <AnimeCell
-                  animeCover={bleach}
-                  title={"Bleach"}
-                  score={"0/10"}
-                  progress={"0/10"}
-                  type={"Manga"}
-                />
+
+              {/* Rereading */}
+              <ListingBlock headingTitle={"Rereading"} progressTitle={"Chapters"}>
+                {rereadingML.map((manga) => {
+                  return <AnimeCell key={manga.id} animeCover={manga.cover} title={manga.title} score={manga.score} progress={manga.progress} type={manga.type} />
+                })}
               </ListingBlock>
-              <ListingBlock
-                headingTitle={"Completed"}
-                progressTitle={"Chapters"}
-              >
-                <AnimeCell
-                  animeCover={bleach}
-                  title={"Bleach"}
-                  score={"0/10"}
-                  progress={"0/10"}
-                  type={"Manga"}
-                />
+
+              {/* Completed */}
+              <ListingBlock headingTitle={"Completed"} progressTitle={"Chapters"}>
+                {completedML.map((manga) => {
+                  return <AnimeCell key={manga.id} animeCover={manga.cover} title={manga.title} score={manga.score} progress={manga.progress} type={manga.type} />
+                })}
               </ListingBlock>
+
+              {/* Paused */}
               <ListingBlock headingTitle={"Paused"} progressTitle={"Chapters"}>
-                <AnimeCell
-                  animeCover={bleach}
-                  title={"Bleach"}
-                  score={"0/10"}
-                  progress={"0/10"}
-                  type={"Manga"}
-                />
+                {pausedML.map((manga) => {
+                  return <AnimeCell key={manga.id} animeCover={manga.cover} title={manga.title} score={manga.score} progress={manga.progress} type={manga.type} />
+                })}
               </ListingBlock>
-              <ListingBlock
-                headingTitle={"Planning"}
-                progressTitle={"Chapters"}
-              >
-                <AnimeCell
-                  animeCover={bleach}
-                  title={"Bleach"}
-                  score={"0/10"}
-                  progress={"0/10"}
-                  type={"Manga"}
-                />
+
+              {/* Planning */}
+              <ListingBlock headingTitle={"Planning"} progressTitle={"Chapters"}>
+                {planningML.map((manga) => {
+                  return <AnimeCell key={manga.id} animeCover={manga.cover} title={manga.title} score={manga.score} progress={manga.progress} type={manga.type} />
+                })}
               </ListingBlock>
+
+
+              
             </div>
           </div>
         </div>

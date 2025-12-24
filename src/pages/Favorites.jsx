@@ -1,25 +1,10 @@
-import {
-  rukia,
-  banner,
-  bleach,
-  naruto,
-  logo,
-  csm,
-  demon_slayer,
-} from "../assets/animes";
-import {
-  denji,
-  giyuu,
-  ichigo,
-  itadori,
-  okarun,
-  zoro,
-} from "../assets/characters";
 import Footer from "../components/Shell/Footer";
 import GlobalNav from "../components/Shell/GlobalNav";
 import BannerAndMidNav from "../components/Shell/BannerAndMidNav";
 import FavBlock from "../components/favPage/FavBlock";
 import LikedAnimeCharacter from "../components/favPage/LikedAnimeCharacter";
+// animeData 
+import { favAnimes, favCharacters } from "../data/animeDataArrays";
 
 function Favorites() {
   return (
@@ -38,13 +23,15 @@ function Favorites() {
           >
             {/* ANIME FAVORITES SECTION */}
             <FavBlock title={"Anime"}>
-              <LikedAnimeCharacter img={naruto} />
-              <LikedAnimeCharacter img={demon_slayer} />
+              {favAnimes.map((anime, index) => {
+                return <LikedAnimeCharacter key={index} img={anime.cover} />
+              })}
             </FavBlock>
             {/* CHARACTERS FAVORITES SECTION */}
             <FavBlock title={"Characters"}>
-              <LikedAnimeCharacter img={denji} />
-              <LikedAnimeCharacter img={zoro} />
+              {favCharacters.map((char, index) => {
+                return <LikedAnimeCharacter key={index} img={char.character} />
+              })}
             </FavBlock>
           </div>
         </div>

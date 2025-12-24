@@ -1,9 +1,3 @@
-import rukia from "../assets/rukia.jpg";
-import banner from "../assets/banner.jpg";
-import bleach from "../assets/bleach.jpg";
-import logo from "../assets/logo.png";
-import { useContext } from "react";
-import { MyContext } from "../context/MyContext";
 import Footer from "../components/Shell/Footer";
 import GlobalNav from "../components/Shell/GlobalNav";
 import BannerAndMidNav from "../components/Shell/BannerAndMidNav";
@@ -11,7 +5,7 @@ import ListSelectMenu from "../components/lists/sideBar/ListSelectMenu";
 import ListTitles from "../components/lists/sideBar/ListTitles";
 
 function Social() {
-  const { page, setPage } = useContext(MyContext);
+  const socialListTitles = ["Following", "Followers", "Forum Threads", "Forum Comments"]
 
   return (
     <>
@@ -31,10 +25,9 @@ function Social() {
             <div className="h-full w-1/5 mb-80 flex flex-col items-end">
               {/* LISTS CONTAINER */}
             <ListSelectMenu height={"50"} listName={"Social"}>
-              <ListTitles title={"Following"} />
-              <ListTitles title={"Followers"} />
-              <ListTitles title={"Forum Threads"} />
-              <ListTitles title={"Forum Comments"} />
+              {socialListTitles.map((title, index) => {
+                return <ListTitles key={index} title={title} />
+              })}
             </ListSelectMenu>
             </div>
 

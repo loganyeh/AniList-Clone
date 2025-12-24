@@ -1,30 +1,31 @@
-
-import rukia from "./rukia.jpg";
-import banner from "./banner.jpg";
-import bleach from "./bleach.jpg";
-import logo from "./logo.png";
-import csm from "./csm.jpg";
-import jjk from "./jjk.jpg";
-import mha from "./mha.jpg";
-import naruto from "./naruto.jpg";
-import demon_slayer from "./demon_slayer.jpg";
-import haikyu from "./anime covers/haikyu.jpg"
-import onepiece from "./anime covers/onepiece.jpg";
-import frieren from "./anime covers/frieren.jpg";
-import hxh from "./anime covers/hxh.jpg"
+// BANNER IMGS
+import rukia from "./profileImgs/rukia.jpg";
+import banner from "./profileImgs/banner.jpg";
+import logo from "./profileImgs/logo.png";
+// ANIME COVERS IMG
+import bleach from "./animeCovers/bleach.jpg";
+import csm from "./animeCovers/csm.jpg";
+import jjk from "./animeCovers/jjk.jpg";
+import mha from "./animeCovers/mha.jpg";
+import naruto from "./animeCovers/naruto.jpg";
+import demon_slayer from "./animeCovers/demon_slayer.jpg";
+import haikyu from "./animeCovers/haikyu.jpg";
+import onepiece from "./animeCovers/onepiece.jpg";
+import frieren from "./animeCovers/frieren.jpg";
+import hxh from "./animeCovers/hxh.jpg";
 
 export {
-    rukia,
-    banner, 
-    bleach,
-    logo,
-    csm,
-    jjk,
-    mha, 
-    naruto,
-    demon_slayer,
-    haikyu,
-    onepiece, 
-    frieren,
-    hxh
-}
+  rukia,
+  banner,
+  bleach,
+  logo,
+  csm,
+  jjk,
+  mha,
+  naruto,
+  demon_slayer,
+  haikyu,
+  onepiece,
+  frieren,
+  hxh,
+};

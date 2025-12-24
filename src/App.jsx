@@ -19,17 +19,18 @@ function App() {
   return (
     <>
       <MyContext.Provider value={{page, setPage}}>
-        {page === "overview" && <Overview />}
-        {page === "animelist" && <AnimeList />}
-        {page === "mangalist" && <MangaList />}
-        {page === "favorites" && <Favorites />}
-        {page === "stats" && <Stats />}
-        {page === "social" && <Social />}
-        {page === "reviews" && <Reviews />}
-        {page === "submissions" && <Submissions />}
-        {page === "wip" && <WIP />}
-        {/* TOP NAVBAR */}
-        {page === "browse" && <Browse />}
+        <Routes>
+          <Route path='/overview' element={<Overview />} />
+          <Route path='/' element={<AnimeList />} />
+          <Route path='/mangalist' element={<MangaList />} />
+          <Route path='/favorites' element={<Favorites />} />
+          <Route path='/stats' element={<Stats />} />
+          <Route path='/social' element={<Social />} />
+          <Route path='/reviews' element={<Reviews />} />
+          <Route path='/submissions' element={<Submissions />} />
+          <Route path='/browse' element={<Browse />} />
+          <Route path='/wip' element={<WIP />} />
+        </Routes>
       </MyContext.Provider>
     </>
   )
