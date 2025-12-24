@@ -7,9 +7,7 @@ function BannerAndMidNav() {
     
   return (
     <>
-      {/* ========================== */}
       {/* BANNER & MID NAV BAR */}
-      {/* ========================== */}
       <div
         id="anime-list-header-container"
         className="h-1/2 w-full flex flex-col items-center"
