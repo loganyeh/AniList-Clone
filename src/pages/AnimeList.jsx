@@ -22,8 +22,18 @@ import DropdownMenu from "../components/lists/sideBar/DropdownMenu";
 import DropdownButton from "../components/lists/sideBar/DropdownButton";
 import YearSlider from "../components/lists/sideBar/YearSlider";
 import FilterSearchBar from "../components/lists/sideBar/FilterSearchBar";
+// animeData
+import {
+  watchingAL, 
+  completedAL, 
+  pausedAL,
+  droppedAL,
+  planningAL,
+} from "../data/animeDataArrays";
 
 function AnimeList() {
+  const ListTitlesArray = ["All", "Watching", "Completed", "Paused", "Dropped", "Planning"];
+  const dropdownBtnNamesArr = ["Format", "Status", "Genres", "Country"];  
 
   return (
     <>
@@ -35,7 +45,6 @@ function AnimeList() {
           <BannerAndMidNav />
 
           {/* ANIME LIST - BODY */}
-          {/* ================== */}
           <div
             id="profile-body"
             className="h-full w-full flex flex-row border-t-1 border-gray-300 bg-gray-200"
@@ -45,20 +54,16 @@ function AnimeList() {
               <FilterSearchBar />
               {/* List Select Menu */}
               <ListSelectMenu height={"70"} listName={"Lists"}>
-                <ListTitles title={"All"} />
-                <ListTitles title={"Watching"} />
-                <ListTitles title={"Completed"} />
-                <ListTitles title={"Paused"} />
-                <ListTitles title={"Dropped"} />
-                <ListTitles title={"Planning"} />
+                {ListTitlesArray.map((title) => {
+                  return <ListTitles title={title} />
+                })}
               </ListSelectMenu>
               {/* ============== */}
               {/* FILTERS */}
               <DropdownMenu height={"65"} menuName={"Filters"}>
-                <DropdownButton dropdownName={"Format"} />
-                <DropdownButton dropdownName={"Status"} />
-                <DropdownButton dropdownName={"Genres"} />
-                <DropdownButton dropdownName={"Country"} />
+                {dropdownBtnNamesArr.map((name) => {
+                  return <DropdownButton dropdownName={name} />
+                })}
               </DropdownMenu>
               {/* YEAR */}
               <YearSlider />
@@ -67,65 +72,64 @@ function AnimeList() {
                 <DropdownButton dropdownName={"Score"} />
               </DropdownMenu>
             </div>
-            {/* ================== */}
 
-            {/* -------------------- */}
-            {/* LISTING BODY SHWS IN HERE */}
+            {/* BODY */}
             <div className="h-full w-4/5">
               <FormatListView />
 
+              {/* Watching */}
               <ListingBlock
                 headingTitle={"Watching"}
                 progressTitle={"Progress"}
               >
-                <AnimeCell
-                  animeCover={bleach}
-                  title={"Bleach"}
-                  progress={"20/366"}
-                  type={"TV"}
-                />
+                {watchingAL.map((anime) => {
+                  return <AnimeCell key={anime.id} animeCover={anime.cover} title={anime.title} score={anime.score} progress={anime.progress} type={anime.type} />
+                })}
               </ListingBlock>
+
+              {/* COMPELTED */}
               <ListingBlock
                 headingTitle={"Completed"}
                 progressTitle={"Progress"}
               >
-                <AnimeCell
-                  animeCover={naruto}
-                  title={"Naruto"}
-                  score={"10"}
-                  progress={"220"}
-                  type={"TV"}
-                />
+                {completedAL.map((anime) => {
+                  return <AnimeCell key={anime.id} animeCover={anime.cover} title={anime.title} score={anime.score} progress={anime.progress} type={anime.type} />
+                })}
               </ListingBlock>
-              <ListingBlock headingTitle={"Paused"} progressTitle={"Progress"}>
-                <AnimeCell
-                  animeCover={csm}
-                  title={"Chainsaw Man"}
-                  progress={"8/12"}
-                  type={"TV"}
-                />
+
+              {/* PAUSED */}
+              <ListingBlock
+                headingTitle={"Paused"}
+                progressTitle={"Progress"}
+              >
+                {pausedAL.map((anime) => {
+                  return <AnimeCell key={anime.id} animeCover={anime.cover} title={anime.title} score={anime.score} progress={anime.progress} type={anime.type} />
+                })}
               </ListingBlock>
-              <ListingBlock headingTitle={"Dropped"} progressTitle={"Progress"}>
-                <AnimeCell
-                  animeCover={jjk}
-                  title={"JUJUTSU KAISEN Season 2"}
-                  progress={"9/23"}
-                  type={"TV"}
-                />
+
+              {/* Dropped */}
+              <ListingBlock
+                headingTitle={"Dropped"}
+                progressTitle={"Progress"}
+              >
+                {droppedAL.map((anime) => {
+                  return <AnimeCell key={anime.id} animeCover={anime.cover} title={anime.title} score={anime.score} progress={anime.progress} type={anime.type} />
+                })}
               </ListingBlock>
+
+              {/* Planning */}
               <ListingBlock
                 headingTitle={"Planning"}
                 progressTitle={"Progress"}
               >
-                <AnimeCell
-                  animeCover={mha}
-                  title={"My Hero Acadamia"}
-                  progress={"0/10"}
-                  type={"TV"}
-                />
+                {planningAL.map((anime) => {
+                  return <AnimeCell key={anime.id} animeCover={anime.cover} title={anime.title} score={anime.score} progress={anime.progress} type={anime.type} />
+                })}
               </ListingBlock>
             </div>
-            {/* =================== */}
+
+
+
           </div>
         </div>
       </div>

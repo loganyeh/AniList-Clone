@@ -5,6 +5,4 @@ import itadori from "./characters/itadori.jpg";
 import okarun from "./characters/okarun.jpg";
 import zoro from "./characters/zoro.jpg";
 
-export {
-    denji, giyuu, ichigo, itadori, okarun, zoro
-}
+export { denji, giyuu, ichigo, itadori, okarun, zoro };
