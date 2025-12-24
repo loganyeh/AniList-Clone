@@ -1,8 +1,5 @@
 import {
-  rukia,
-  banner,
   bleach,
-  logo,
   csm,
   jjk,
   mha,

@@ -1,8 +1,5 @@
 import {
-  rukia,
-  banner,
   bleach,
-  logo,
   csm,
   jjk,
   mha,
@@ -11,6 +8,7 @@ import {
   haikyu,
   onepiece,
   frieren,
+  hxh
 } from "../assets/animes";
 import Footer from "../components/Shell/Footer";
 import GlobalNav from "../components/Shell/GlobalNav";

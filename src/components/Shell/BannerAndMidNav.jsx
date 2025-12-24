@@ -1,9 +1,7 @@
 import { banner, rukia,  } from "../../assets/animes";
-import { useContext } from "react";
-import { MyContext } from "../../context/MyContext";
+import { Link } from "react-router-dom";
 
 function BannerAndMidNav() {
-    const { page, setPage } = useContext(MyContext);
     
   return (
     <>
@@ -25,16 +23,14 @@ function BannerAndMidNav() {
           </span>
         </div>
         <div className="h-14 w-10/12 flex justify-around items-center text-lg font-semibold text-gray-500">
-          <span onClick={() => setPage("overview")}>Overview</span>
-          <span onClick={() => setPage("animelist")} className="text-blue-500">
-            Anime List
-          </span>
-          <span onClick={() => setPage("mangalist")}>Manga List</span>
-          <span onClick={() => setPage("favorites")}>Favorites</span>
-          <span onClick={() => setPage("stats")}>Stats</span>
-          <span onClick={() => setPage("social")}>Social</span>
-          <span onClick={() => setPage("reviews")}>Reviews</span>
-          <span onClick={() => setPage("submissions")}>Submissions</span>
+          <Link to={"/overview"}>Overview</Link>
+          <Link to={"/"}>Anime List</Link>
+          <Link to={"/mangalist"}>Manga List</Link>
+          <Link to={"/favorites"}>Favorites</Link>
+          <Link to={"/stats"}>Stats</Link>
+          <Link to={"/social"}>Social</Link>
+          <Link to={"/reviews"}>Reviews</Link>
+          <Link to={"/submissions"}>Submissions</Link>
         </div>
       </div>
       {/* =================== End of BANNER & MID NAV BAR */}

@@ -1,7 +1,3 @@
-import rukia from "../assets/rukia.jpg";
-import banner from "../assets/banner.jpg";
-import bleach from "../assets/bleach.jpg";
-import logo from "../assets/logo.png";
 import { useContext } from "react";
 import { MyContext } from "../context/MyContext";
 import Footer from "../components/Shell/Footer";

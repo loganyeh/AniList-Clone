@@ -1,13 +1,14 @@
 import {
-  rukia,
-  banner,
   bleach,
-  logo,
   csm,
   jjk,
   mha,
   naruto,
   demon_slayer,
+  haikyu,
+  onepiece,
+  frieren,
+  hxh
 } from "../assets/animes";
 import {
   denji,

@@ -1,14 +1,3 @@
-import {
-  rukia,
-  banner,
-  bleach,
-  logo,
-  csm,
-  jjk,
-  mha,
-  naruto,
-  demon_slayer,
-} from "../assets/animes";
 import { useContext } from "react";
 import { MyContext } from "../context/MyContext";
 import Footer from "../components/Shell/Footer";
