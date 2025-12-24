@@ -11,9 +11,8 @@ import {
   haikyu,
   onepiece,
   frieren,
+  hxh
 } from "../assets/animes";
-import { useContext } from "react";
-import { MyContext } from "../context/MyContext";
 import Footer from "../components/Shell/Footer";
 import GlobalNav from "../components/Shell/GlobalNav";
 import TrendingBlock from "../components/browsePage/TrendingBlock";
@@ -22,9 +21,15 @@ import InputBar from "../components/browsePage/InputBar";
 import FilterTab from "../components/browsePage/FilterTab";
 import TrendingAnimePoster from "../components/browsePage/TrendingAnimePoster";
 import TopRankCell from "../components/browsePage/TopRankCell";
+import CatBubble from "../components/browsePage/CatBubble";
+import ShowInfo from "../components/browsePage/ShowInfo";
+import FaceColor from "../components/browsePage/FaceColor";
 
 function Browse() {
-  const { page, setPage } = useContext(MyContext);
+  const animeRankings = Array.from({ length: 10 });
+  const animeShowRanking = [bleach, csm, jjk, mha, naruto, demon_slayer, haikyu, onepiece, frieren, hxh];
+  const animeShowTitles = ["Bleach", "Chainsaw Man", "Jujutsu Kaisen", "My Hero Acadamia", "Naruto", "Demon Slayer", "Haikyu", "One Piece", "Frieren", "Hunter x Hunter"];
+  const animeBubbleColors = ["bg-green-400", "bg-orange-400", "bg-pink-400", "bg-yellow-400", "bg-blue-400", "bg-red-400", "bg-green-400", "bg-red-400", "bg-blue-400", "bg-red-400",]
 
   return (
     <>
@@ -56,7 +61,10 @@ function Browse() {
 
             {/* TRENDING NOW BLOCK */}
             <TrendingBlock title={"TRENDING NOW"}>
-              <TrendingAnimePoster anime={demon_slayer} title={"Demon Slayer"} />
+              <TrendingAnimePoster
+                anime={demon_slayer}
+                title={"Demon Slayer"}
+              />
               <TrendingAnimePoster anime={jjk} title={"Jujutsu Kaisen"} />
               <TrendingAnimePoster anime={mha} title={"My Hero Acadamia"} />
               <TrendingAnimePoster anime={csm} title={"Chainsaw Man"} />
@@ -64,15 +72,21 @@ function Browse() {
             </TrendingBlock>
 
             <TrendingBlock title={"POPULAR THIS SEASON"}>
-              <TrendingAnimePoster anime={demon_slayer} title={"Demon Slayer"} />
+              <TrendingAnimePoster
+                anime={demon_slayer}
+                title={"Demon Slayer"}
+              />
               <TrendingAnimePoster anime={jjk} title={"Jujutsu Kaisen"} />
               <TrendingAnimePoster anime={mha} title={"My Hero Acadamia"} />
               <TrendingAnimePoster anime={csm} title={"Chainsaw Man"} />
               <TrendingAnimePoster anime={naruto} title={"Naruto"} />
             </TrendingBlock>
-            
+
             <TrendingBlock title={"UPCOMING NEXT SEASON"}>
-              <TrendingAnimePoster anime={demon_slayer} title={"Demon Slayer"} />
+              <TrendingAnimePoster
+                anime={demon_slayer}
+                title={"Demon Slayer"}
+              />
               <TrendingAnimePoster anime={jjk} title={"Jujutsu Kaisen"} />
               <TrendingAnimePoster anime={mha} title={"My Hero Acadamia"} />
               <TrendingAnimePoster anime={csm} title={"Chainsaw Man"} />
@@ -80,14 +94,17 @@ function Browse() {
             </TrendingBlock>
 
             <TrendingBlock title={"ALL TIME POPULAR"}>
-              <TrendingAnimePoster anime={demon_slayer} title={"Demon Slayer"} />
+              <TrendingAnimePoster
+                anime={demon_slayer}
+                title={"Demon Slayer"}
+              />
               <TrendingAnimePoster anime={jjk} title={"Jujutsu Kaisen"} />
               <TrendingAnimePoster anime={mha} title={"My Hero Acadamia"} />
               <TrendingAnimePoster anime={csm} title={"Chainsaw Man"} />
               <TrendingAnimePoster anime={naruto} title={"Naruto"} />
             </TrendingBlock>
 
-          {/* =========== */}
+            {/* =========== */}
 
             {/* TOP 100 ANIMES */}
             <div className="h-auto w-full mb-15">
@@ -100,683 +117,34 @@ function Browse() {
                 </div>
               </div>
 
-              {/* TOP 1 ANIME */}
-                <TopRankCell num={"1"} anime={frieren} title={"Frieren: Beyond Journey's End"} />
-              {/*  */}
-
-              {/* 2 */}
-              <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
-                <div className="h-30 w-full flex">
-                  <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
-                    #2
-                  </div>
-                  <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
-                    {/* ANIME COVER */}
-                    <div className="h-full w-1/12 flex justify-center items-center">
-                      <div
-                        className="h-25 w-20 bg-center bg-cover rounded"
-                        style={{ backgroundImage: `url(${frieren})` }}
-                      ></div>
-                    </div>
-                    {/* TITLE CARD & CATEGORIES */}
-                    <div className="h-full w-5/12">
-                      <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">
-                        Frieren: Beyond Journey's End
-                      </div>
-                      <div className="h-1/2 w-full flex justify-around items-center">
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          adventure
-                        </div>
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          drama
-                        </div>
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          fantasy
-                        </div>
-                      </div>
-                    </div>
-                    {/* ANIME SCORING PERCENTAGE */}
-                    <div className="h-full w-6/12 flex">
-                      {/* PERCENTAGE */}
-                      <div className="h-full w-1/3 flex">
-                        <div className="h-full w-1/4 flex justify-center items-center">
-                          <i class="bx bx-smile text-5xl text-green-500"></i>
-                        </div>
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            91%
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            361451 users
-                          </div>
-                        </div>
-                      </div>
-                      {/* TV SHOW */}
-                      <div className="h-full w-1/3 flex justify-center items-center">
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            TV Show
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            28 episodes
-                          </div>
-                        </div>
-                      </div>
-                      {/* FALL 2023 */}
-                      <div className="h-full w-1/3 flex justify-center items-center">
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            Fall 2023
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            Finished
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* 3 */}
-              <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
-                <div className="h-30 w-full flex">
-                  <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
-                    #3
-                  </div>
-                  <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
-                    {/* ANIME COVER */}
-                    <div className="h-full w-1/12 flex justify-center items-center">
-                      <div
-                        className="h-25 w-20 bg-center bg-cover rounded"
-                        style={{ backgroundImage: `url(${frieren})` }}
-                      ></div>
-                    </div>
-                    {/* TITLE CARD & CATEGORIES */}
-                    <div className="h-full w-5/12">
-                      <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">
-                        Frieren: Beyond Journey's End
-                      </div>
-                      <div className="h-1/2 w-full flex justify-around items-center">
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          adventure
-                        </div>
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          drama
-                        </div>
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          fantasy
-                        </div>
-                      </div>
-                    </div>
-                    {/* ANIME SCORING PERCENTAGE */}
-                    <div className="h-full w-6/12 flex">
-                      {/* PERCENTAGE */}
-                      <div className="h-full w-1/3 flex">
-                        <div className="h-full w-1/4 flex justify-center items-center">
-                          <i class="bx bx-smile text-5xl text-green-500"></i>
-                        </div>
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            91%
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            361451 users
-                          </div>
-                        </div>
-                      </div>
-                      {/* TV SHOW */}
-                      <div className="h-full w-1/3 flex justify-center items-center">
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            TV Show
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            28 episodes
-                          </div>
-                        </div>
-                      </div>
-                      {/* FALL 2023 */}
-                      <div className="h-full w-1/3 flex justify-center items-center">
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            Fall 2023
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            Finished
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* 4 */}
-              <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
-                <div className="h-30 w-full flex">
-                  <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
-                    #4
-                  </div>
-                  <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
-                    {/* ANIME COVER */}
-                    <div className="h-full w-1/12 flex justify-center items-center">
-                      <div
-                        className="h-25 w-20 bg-center bg-cover rounded"
-                        style={{ backgroundImage: `url(${frieren})` }}
-                      ></div>
-                    </div>
-                    {/* TITLE CARD & CATEGORIES */}
-                    <div className="h-full w-5/12">
-                      <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">
-                        Frieren: Beyond Journey's End
-                      </div>
-                      <div className="h-1/2 w-full flex justify-around items-center">
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          adventure
-                        </div>
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          drama
-                        </div>
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          fantasy
-                        </div>
-                      </div>
-                    </div>
-                    {/* ANIME SCORING PERCENTAGE */}
-                    <div className="h-full w-6/12 flex">
-                      {/* PERCENTAGE */}
-                      <div className="h-full w-1/3 flex">
-                        <div className="h-full w-1/4 flex justify-center items-center">
-                          <i class="bx bx-smile text-5xl text-green-500"></i>
-                        </div>
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            91%
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            361451 users
-                          </div>
-                        </div>
-                      </div>
-                      {/* TV SHOW */}
-                      <div className="h-full w-1/3 flex justify-center items-center">
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            TV Show
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            28 episodes
-                          </div>
-                        </div>
-                      </div>
-                      {/* FALL 2023 */}
-                      <div className="h-full w-1/3 flex justify-center items-center">
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            Fall 2023
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            Finished
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* 5 */}
-              <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
-                <div className="h-30 w-full flex">
-                  <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
-                    #5
-                  </div>
-                  <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
-                    {/* ANIME COVER */}
-                    <div className="h-full w-1/12 flex justify-center items-center">
-                      <div
-                        className="h-25 w-20 bg-center bg-cover rounded"
-                        style={{ backgroundImage: `url(${frieren})` }}
-                      ></div>
-                    </div>
-                    {/* TITLE CARD & CATEGORIES */}
-                    <div className="h-full w-5/12">
-                      <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">
-                        Frieren: Beyond Journey's End
-                      </div>
-                      <div className="h-1/2 w-full flex justify-around items-center">
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          adventure
-                        </div>
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          drama
-                        </div>
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          fantasy
-                        </div>
-                      </div>
-                    </div>
-                    {/* ANIME SCORING PERCENTAGE */}
-                    <div className="h-full w-6/12 flex">
-                      {/* PERCENTAGE */}
-                      <div className="h-full w-1/3 flex">
-                        <div className="h-full w-1/4 flex justify-center items-center">
-                          <i class="bx bx-smile text-5xl text-green-500"></i>
-                        </div>
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            91%
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            361451 users
-                          </div>
-                        </div>
-                      </div>
-                      {/* TV SHOW */}
-                      <div className="h-full w-1/3 flex justify-center items-center">
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            TV Show
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            28 episodes
-                          </div>
-                        </div>
-                      </div>
-                      {/* FALL 2023 */}
-                      <div className="h-full w-1/3 flex justify-center items-center">
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            Fall 2023
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            Finished
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* 6 */}
-              <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
-                <div className="h-30 w-full flex">
-                  <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
-                    #6
-                  </div>
-                  <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
-                    {/* ANIME COVER */}
-                    <div className="h-full w-1/12 flex justify-center items-center">
-                      <div
-                        className="h-25 w-20 bg-center bg-cover rounded"
-                        style={{ backgroundImage: `url(${frieren})` }}
-                      ></div>
-                    </div>
-                    {/* TITLE CARD & CATEGORIES */}
-                    <div className="h-full w-5/12">
-                      <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">
-                        Frieren: Beyond Journey's End
-                      </div>
-                      <div className="h-1/2 w-full flex justify-around items-center">
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          adventure
-                        </div>
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          drama
-                        </div>
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          fantasy
-                        </div>
-                      </div>
-                    </div>
-                    {/* ANIME SCORING PERCENTAGE */}
-                    <div className="h-full w-6/12 flex">
-                      {/* PERCENTAGE */}
-                      <div className="h-full w-1/3 flex">
-                        <div className="h-full w-1/4 flex justify-center items-center">
-                          <i class="bx bx-smile text-5xl text-green-500"></i>
-                        </div>
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            91%
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            361451 users
-                          </div>
-                        </div>
-                      </div>
-                      {/* TV SHOW */}
-                      <div className="h-full w-1/3 flex justify-center items-center">
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            TV Show
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            28 episodes
-                          </div>
-                        </div>
-                      </div>
-                      {/* FALL 2023 */}
-                      <div className="h-full w-1/3 flex justify-center items-center">
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            Fall 2023
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            Finished
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* 7 */}
-              <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
-                <div className="h-30 w-full flex">
-                  <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
-                    #7
-                  </div>
-                  <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
-                    {/* ANIME COVER */}
-                    <div className="h-full w-1/12 flex justify-center items-center">
-                      <div
-                        className="h-25 w-20 bg-center bg-cover rounded"
-                        style={{ backgroundImage: `url(${frieren})` }}
-                      ></div>
-                    </div>
-                    {/* TITLE CARD & CATEGORIES */}
-                    <div className="h-full w-5/12">
-                      <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">
-                        Frieren: Beyond Journey's End
-                      </div>
-                      <div className="h-1/2 w-full flex justify-around items-center">
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          adventure
-                        </div>
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          drama
-                        </div>
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          fantasy
-                        </div>
-                      </div>
-                    </div>
-                    {/* ANIME SCORING PERCENTAGE */}
-                    <div className="h-full w-6/12 flex">
-                      {/* PERCENTAGE */}
-                      <div className="h-full w-1/3 flex">
-                        <div className="h-full w-1/4 flex justify-center items-center">
-                          <i class="bx bx-smile text-5xl text-green-500"></i>
-                        </div>
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            91%
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            361451 users
-                          </div>
-                        </div>
-                      </div>
-                      {/* TV SHOW */}
-                      <div className="h-full w-1/3 flex justify-center items-center">
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            TV Show
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            28 episodes
-                          </div>
-                        </div>
-                      </div>
-                      {/* FALL 2023 */}
-                      <div className="h-full w-1/3 flex justify-center items-center">
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            Fall 2023
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            Finished
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* 8 */}
-              <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
-                <div className="h-30 w-full flex">
-                  <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
-                    #8
-                  </div>
-                  <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
-                    {/* ANIME COVER */}
-                    <div className="h-full w-1/12 flex justify-center items-center">
-                      <div
-                        className="h-25 w-20 bg-center bg-cover rounded"
-                        style={{ backgroundImage: `url(${frieren})` }}
-                      ></div>
-                    </div>
-                    {/* TITLE CARD & CATEGORIES */}
-                    <div className="h-full w-5/12">
-                      <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">
-                        Frieren: Beyond Journey's End
-                      </div>
-                      <div className="h-1/2 w-full flex justify-around items-center">
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          adventure
-                        </div>
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          drama
-                        </div>
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          fantasy
-                        </div>
-                      </div>
-                    </div>
-                    {/* ANIME SCORING PERCENTAGE */}
-                    <div className="h-full w-6/12 flex">
-                      {/* PERCENTAGE */}
-                      <div className="h-full w-1/3 flex">
-                        <div className="h-full w-1/4 flex justify-center items-center">
-                          <i class="bx bx-smile text-5xl text-green-500"></i>
-                        </div>
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            91%
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            361451 users
-                          </div>
-                        </div>
-                      </div>
-                      {/* TV SHOW */}
-                      <div className="h-full w-1/3 flex justify-center items-center">
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            TV Show
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            28 episodes
-                          </div>
-                        </div>
-                      </div>
-                      {/* FALL 2023 */}
-                      <div className="h-full w-1/3 flex justify-center items-center">
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            Fall 2023
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            Finished
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* 9 */}
-              <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
-                <div className="h-30 w-full flex">
-                  <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
-                    #9
-                  </div>
-                  <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
-                    {/* ANIME COVER */}
-                    <div className="h-full w-1/12 flex justify-center items-center">
-                      <div
-                        className="h-25 w-20 bg-center bg-cover rounded"
-                        style={{ backgroundImage: `url(${frieren})` }}
-                      ></div>
-                    </div>
-                    {/* TITLE CARD & CATEGORIES */}
-                    <div className="h-full w-5/12">
-                      <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">
-                        Frieren: Beyond Journey's End
-                      </div>
-                      <div className="h-1/2 w-full flex justify-around items-center">
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          adventure
-                        </div>
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          drama
-                        </div>
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          fantasy
-                        </div>
-                      </div>
-                    </div>
-                    {/* ANIME SCORING PERCENTAGE */}
-                    <div className="h-full w-6/12 flex">
-                      {/* PERCENTAGE */}
-                      <div className="h-full w-1/3 flex">
-                        <div className="h-full w-1/4 flex justify-center items-center">
-                          <i class="bx bx-smile text-5xl text-green-500"></i>
-                        </div>
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            91%
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            361451 users
-                          </div>
-                        </div>
-                      </div>
-                      {/* TV SHOW */}
-                      <div className="h-full w-1/3 flex justify-center items-center">
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            TV Show
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            28 episodes
-                          </div>
-                        </div>
-                      </div>
-                      {/* FALL 2023 */}
-                      <div className="h-full w-1/3 flex justify-center items-center">
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            Fall 2023
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            Finished
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* 10 */}
-              <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
-                <div className="h-30 w-full flex">
-                  <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
-                    #10
-                  </div>
-                  <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
-                    {/* ANIME COVER */}
-                    <div className="h-full w-1/12 flex justify-center items-center">
-                      <div
-                        className="h-25 w-20 bg-center bg-cover rounded"
-                        style={{ backgroundImage: `url(${frieren})` }}
-                      ></div>
-                    </div>
-                    {/* TITLE CARD & CATEGORIES */}
-                    <div className="h-full w-5/12">
-                      <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">
-                        Frieren: Beyond Journey's End
-                      </div>
-                      <div className="h-1/2 w-full flex justify-around items-center">
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          adventure
-                        </div>
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          drama
-                        </div>
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          fantasy
-                        </div>
-                      </div>
-                    </div>
-                    {/* ANIME SCORING PERCENTAGE */}
-                    <div className="h-full w-6/12 flex">
-                      {/* PERCENTAGE */}
-                      <div className="h-full w-1/3 flex">
-                        <div className="h-full w-1/4 flex justify-center items-center">
-                          <i class="bx bx-smile text-5xl text-green-500"></i>
-                        </div>
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            91%
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            361451 users
-                          </div>
-                        </div>
-                      </div>
-                      {/* TV SHOW */}
-                      <div className="h-full w-1/3 flex justify-center items-center">
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            TV Show
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            28 episodes
-                          </div>
-                        </div>
-                      </div>
-                      {/* FALL 2023 */}
-                      <div className="h-full w-1/3 flex justify-center items-center">
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            Fall 2023
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            Finished
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              {animeRankings.map((_, index) => (
+                <TopRankCell
+                  key={index}
+                  num={index + 1}
+                  anime={animeShowRanking[index]}
+                  title={animeShowTitles[index]}
+                  faceColor={"text-green-500"}
+                  cats={
+                    <>
+                      <ShowInfo num={"91%"} users={"361451 users"}>
+                        <FaceColor faceColor={"text-green-500"} />
+                      </ShowInfo>
+                      <ShowInfo num={"TV Show"} users={"28 Episodes"} />
+                      <ShowInfo num={"Fall 2023"} users={"Finished"} />
+                    </>
+                  }
+                >
+                  <CatBubble category={"adventure"} color={animeBubbleColors[index]} />
+                  <CatBubble category={"drama"} color={animeBubbleColors[index]} />
+                  <CatBubble category={"fantasy"} color={animeBubbleColors[index]} />
+                </TopRankCell>
+              ))}
             </div>
           </div>
         </div>
       </div>
 
-      {/* FOOTER */}
       <Footer />
-      {/* ============================ */}
     </>
   );
 }

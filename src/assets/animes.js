@@ -11,6 +11,7 @@ import demon_slayer from "./demon_slayer.jpg";
 import haikyu from "./anime covers/haikyu.jpg"
 import onepiece from "./anime covers/onepiece.jpg";
 import frieren from "./anime covers/frieren.jpg";
+import hxh from "./anime covers/hxh.jpg"
 
 export {
     rukia,
@@ -24,5 +25,6 @@ export {
     demon_slayer,
     haikyu,
     onepiece, 
-    frieren
+    frieren,
+    hxh
 }

@@ -1,4 +1,4 @@
-function TopRankCell({ num, anime, title }) {
+function TopRankCell({ num, anime, title, cats, faceColor, children }) {
   return (
     <>
       <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
@@ -20,55 +20,12 @@ function TopRankCell({ num, anime, title }) {
                 {title}
               </div>
               <div className="h-1/2 w-full flex justify-around items-center">
-                <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                  adventure
-                </div>
-                <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                  drama
-                </div>
-                <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                  fantasy
-                </div>
+                {children}
               </div>
             </div>
             {/* ANIME SCORING PERCENTAGE */}
             <div className="h-full w-6/12 flex">
-              {/* PERCENTAGE */}
-              <div className="h-full w-1/3 flex">
-                <div className="h-full w-1/4 flex justify-center items-center">
-                  <i class="bx bx-smile text-5xl text-green-500"></i>
-                </div>
-                <div className="h-full w-3/4">
-                  <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                    91%
-                  </div>
-                  <div className="h-1/2 w-full font-normal text-gray-500">
-                    361451 users
-                  </div>
-                </div>
-              </div>
-              {/* TV SHOW */}
-              <div className="h-full w-1/3 flex justify-center items-center">
-                <div className="h-full w-3/4">
-                  <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                    TV Show
-                  </div>
-                  <div className="h-1/2 w-full font-normal text-gray-500">
-                    28 episodes
-                  </div>
-                </div>
-              </div>
-              {/* FALL 2023 */}
-              <div className="h-full w-1/3 flex justify-center items-center">
-                <div className="h-full w-3/4">
-                  <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                    Fall 2023
-                  </div>
-                  <div className="h-1/2 w-full font-normal text-gray-500">
-                    Finished
-                  </div>
-                </div>
-              </div>
+                {cats}
             </div>
           </div>
         </div>
