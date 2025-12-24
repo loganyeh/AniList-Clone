@@ -16,6 +16,12 @@ import { useContext } from "react";
 import { MyContext } from "../context/MyContext";
 import Footer from "../components/Shell/Footer";
 import GlobalNav from "../components/Shell/GlobalNav";
+import TrendingBlock from "../components/browsePage/TrendingBlock";
+import SearchBar from "../components/browsePage/SearchBar";
+import InputBar from "../components/browsePage/InputBar";
+import FilterTab from "../components/browsePage/FilterTab";
+import TrendingAnimePoster from "../components/browsePage/TrendingAnimePoster";
+import TopRankCell from "../components/browsePage/TopRankCell";
 
 function Browse() {
   const { page, setPage } = useContext(MyContext);
@@ -38,327 +44,50 @@ function Browse() {
             <div className="h-30 w-full mt-10 mb-15 flex justify-between">
               <div className="h-full w-10/12 flex justify-around">
                 {/* SEARCH */}
-                <div className="h-30 w-70">
-                  <div className="h-1/2 w-full flex justify-start items-center pl-2 text-xl font-semibold text-gray-700">
-                    Search
-                  </div>
-                  <div className="h-14 w-11/12 flex justify-between ml-4 bg-white rounded-lg shadow-lg">
-                    <div className="h-full w-15 flex justify-center items-center">
-                      <i className="bx bx-search text-2xl text-gray-400"></i>
-                    </div>
-                    <input
-                      type="text"
-                      className="h-full w-47 text-xl text-gray-600"
-                    />
-                  </div>
-                </div>
+                <SearchBar />
                 {/* Genres */}
-                <div className="h-30 w-70">
-                  <div className="h-1/2 w-full flex justify-start items-center pl-2 text-xl font-semibold text-gray-700">
-                    Genres
-                  </div>
-                  <div className="h-14 w-11/12 flex justify-between ml-4 bg-white rounded-lg shadow-lg">
-                    <input
-                      type="text"
-                      className="h-full w-52 ml-3 pl-3 text-xl"
-                      placeholder="Any"
-                    />
-                    <div className="h-full w-10 flex justify-center items-center">
-                      <i className="bx bx-chevron-down pr-4 text-3xl text-gray-400"></i>
-                    </div>
-                  </div>
-                </div>
-                {/* Year */}
-                <div className="h-30 w-70">
-                  <div className="h-1/2 w-full flex justify-start items-center pl-2 text-xl font-semibold text-gray-700">
-                    Year
-                  </div>
-                  <div className="h-14 w-11/12 flex justify-between ml-4 bg-white rounded-lg shadow-lg">
-                    <input
-                      type="text"
-                      className="h-full w-52 ml-3 pl-3 text-xl"
-                      placeholder="Any"
-                    />
-                    <div className="h-full w-10 flex justify-center items-center">
-                      <i className="bx bx-chevron-down pr-4 text-3xl text-gray-400"></i>
-                    </div>
-                  </div>
-                </div>
-                {/* Season */}
-                <div className="h-30 w-70">
-                  <div className="h-1/2 w-full flex justify-start items-center pl-2 text-xl font-semibold text-gray-700">
-                    Season
-                  </div>
-                  <div className="h-14 w-11/12 flex justify-between ml-4 bg-white rounded-lg shadow-lg">
-                    <input
-                      type="text"
-                      className="h-full w-52 ml-3 pl-3 text-xl"
-                      placeholder="Any"
-                    />
-                    <div className="h-full w-10 flex justify-center items-center">
-                      <i className="bx bx-chevron-down pr-4 text-3xl text-gray-400"></i>
-                    </div>
-                  </div>
-                </div>
-                {/* Format */}
-                <div className="h-30 w-70">
-                  <div className="h-1/2 w-full flex justify-start items-center pl-2 text-xl font-semibold text-gray-700">
-                    Format
-                  </div>
-                  <div className="h-14 w-11/12 flex justify-between ml-4 bg-white rounded-lg shadow-lg">
-                    <input
-                      type="text"
-                      className="h-full w-52 ml-3 pl-3 text-xl"
-                      placeholder="Any"
-                    />
-                    <div className="h-full w-10 flex justify-center items-center">
-                      <i className="bx bx-chevron-down pr-4 text-3xl text-gray-400"></i>
-                    </div>
-                  </div>
-                </div>
+                <InputBar title={"Genres"} />
+                <InputBar title={"Year"} />
+                <InputBar title={"Season"} />
+                <InputBar title={"Format"} />
               </div>
-              <div className="h-full w-1/12 flex justify-end items-end">
-                <div className="h-12 w-12 flex justify-center items-center mb-2 bg-white rounded-lg shadow-md">
-                  <i className="bx bx-slider flex justify-center items-center text-3xl text-gray-400"></i>
-                </div>
-              </div>
+              <FilterTab />
             </div>
 
             {/* TRENDING NOW BLOCK */}
-            <div className="h-auto w-full mb-15">
-              <div className="h-17 w-full flex justify-between items-center">
-                <div className="h-full w-1/2 flex justify-start items-center font-semibold text-gray-700 text-xl">
-                  TRENDING NOW
-                </div>
-                <div className="h-full w-1/2 flex justify-end items-center font-semibold text-gray-500 text-md">
-                  View All
-                </div>
-              </div>
-              <div className="h-auto w-full flex flex-wrap justify-around items-center">
-                <div className="h-full w-63 m-2">
-                  <div
-                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
-                    style={{ backgroundImage: `url(${demon_slayer})` }}
-                  ></div>
-                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
-                    Demon Slayer
-                  </div>
-                </div>
-                <div className="h-full w-63 m-2">
-                  <div
-                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
-                    style={{ backgroundImage: `url(${jjk})` }}
-                  ></div>
-                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
-                    Jujutsu Kaisen
-                  </div>
-                </div>
-                <div className="h-full w-63 m-2">
-                  <div
-                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
-                    style={{ backgroundImage: `url(${mha})` }}
-                  ></div>
-                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
-                    My Hero Acadamia
-                  </div>
-                </div>
-                <div className="h-full w-63 m-2">
-                  <div
-                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
-                    style={{ backgroundImage: `url(${csm})` }}
-                  ></div>
-                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
-                    Chainsaw Man
-                  </div>
-                </div>
-                <div className="h-full w-63 m-2">
-                  <div
-                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
-                    style={{ backgroundImage: `url(${naruto})` }}
-                  ></div>
-                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
-                    Naruto
-                  </div>
-                </div>
-              </div>
-            </div>
+            <TrendingBlock title={"TRENDING NOW"}>
+              <TrendingAnimePoster anime={demon_slayer} title={"Demon Slayer"} />
+              <TrendingAnimePoster anime={jjk} title={"Jujutsu Kaisen"} />
+              <TrendingAnimePoster anime={mha} title={"My Hero Acadamia"} />
+              <TrendingAnimePoster anime={csm} title={"Chainsaw Man"} />
+              <TrendingAnimePoster anime={naruto} title={"Naruto"} />
+            </TrendingBlock>
 
-            {/* POPULAR THIS SEASON BLOCK */}
-            <div className="h-auto w-full mb-15">
-              <div className="h-17 w-full flex justify-between items-center">
-                <div className="h-full w-1/2 flex justify-start items-center font-semibold text-gray-700 text-xl">
-                  POPULAR THIS SEASON
-                </div>
-                <div className="h-full w-1/2 flex justify-end items-center font-semibold text-gray-500 text-md">
-                  View All
-                </div>
-              </div>
-              <div className="h-auto w-full flex flex-wrap justify-around items-center">
-                <div className="h-full w-63 m-2">
-                  <div
-                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
-                    style={{ backgroundImage: `url(${haikyu})` }}
-                  ></div>
-                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
-                    Haikyu
-                  </div>
-                </div>
-                <div className="h-full w-63 m-2">
-                  <div
-                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
-                    style={{ backgroundImage: `url(${jjk})` }}
-                  ></div>
-                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
-                    Jujutsu Kaisen
-                  </div>
-                </div>
-                <div className="h-full w-63 m-2">
-                  <div
-                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
-                    style={{ backgroundImage: `url(${mha})` }}
-                  ></div>
-                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
-                    My Hero Acadamia
-                  </div>
-                </div>
-                <div className="h-full w-63 m-2">
-                  <div
-                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
-                    style={{ backgroundImage: `url(${csm})` }}
-                  ></div>
-                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
-                    Chainsaw Man
-                  </div>
-                </div>
-                <div className="h-full w-63 m-2">
-                  <div
-                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
-                    style={{ backgroundImage: `url(${naruto})` }}
-                  ></div>
-                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
-                    Naruto
-                  </div>
-                </div>
-              </div>
-            </div>
+            <TrendingBlock title={"POPULAR THIS SEASON"}>
+              <TrendingAnimePoster anime={demon_slayer} title={"Demon Slayer"} />
+              <TrendingAnimePoster anime={jjk} title={"Jujutsu Kaisen"} />
+              <TrendingAnimePoster anime={mha} title={"My Hero Acadamia"} />
+              <TrendingAnimePoster anime={csm} title={"Chainsaw Man"} />
+              <TrendingAnimePoster anime={naruto} title={"Naruto"} />
+            </TrendingBlock>
+            
+            <TrendingBlock title={"UPCOMING NEXT SEASON"}>
+              <TrendingAnimePoster anime={demon_slayer} title={"Demon Slayer"} />
+              <TrendingAnimePoster anime={jjk} title={"Jujutsu Kaisen"} />
+              <TrendingAnimePoster anime={mha} title={"My Hero Acadamia"} />
+              <TrendingAnimePoster anime={csm} title={"Chainsaw Man"} />
+              <TrendingAnimePoster anime={naruto} title={"Naruto"} />
+            </TrendingBlock>
 
-            {/* UPCOMING NEXT SEASON BLOCK */}
-            <div className="h-auto w-full mb-15">
-              <div className="h-17 w-full flex justify-between items-center">
-                <div className="h-full w-1/2 flex justify-start items-center font-semibold text-gray-700 text-xl">
-                  UPCOMING NEXT SEASON
-                </div>
-                <div className="h-full w-1/2 flex justify-end items-center font-semibold text-gray-500 text-md">
-                  View All
-                </div>
-              </div>
-              <div className="h-auto w-full flex flex-wrap justify-around items-center">
-                <div className="h-full w-63 m-2">
-                  <div
-                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
-                    style={{ backgroundImage: `url(${haikyu})` }}
-                  ></div>
-                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
-                    Haikyu
-                  </div>
-                </div>
-                <div className="h-full w-63 m-2">
-                  <div
-                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
-                    style={{ backgroundImage: `url(${jjk})` }}
-                  ></div>
-                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
-                    Jujutsu Kaisen
-                  </div>
-                </div>
-                <div className="h-full w-63 m-2">
-                  <div
-                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
-                    style={{ backgroundImage: `url(${mha})` }}
-                  ></div>
-                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
-                    My Hero Acadamia
-                  </div>
-                </div>
-                <div className="h-full w-63 m-2">
-                  <div
-                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
-                    style={{ backgroundImage: `url(${csm})` }}
-                  ></div>
-                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
-                    Chainsaw Man
-                  </div>
-                </div>
-                <div className="h-full w-63 m-2">
-                  <div
-                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
-                    style={{ backgroundImage: `url(${naruto})` }}
-                  ></div>
-                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
-                    Naruto
-                  </div>
-                </div>
-              </div>
-            </div>
+            <TrendingBlock title={"ALL TIME POPULAR"}>
+              <TrendingAnimePoster anime={demon_slayer} title={"Demon Slayer"} />
+              <TrendingAnimePoster anime={jjk} title={"Jujutsu Kaisen"} />
+              <TrendingAnimePoster anime={mha} title={"My Hero Acadamia"} />
+              <TrendingAnimePoster anime={csm} title={"Chainsaw Man"} />
+              <TrendingAnimePoster anime={naruto} title={"Naruto"} />
+            </TrendingBlock>
 
-            {/* ALL TIME POPULAR BLOCK */}
-            <div className="h-auto w-full mb-15">
-              <div className="h-17 w-full flex justify-between items-center">
-                <div className="h-full w-1/2 flex justify-start items-center font-semibold text-gray-700 text-xl">
-                  ALL TIME POPULAR
-                </div>
-                <div className="h-full w-1/2 flex justify-end items-center font-semibold text-gray-500 text-md">
-                  View All
-                </div>
-              </div>
-              <div className="h-auto w-full flex flex-wrap justify-around items-center">
-                <div className="h-full w-63 m-2">
-                  <div
-                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
-                    style={{ backgroundImage: `url(${haikyu})` }}
-                  ></div>
-                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
-                    Haikyu
-                  </div>
-                </div>
-                <div className="h-full w-63 m-2">
-                  <div
-                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
-                    style={{ backgroundImage: `url(${naruto})` }}
-                  ></div>
-                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
-                    Naruto
-                  </div>
-                </div>
-                <div className="h-full w-63 m-2">
-                  <div
-                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
-                    style={{ backgroundImage: `url(${onepiece})` }}
-                  ></div>
-                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
-                    One Piece
-                  </div>
-                </div>
-                <div className="h-full w-63 m-2">
-                  <div
-                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
-                    style={{ backgroundImage: `url(${csm})` }}
-                  ></div>
-                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
-                    Chainsaw Man
-                  </div>
-                </div>
-                <div className="h-full w-63 m-2">
-                  <div
-                    className="h-80 w-full bg-center bg-cover rounded-xl shadow-md"
-                    style={{ backgroundImage: `url(${naruto})` }}
-                  ></div>
-                  <div className="h-10 w-full flex items-center pl-2 text-gray-600 font-semibold text-lg">
-                    Naruto
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* =========== */}
 
             {/* TOP 100 ANIMES */}
             <div className="h-auto w-full mb-15">
@@ -372,78 +101,8 @@ function Browse() {
               </div>
 
               {/* TOP 1 ANIME */}
-              <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
-                <div className="h-30 w-full flex">
-                  <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
-                    #1
-                  </div>
-                  <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
-                    {/* ANIME COVER */}
-                    <div className="h-full w-1/12 flex justify-center items-center">
-                      <div
-                        className="h-25 w-20 bg-center bg-cover rounded"
-                        style={{ backgroundImage: `url(${frieren})` }}
-                      ></div>
-                    </div>
-                    {/* TITLE CARD & CATEGORIES */}
-                    <div className="h-full w-5/12">
-                      <div className="h-1/2 w-full flex justify-center items-center text-gray-700 font-semibold text-xl">
-                        Frieren: Beyond Journey's End
-                      </div>
-                      <div className="h-1/2 w-full flex justify-around items-center">
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          adventure
-                        </div>
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          drama
-                        </div>
-                        <div className="h-1/2 w-45 flex justify-center items-center font-light text-lg bg-green-400 rounded-full">
-                          fantasy
-                        </div>
-                      </div>
-                    </div>
-                    {/* ANIME SCORING PERCENTAGE */}
-                    <div className="h-full w-6/12 flex">
-                      {/* PERCENTAGE */}
-                      <div className="h-full w-1/3 flex">
-                        <div className="h-full w-1/4 flex justify-center items-center">
-                          <i class="bx bx-smile text-5xl text-green-500"></i>
-                        </div>
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            91%
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            361451 users
-                          </div>
-                        </div>
-                      </div>
-                      {/* TV SHOW */}
-                      <div className="h-full w-1/3 flex justify-center items-center">
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            TV Show
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            28 episodes
-                          </div>
-                        </div>
-                      </div>
-                      {/* FALL 2023 */}
-                      <div className="h-full w-1/3 flex justify-center items-center">
-                        <div className="h-full w-3/4">
-                          <div className="h-1/2 w-full flex justify-start items-end text-xl text-gray-800">
-                            Fall 2023
-                          </div>
-                          <div className="h-1/2 w-full font-normal text-gray-500">
-                            Finished
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <TopRankCell num={"1"} anime={frieren} title={"Frieren: Beyond Journey's End"} />
+              {/*  */}
 
               {/* 2 */}
               <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
