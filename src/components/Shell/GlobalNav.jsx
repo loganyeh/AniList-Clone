@@ -2,6 +2,14 @@ import { rukia, logo } from "../../assets/animes";
 import { Link } from "react-router-dom";
 
 function GlobalNav() {
+  const linkData = [
+    {to: "/wip", title: "Home"},
+    {to: "/overview", title: "Profile"},
+    {to: "/", title: "Anime List"},
+    {to: "/mangalist", title: "Manga List"},
+    {to: "/browse", title: "Browse"},
+    {to: "/wip", title: "Forum"},
+  ]
 
   return (
     <>
@@ -15,12 +23,9 @@ function GlobalNav() {
         {/* MIDDLE NAV ELEMENTS */}
         <div className="h-full w-2/4">
           <div className="h-full w-full flex justify-between items-center font-light text-xl text-gray-200">
-            <Link to={"/wip"}>Home</Link>
-            <Link to={"/overview"}>Profile</Link>
-            <Link to={"/"}>Anime List</Link>
-            <Link to={"/mangalist"}>Manga List</Link>
-            <Link to={"/browse"}>Browse</Link>
-            <Link to={"/wip"}>Forum</Link>
+            {linkData.map((link, index) => {
+              return <Link key={index} to={link.to} className="hover:text-white">{link.title}</Link>
+            })}
           </div>
         </div>
         {/* RIGHT SEARCH & PROFILE */}

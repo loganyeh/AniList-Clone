@@ -11,6 +11,9 @@ import ChartXAxis from "../components/overviewPage/ChartXAxis";
 import PieChart from "../components/overviewPage/PieChart";
 
 function Stats() {
+  const animeStatsListTitles = ["Overview", "Genres", "Tags", "Voice Actors", "Studios", "Staff"]
+  const mangaStatsListTitles = ["Overview", "Genres", "Tags", "Staff"]
+
   return (
     <>
       {/* DESIGNING THE ANIME LIST PAGE FIRST */}
@@ -29,25 +32,20 @@ function Stats() {
             <div className="h-full w-1/5 flex flex-col items-end">
               {/* LISTS CONTAINER */}
               <ListSelectMenu height={"70"} listName={"Anime Stats"}>
-                <ListTitles title={"Overview"} />
-                <ListTitles title={"Genres"} />
-                <ListTitles title={"Tags"} />
-                <ListTitles title={"Voice Actors"} />
-                <ListTitles title={"Studios"} />
-                <ListTitles title={"Staff"} />
+                {animeStatsListTitles.map((title, index) => {
+                  return <ListTitles key={index} title={title} />
+                })}
               </ListSelectMenu>
               <ListSelectMenu height={"50"} listName={"Manga Stats"}>
-                <ListTitles title={"Overview"} />
-                <ListTitles title={"Genres"} />
-                <ListTitles title={"Tags"} />
-                <ListTitles title={"Staff"} />
+              {mangaStatsListTitles.map((title, index) => {
+                  return <ListTitles key={index} title={title} />
+                })}
               </ListSelectMenu>
             </div>
 
             <div className="h-auto w-8/12">
               <StatsBlock />
 
-              {/* +========== BEGIN */}
               {/* SCORE CHART BLOCK */}
               <ChartBlock
                 title={"Score"}

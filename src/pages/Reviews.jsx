@@ -1,11 +1,8 @@
-import { useContext } from "react";
-import { MyContext } from "../context/MyContext";
 import Footer from "../components/Shell/Footer";
 import GlobalNav from "../components/Shell/GlobalNav";
 import BannerAndMidNav from "../components/Shell/BannerAndMidNav";
 
 function Reviews() {
-  const { page, setPage } = useContext(MyContext);
 
   return (
     <>

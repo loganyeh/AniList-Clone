@@ -1,11 +1,13 @@
+import FooterCol from "./FooterCol"
 
 function Footer() {
+  const column1 = ["Logout", "Donate", "Anilist.co", "AniChart.net"]
+  const column2 = ["Apps", "Site Stats", "Recommendations", "API"]
+  const column3 = ["Discord", "Twitter", "Bluesky", "Facebook", "Github"]
+  const column4 = ["Add Data", "Moderators", "Contact", "Terms & Privacy", "Site Map"]
 
   return (
     <>
-      {/* ============================ */}
-      {/* FOOTER */}
-      {/* ============================ */}
       {/* FOOTER CONTAINER */}
       <div className="h-90 w-full flex flex-row justify-center items-center bg-gray-900 font-light text-xl text-gray-200">
         {/* SITE THEME SECTION */}
@@ -22,38 +24,29 @@ function Footer() {
             </div>
           </div>
         </div>
-        {/* COLUMN 1 */}
-        <div className="h-2/3 w-2/12 flex flex-col">
-          <span className="p-3">Logout</span>
-          <span className="p-3">Donate</span>
-          <span className="p-3">Anilist.co</span>
-          <span className="p-3">AniChart.net</span>
-        </div>
-        {/* COLUMN 2 */}
-        <div className="h-2/3 w-2/12 flex flex-col">
-          <span className="p-3">Apps</span>
-          <span className="p-3">Site Stats</span>
-          <span className="p-3">Recommendations</span>
-          <span className="p-3">API</span>
-        </div>
-        {/* COLUMN 3 */}
-        <div className="h-2/3 w-2/12 flex flex-col">
-          <span className="p-3">Discord</span>
-          <span className="p-3">Twitter</span>
-          <span className="p-3">Bluesky</span>
-          <span className="p-3">Facebook</span>
-          <span className="p-3">Github</span>
-        </div>
-        {/* COLUMN 4 */}
-        <div className="h-2/3 w-2/12 flex flex-col">
-          <span className="p-3">Add Data</span>
-          <span className="p-3">Moderators</span>
-          <span className="p-3">Contact</span>
-          <span className="p-3">Terms & Privacy</span>
-          <span className="p-3">Site Map</span>
-        </div>
+
+        <FooterCol>
+          {column1.map((row, index) => {
+            return <span key={index} className="p-3 hover:text-blue-400 active:text-blue-500 cursor-pointer">{row}</span>
+          })}
+        </FooterCol>
+        <FooterCol>
+          {column2.map((row, index) => {
+            return <span key={index} className="p-3 hover:text-blue-400 active:text-blue-500 cursor-pointer">{row}</span>
+          })}
+        </FooterCol>
+        <FooterCol>
+          {column3.map((row, index) => {
+            return <span key={index} className="p-3 hover:text-blue-400 active:text-blue-500 cursor-pointer">{row}</span>
+          })}
+        </FooterCol>
+        <FooterCol>
+          {column4.map((row, index) => {
+            return <span key={index} className="p-3 hover:text-blue-400 active:text-blue-500 cursor-pointer">{row}</span>
+          })}
+        </FooterCol>
+
       </div>
-      {/* ============================ END OF FOOTER  */}
     </>
   );
 }

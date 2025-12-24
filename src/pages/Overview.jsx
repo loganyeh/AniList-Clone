@@ -1,24 +1,3 @@
-// ASSETS
-import {
-  bleach,
-  csm,
-  jjk,
-  mha,
-  naruto,
-  demon_slayer,
-  haikyu,
-  onepiece,
-  frieren,
-  hxh,
-} from "../assets/animes";
-import {
-  denji,
-  giyuu,
-  ichigo,
-  itadori,
-  okarun,
-  zoro,
-} from "../assets/characters";
 // SHELLS
 import GlobalNav from "../components/Shell/GlobalNav";
 import Footer from "../components/Shell/Footer";
@@ -34,11 +13,8 @@ import LatestUpdate from "../components/overviewPage/LatestUpdate";
 // animeData
 import {
   animeData,
-  trendingNowData,
-  popularThisSeasonData,
-  upcomingNextSeasonData,
-  allTimePopularData,
-  favCharacters
+  favCharacters,
+  favAnimes
 } from "../data/animeDataArrays";
 
 function Overview() {
@@ -66,7 +42,7 @@ function Overview() {
                 <GenreBlock />
                 {/* FAV ANIMES */}
                 <FavoriteBlock height={"auto"} title={"Anime"}>
-                  {trendingNowData.map((anime, index) => {
+                  {favAnimes.map((anime, index) => {
                     return <FavoritePoster img={anime.cover} />
                   })}
                 </FavoriteBlock>
@@ -108,7 +84,7 @@ function Overview() {
                 {/* WATCH HISTORY */}
                 <div className="h-auto w-full flex flex-col items-center">
                   <LatestUpdate
-                    img={naruto}
+                    img={animeData[4].cover}
                     title={"Naruto"}
                     text={"Watched Episode 1 of"}
                     time={"2 Days Ago"}

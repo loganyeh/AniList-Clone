@@ -119,3 +119,13 @@ import { denji, giyuu, ichigo, itadori, okarun, zoro } from "../assets/character
     {id: 2, title: "One Piece", cover: onepiece, rating: "90%", type: "Manga", episodes: "1000 Episodes", score: "10", progress: "/", season: "...", airing: "Ongoing"},
     {id: 3, title: "Frieren", cover: frieren, rating: "90%", type: "Manga", episodes: "28 Episodes", score: "10", progress: "/", season: "Fall 2023", airing: "Finished"}
   ]
+
+  // Favorites Data
+  export const favAnimes = [
+    { id: 1, title: "Jujutsu Kaisen", cover: jjk, rating: "90%", type: "TV Show", episodes: "39 Episodes", score: "10", progress: "/", season: "Fall 2020", airing: "Finished" },
+    { id: 2, title: "One Piece", cover: onepiece, rating: "90%", type: "TV Show", episodes: "1000 Episodes", score: "10", progress: "/", season: "...", airing: "Ongoing" },
+    { id: 3, title: "Bleach", cover: bleach, rating: "90%", type: "TV Show", episodes: "366 Episodes", score: "10", progress: "/", season: "Fall 2004", airing: "Finished" },
+    { id: 4, title: "Demon Slayer", cover: demon_slayer, rating: "90%", type: "TV Show", episodes: "55 Episodes", score: "10", progress: "/", season: "Spring 2019", airing: "Finished" },
+    { id: 5, title: "Frieren", cover: frieren, rating: "90%", type: "TV Show", episodes: "28 Episodes", score: "10", progress: "/", season: "Fall 2023", airing: "Finished" }
+  ]
+

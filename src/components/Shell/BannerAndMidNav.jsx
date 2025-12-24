@@ -2,6 +2,16 @@ import { banner, rukia,  } from "../../assets/animes";
 import { Link } from "react-router-dom";
 
 function BannerAndMidNav() {
+  const linkData = [
+    {to: "/overview", title: "Overview"},
+    {to: "/", title: "Anime List"},
+    {to: "/mangalist", title: "Manga List"},
+    {to: "/favorites", title: "Favorites"},
+    {to: "/stats", title: "Stats"},
+    {to: "/social", title: "Social"},
+    {to: "/reviews", title: "Reviews"},
+    {to: "/submissions", title: "Submissions"},
+  ]
     
   return (
     <>
@@ -23,17 +33,11 @@ function BannerAndMidNav() {
           </span>
         </div>
         <div className="h-14 w-10/12 flex justify-around items-center text-lg font-semibold text-gray-500">
-          <Link to={"/overview"}>Overview</Link>
-          <Link to={"/"}>Anime List</Link>
-          <Link to={"/mangalist"}>Manga List</Link>
-          <Link to={"/favorites"}>Favorites</Link>
-          <Link to={"/stats"}>Stats</Link>
-          <Link to={"/social"}>Social</Link>
-          <Link to={"/reviews"}>Reviews</Link>
-          <Link to={"/submissions"}>Submissions</Link>
+          {linkData.map((link, index) => {
+            return <Link key={index} to={link.to} className="hover:text-blue-500 active:text-blue-700">{link.title}</Link>
+          })}
         </div>
       </div>
-      {/* =================== End of BANNER & MID NAV BAR */}
     </>
   );
 }

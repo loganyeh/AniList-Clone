@@ -1,15 +1,3 @@
-import {
-  bleach,
-  csm,
-  jjk,
-  mha,
-  naruto,
-  demon_slayer,
-  haikyu,
-  onepiece,
-  frieren,
-  hxh
-} from "../assets/animes";
 import Footer from "../components/Shell/Footer";
 import GlobalNav from "../components/Shell/GlobalNav";
 import BannerAndMidNav from "../components/Shell/BannerAndMidNav";
