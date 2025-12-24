@@ -26,10 +26,48 @@ import ShowInfo from "../components/browsePage/ShowInfo";
 import FaceColor from "../components/browsePage/FaceColor";
 
 function Browse() {
-  const animeRankings = Array.from({ length: 10 });
-  const animeShowRanking = [bleach, csm, jjk, mha, naruto, demon_slayer, haikyu, onepiece, frieren, hxh];
-  const animeShowTitles = ["Bleach", "Chainsaw Man", "Jujutsu Kaisen", "My Hero Acadamia", "Naruto", "Demon Slayer", "Haikyu", "One Piece", "Frieren", "Hunter x Hunter"];
+  const inputBarNames = ["Genres", "Year", "Season", "Format"];
   const animeBubbleColors = ["bg-green-400", "bg-orange-400", "bg-pink-400", "bg-yellow-400", "bg-blue-400", "bg-red-400", "bg-green-400", "bg-red-400", "bg-blue-400", "bg-red-400",]
+  const animeData = [
+    {id: 1, title: "Bleach", cover: bleach, rating: "90%", type: "TV Show", episodes: "366 Episodes", season: "Fall 2004",current_status: "Finished" },
+    {id: 2, title: "Chainsaw Man", cover: csm, rating: "90%", type: "TV Show", episodes: "12 Episodes", season: "Fall 2022",current_status: "Finished" },
+    {id: 3, title: "Jujutsu Kaisen", cover: jjk, rating: "90%", type: "TV Show", episodes: "39 Episodes", season: "Fall 2020",current_status: "Finished" },
+    {id: 4, title: "My Hero Acadamia", cover: mha, rating: "90%", type: "TV Show", episodes: "250 Episodes", season: "Spring 2016",current_status: "Finished" },
+    {id: 5, title: "Naruto", cover: naruto, rating: "90%", type: "TV Show", episodes: "220 Episodes", season: "Fall 2002",current_status: "Finished" },
+    {id: 6, title: "Demon Slayer", cover: demon_slayer, rating: "90%", type: "TV Show", episodes: "55 Episodes", season: "Spring 2019",current_status: "Finished" },
+    {id: 7, title: "Haikyu", cover: haikyu, rating: "90%", type: "TV Show", episodes: "90 Episodes", season: "Spring 2014",current_status: "Finished" },
+    {id: 8, title: "One Piece", cover: onepiece, rating: "90%", type: "TV Show", episodes: "1000 Episodes", season: "...",current_status: "Ongoing" },
+    {id: 9, title: "Frieren", cover: frieren, rating: "90%", type: "TV Show", episodes: "28 Episodes", season: "Fall 2023",current_status: "Finished" },
+    {id: 10, title: "Hunter x Hunter", cover: hxh, rating: "90%", type: "TV Show", episodes: "148 Episodes", season: "Fall 2011",current_status: "Finished" },
+  ]
+  const trendingNowData = [
+    {id: 1, title: "Haikyu", cover: haikyu, rating: "90%", type: "TV Show", episodes: "90 Episodes", season: "Spring 2014", current_status: "Finished"},
+    {id: 2, title: "Demon Slayer", cover: demon_slayer, rating: "90%", type: "TV Show", episodes: "55 Episodes", season: "Spring 2019", current_status: "Finished"},
+    {id: 3, title: "Jujutsu Kaisen", cover: jjk, rating: "90%", type: "TV Show", episodes: "39 Episodes", season: "Fall 2020", current_status: "Finished"},
+    {id: 4, title: "One Piece", cover: onepiece, rating: "90%", type: "TV Show", episodes: "1000 Episodes", season: "...", current_status: "Ongoing"},
+    {id: 5, title: "Frieren", cover: frieren, rating: "90%", type: "TV Show", episodes: "28 Episodes", season: "Fall 2023", current_status: "Finished"}
+  ];
+  const popularThisSeasonData = [
+    {id: 1, title: "Bleach", cover: bleach, rating: "90%", type: "TV Show", episodes: "366 Episodes", season: "Fall 2004", current_status: "Finished"},
+    {id: 2, title: "Hunter x Hunter", cover: hxh, rating: "90%", type: "TV Show", episodes: "148 Episodes", season: "Fall 2011", current_status: "Finished"},
+    {id: 3, title: "Naruto", cover: naruto, rating: "90%", type: "TV Show", episodes: "220 Episodes", season: "Fall 2002", current_status: "Finished"},
+    {id: 4, title: "Chainsaw Man", cover: csm, rating: "90%", type: "TV Show", episodes: "12 Episodes", season: "Fall 2022", current_status: "Finished"},
+    {id: 5, title: "My Hero Acadamia", cover: mha, rating: "90%", type: "TV Show", episodes: "250 Episodes", season: "Spring 2016", current_status: "Finished"}
+  ];
+  const upcomingNextSeasonData = [
+    {id: 1, title: "Demon Slayer", cover: demon_slayer, rating: "90%", type: "TV Show", episodes: "55 Episodes", season: "Spring 2019", current_status: "Finished"},
+    {id: 2, title: "Frieren", cover: frieren, rating: "90%", type: "TV Show", episodes: "28 Episodes", season: "Fall 2023", current_status: "Finished"},
+    {id: 3, title: "Jujutsu Kaisen", cover: jjk, rating: "90%", type: "TV Show", episodes: "39 Episodes", season: "Fall 2020", current_status: "Finished"},
+    {id: 4, title: "Haikyu", cover: haikyu, rating: "90%", type: "TV Show", episodes: "90 Episodes", season: "Spring 2014", current_status: "Finished"},
+    {id: 5, title: "One Piece", cover: onepiece, rating: "90%", type: "TV Show", episodes: "1000 Episodes", season: "...", current_status: "Ongoing"}
+  ];
+  const allTimePopularData = [
+    {id: 1, title: "Chainsaw Man", cover: csm, rating: "90%", type: "TV Show", episodes: "12 Episodes", season: "Fall 2022", current_status: "Finished"},
+    {id: 2, title: "Bleach", cover: bleach, rating: "90%", type: "TV Show", episodes: "366 Episodes", season: "Fall 2004", current_status: "Finished"},
+    {id: 3, title: "Hunter x Hunter", cover: hxh, rating: "90%", type: "TV Show", episodes: "148 Episodes", season: "Fall 2011", current_status: "Finished"},
+    {id: 4, title: "My Hero Acadamia", cover: mha, rating: "90%", type: "TV Show", episodes: "250 Episodes", season: "Spring 2016", current_status: "Finished"},
+    {id: 5, title: "Naruto", cover: naruto, rating: "90%", type: "TV Show", episodes: "220 Episodes", season: "Fall 2002", current_status: "Finished"}
+  ];
 
   return (
     <>
@@ -43,70 +81,40 @@ function Browse() {
         >
           {/* ANIME LIST - BODY */}
           <div id="profile-body" className="h-auto w-10/12 flex flex-col">
-            {/* <div className="h-130 w-full flex justify-center items-start pt-20 font-light text-gray-800 text-3xl border-2 border-black"> No reviews yet ｡ﾟヽ(ﾟ´Д｀)ﾉﾟ｡</div> */}
-
-            {/* SEARCH FILTERS */}
             <div className="h-30 w-full mt-10 mb-15 flex justify-between">
               <div className="h-full w-10/12 flex justify-around">
-                {/* SEARCH */}
                 <SearchBar />
-                {/* Genres */}
-                <InputBar title={"Genres"} />
-                <InputBar title={"Year"} />
-                <InputBar title={"Season"} />
-                <InputBar title={"Format"} />
+                {inputBarNames.map((title, index) => {
+                  return <InputBar key={index} title={title} />
+                })}
               </div>
               <FilterTab />
             </div>
 
-            {/* TRENDING NOW BLOCK */}
             <TrendingBlock title={"TRENDING NOW"}>
-              <TrendingAnimePoster
-                anime={demon_slayer}
-                title={"Demon Slayer"}
-              />
-              <TrendingAnimePoster anime={jjk} title={"Jujutsu Kaisen"} />
-              <TrendingAnimePoster anime={mha} title={"My Hero Acadamia"} />
-              <TrendingAnimePoster anime={csm} title={"Chainsaw Man"} />
-              <TrendingAnimePoster anime={naruto} title={"Naruto"} />
+              {trendingNowData.map((anime) => {
+                return <TrendingAnimePoster key={anime.id} anime={anime.cover} title={anime.title}/>
+              })}
             </TrendingBlock>
 
             <TrendingBlock title={"POPULAR THIS SEASON"}>
-              <TrendingAnimePoster
-                anime={demon_slayer}
-                title={"Demon Slayer"}
-              />
-              <TrendingAnimePoster anime={jjk} title={"Jujutsu Kaisen"} />
-              <TrendingAnimePoster anime={mha} title={"My Hero Acadamia"} />
-              <TrendingAnimePoster anime={csm} title={"Chainsaw Man"} />
-              <TrendingAnimePoster anime={naruto} title={"Naruto"} />
+              {popularThisSeasonData.map((anime) => {
+                return <TrendingAnimePoster key={anime.id} anime={anime.cover} title={anime.title} />
+              })}
             </TrendingBlock>
 
             <TrendingBlock title={"UPCOMING NEXT SEASON"}>
-              <TrendingAnimePoster
-                anime={demon_slayer}
-                title={"Demon Slayer"}
-              />
-              <TrendingAnimePoster anime={jjk} title={"Jujutsu Kaisen"} />
-              <TrendingAnimePoster anime={mha} title={"My Hero Acadamia"} />
-              <TrendingAnimePoster anime={csm} title={"Chainsaw Man"} />
-              <TrendingAnimePoster anime={naruto} title={"Naruto"} />
+              {upcomingNextSeasonData.map((anime) => {
+                return <TrendingAnimePoster key={anime.id} anime={anime.cover} title={anime.title} />
+              })}
             </TrendingBlock>
 
             <TrendingBlock title={"ALL TIME POPULAR"}>
-              <TrendingAnimePoster
-                anime={demon_slayer}
-                title={"Demon Slayer"}
-              />
-              <TrendingAnimePoster anime={jjk} title={"Jujutsu Kaisen"} />
-              <TrendingAnimePoster anime={mha} title={"My Hero Acadamia"} />
-              <TrendingAnimePoster anime={csm} title={"Chainsaw Man"} />
-              <TrendingAnimePoster anime={naruto} title={"Naruto"} />
+              {allTimePopularData.map((anime) => {
+                return <TrendingAnimePoster key={anime.id} anime={anime.cover} title={anime.title} />
+              })}
             </TrendingBlock>
 
-            {/* =========== */}
-
-            {/* TOP 100 ANIMES */}
             <div className="h-auto w-full mb-15">
               <div className="h-17 w-full flex justify-between items-center">
                 <div className="h-full w-1/2 flex justify-start items-center font-semibold text-gray-700 text-xl">
@@ -117,20 +125,20 @@ function Browse() {
                 </div>
               </div>
 
-              {animeRankings.map((_, index) => (
+              {animeData.map((anime, index) => (
                 <TopRankCell
-                  key={index}
-                  num={index + 1}
-                  anime={animeShowRanking[index]}
-                  title={animeShowTitles[index]}
+                  key={anime.id}
+                  rank={index + 1}
+                  anime={anime.cover}
+                  title={anime.title}
                   faceColor={"text-green-500"}
                   cats={
                     <>
-                      <ShowInfo num={"91%"} users={"361451 users"}>
+                      <ShowInfo title={anime.rating} subtitle={"361451 users"}>
                         <FaceColor faceColor={"text-green-500"} />
                       </ShowInfo>
-                      <ShowInfo num={"TV Show"} users={"28 Episodes"} />
-                      <ShowInfo num={"Fall 2023"} users={"Finished"} />
+                      <ShowInfo title={anime.type} subtitle={anime.episodes} />
+                      <ShowInfo title={anime.season} subtitle={anime.current_status} />
                     </>
                   }
                 >
@@ -140,6 +148,8 @@ function Browse() {
                 </TopRankCell>
               ))}
             </div>
+
+            
           </div>
         </div>
       </div>

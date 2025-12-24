@@ -1,10 +1,10 @@
-function TopRankCell({ num, anime, title, cats, faceColor, children }) {
+function TopRankCell({ rank, anime, title, cats, faceColor, children }) {
   return (
     <>
       <div className="h-auto w-full mb-8 flex flex-wrap justify-around items-center">
         <div className="h-30 w-full flex">
           <div className="h-full w-1/12 flex justify-center items-center font-semibold text-gray-500 text-4xl">
-            #{num}
+            #{rank}
           </div>
           <div className="h-full w-11/12 flex bg-white rounded-lg shadow-md">
             {/* ANIME COVER */}
