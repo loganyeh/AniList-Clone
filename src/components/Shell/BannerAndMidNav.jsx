@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 
 function BannerAndMidNav() {
   const linkData = [
-    {to: "/overview", title: "Overview"},
-    {to: "/", title: "Anime List"},
-    {to: "/mangalist", title: "Manga List"},
-    {to: "/favorites", title: "Favorites"},
-    {to: "/stats", title: "Stats"},
-    {to: "/social", title: "Social"},
-    {to: "/reviews", title: "Reviews"},
-    {to: "/submissions", title: "Submissions"},
+    {id: "1", to: "/overview", title: "Overview"},
+    {id: "2", to: "/", title: "Anime List"},
+    {id: "3", to: "/mangalist", title: "Manga List"},
+    {id: "4", to: "/favorites", title: "Favorites"},
+    {id: "5", to: "/stats", title: "Stats"},
+    {id: "6", to: "/social", title: "Social"},
+    {id: "7", to: "/reviews", title: "Reviews"},
+    {id: "8", to: "/submissions", title: "Submissions"},
   ]
-    
+  
   return (
     <>
       {/* BANNER & MID NAV BAR */}
@@ -34,7 +34,7 @@ function BannerAndMidNav() {
         </div>
         <div className="h-14 w-10/12 flex justify-around items-center text-lg font-semibold text-gray-500">
           {linkData.map((link, index) => {
-            return <Link key={index} to={link.to} className="hover:text-blue-500 active:text-blue-700">{link.title}</Link>
+            return <Link key={index} to={link.to} className={`hover:text-blue-500 active:text-blue-700`}>{link.title}</Link>
           })}
         </div>
       </div>

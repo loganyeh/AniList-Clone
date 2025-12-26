@@ -46,7 +46,6 @@ function AnimeList() {
                   return <ListTitles title={title} />
                 })}
               </ListSelectMenu>
-              {/* ============== */}
               {/* FILTERS */}
               <DropdownMenu height={"65"} menuName={"Filters"}>
                 {dropdownBtnNamesArr.map((name) => {

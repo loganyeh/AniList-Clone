@@ -1,5 +1,6 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
+import { MyContext } from './context/MyContext';
 import AnimeList from './pages/AnimeList';
 import MangaList from './pages/MangaList';
 import Favorites from './pages/Favorites';
@@ -9,16 +10,13 @@ import Reviews from './pages/Reviews';
 import Submissions from './pages/Submissions';
 import WIP from './pages/WIP';
 import Browse from './pages/Browse';
-import { useState, useContext } from 'react';
-import { MyContext } from './context/MyContext';
 import Overview from './pages/Overview';
 
 function App() {
-  const [page, setPage] = useState("browse");
 
   return (
     <>
-      <MyContext.Provider value={{page, setPage}}>
+      <MyContext.Provider value={{}}>
         <Routes>
           <Route path='/overview' element={<Overview />} />
           <Route path='/' element={<AnimeList />} />
