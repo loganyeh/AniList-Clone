@@ -17,6 +17,28 @@ import {
   upcomingNextSeasonData,
   allTimePopularData,
 } from "../data/animeDataArrays.js";
+// apollo api fetch
+import { useQuery } from "@apollo/client";
+import { gql } from "@apollo/client";
+
+export const GET_ANIME = gql`
+  query {
+    Page(page: 1, perPage: 5) {
+      media(search: "Naruto") {
+        id
+        title {
+          romaji
+          english
+        }
+        coverImage {
+          large
+        }
+      }
+    }
+  }
+`;
+
+
 
 function Browse() {
   const inputBarNames = ["Genres", "Year", "Season", "Format"];
@@ -45,6 +67,10 @@ function Browse() {
         >
           {/* ANIME LIST - BODY */}
           <div id="profile-body" className="h-auto w-10/12 flex flex-col">
+
+            <TrendingAnimePoster anime={""} title={""} />
+            
+
             <div className="h-30 w-full mt-10 mb-15 flex justify-between">
               <div className="h-full w-10/12 flex justify-around">
                 <SearchBar />

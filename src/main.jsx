@@ -4,10 +4,23 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom';
 
+import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client/core";
+import { ApolloProvider } from "@apollo/client/react";
+const link = new HttpLink({
+  uri: "https://graphql.anilist.co",
+});
+
+const client = new ApolloClient({
+  link,
+  cache: new InMemoryCache(),
+});
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ApolloProvider client={client}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ApolloProvider>
   </StrictMode>,
 )
