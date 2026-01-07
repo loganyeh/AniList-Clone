@@ -18,27 +18,6 @@ import {
   allTimePopularData,
 } from "../data/animeDataArrays.js";
 // apollo api fetch
-import { useQuery } from "@apollo/client";
-import { gql } from "@apollo/client";
-
-export const GET_ANIME = gql`
-  query {
-    Page(page: 1, perPage: 5) {
-      media(search: "Naruto") {
-        id
-        title {
-          romaji
-          english
-        }
-        coverImage {
-          large
-        }
-      }
-    }
-  }
-`;
-
-
 
 function Browse() {
   const inputBarNames = ["Genres", "Year", "Season", "Format"];
