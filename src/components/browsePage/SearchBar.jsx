@@ -1,13 +1,5 @@
-import { useState } from "react";
 
-function SearchBar() {
-  const [query, setQuery] = useState("");
-
-  function handleQuery(event){
-    setQuery(event.target.value);
-    console.log(query);
-  }
-
+function SearchBar({query}) {
 
   return (
     <>
@@ -19,7 +11,7 @@ function SearchBar() {
           <div className="h-full w-15 flex justify-center items-center">
             <i className="bx bx-search text-2xl text-gray-400"></i>
           </div>
-          <input onChange={handleQuery} type="text" className="h-full w-47 pl-1 text-xl text-gray-600" />
+          <input onChange={query} type="text" className="h-full w-47 pl-1 text-xl text-gray-600" />
         </div>
       </div>
     </>
