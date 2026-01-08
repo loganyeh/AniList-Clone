@@ -2,10 +2,7 @@ export async function fetchAnime(searchTerm) {
   const query = `
     query ($search: String) {
       Page(page: 1, perPage: 50) {
-        media(
-          search: $search
-          isAdult: false
-        ) {
+        media(search: $search, type: ANIME, isAdult: false) {
           id
           title {
             english
@@ -18,23 +15,17 @@ export async function fetchAnime(searchTerm) {
     }
   `;
 
-  const response = await fetch("https://graphql.anilist.co", {
-    method: "POST",
+  const response = await fetch('/graphql', { 
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
+      'Content-Type': 'application/json', 
     },
     body: JSON.stringify({
       query,
-      variables: {
-        search: searchTerm,
-      },
+      variables: { search: searchTerm },
     }),
   });
 
   const data = await response.json();
-
-  console.log(data);
-
   return data?.data?.Page?.media;
 }

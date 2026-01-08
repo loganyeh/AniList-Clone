@@ -40,11 +40,14 @@ function Browse() {
 
   function handleQuery(event){
     const value = event.target.value;
-
     setQuery(value);
-    fetchAnime(query).then((animeArray) => {
-      setAnimeList(animeArray); 
-    });
+
+    if(value.trim() === ""){
+      setAnimeList([]);
+      return;
+    }
+
+    fetchAnime(query).then(setAnimeList);
   }
 
   return (
@@ -70,7 +73,7 @@ function Browse() {
               <FilterTab />
             </div>
 
-            <div className="flex justify-center items-center flex-wrap border-red-600 border-2">
+            <div className="flex justify-between items-center flex-wrap border-red-600 border-2">
               {animeList.map((anime) => (
                 <TrendingAnimePoster
                 key={anime.id} 
