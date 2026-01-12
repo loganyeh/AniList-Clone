@@ -17,6 +17,9 @@ import {
   upcomingNextSeasonData,
   allTimePopularData,
 } from "../data/animeDataArrays.js";
+// apollo api fetch
+import { fetchAnime } from "../api/api.js";
+import { useEffect, useState } from "react";
 
 function Browse() {
   const inputBarNames = ["Genres", "Year", "Season", "Format"];
@@ -32,6 +35,20 @@ function Browse() {
     "bg-blue-400",
     "bg-red-400",
   ];
+  const [animeList, setAnimeList] = useState([]);
+  const [query, setQuery] = useState("");
+
+  function handleQuery(event){
+    const value = event.target.value;
+    setQuery(value);
+
+    if(value.trim() === ""){
+      setAnimeList([]);
+      return;
+    }
+
+    fetchAnime(query).then(setAnimeList);
+  }
 
   return (
     <>
@@ -45,14 +62,25 @@ function Browse() {
         >
           {/* ANIME LIST - BODY */}
           <div id="profile-body" className="h-auto w-10/12 flex flex-col">
+            
             <div className="h-30 w-full mt-10 mb-15 flex justify-between">
               <div className="h-full w-10/12 flex justify-around">
-                <SearchBar />
+                <SearchBar query={handleQuery} />
                 {inputBarNames.map((title, index) => {
                   return <InputBar key={index} title={title} />;
                 })}
               </div>
               <FilterTab />
+            </div>
+
+            <div className="flex justify-between items-center flex-wrap">
+              {animeList.map((anime) => (
+                <TrendingAnimePoster
+                key={anime.id} 
+                anime={anime.coverImage.large}
+                title={anime.title.english}
+                />
+              ))}
             </div>
 
             <TrendingBlock title={"TRENDING NOW"}>

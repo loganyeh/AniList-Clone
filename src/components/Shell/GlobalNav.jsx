@@ -5,9 +5,9 @@ function GlobalNav() {
   const linkData = [
     {to: "/wip", title: "Home"},
     {to: "/overview", title: "Profile"},
-    {to: "/", title: "Anime List"},
+    {to: "/animelist", title: "Anime List"},
     {to: "/mangalist", title: "Manga List"},
-    {to: "/browse", title: "Browse"},
+    {to: "/", title: "Browse"},
     {to: "/wip", title: "Forum"},
   ]
 

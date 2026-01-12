@@ -1,4 +1,6 @@
-function SearchBar() {
+
+function SearchBar({query}) {
+
   return (
     <>
       <div className="h-30 w-70">
@@ -9,7 +11,7 @@ function SearchBar() {
           <div className="h-full w-15 flex justify-center items-center">
             <i className="bx bx-search text-2xl text-gray-400"></i>
           </div>
-          <input type="text" className="h-full w-47 text-xl text-gray-600" />
+          <input onChange={query} type="text" className="h-full w-47 pl-1 text-xl text-gray-600" />
         </div>
       </div>
     </>
