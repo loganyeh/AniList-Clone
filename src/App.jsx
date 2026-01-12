@@ -19,14 +19,14 @@ function App() {
       <MyContext.Provider value={{}}>
         <Routes>
           <Route path='/overview' element={<Overview />} />
-          <Route path='/' element={<AnimeList />} />
+          <Route path='/animelist' element={<AnimeList />} />
           <Route path='/mangalist' element={<MangaList />} />
           <Route path='/favorites' element={<Favorites />} />
           <Route path='/stats' element={<Stats />} />
           <Route path='/social' element={<Social />} />
           <Route path='/reviews' element={<Reviews />} />
           <Route path='/submissions' element={<Submissions />} />
-          <Route path='/browse' element={<Browse />} />
+          <Route path='/' element={<Browse />} />
           <Route path='/wip' element={<WIP />} />
         </Routes>
       </MyContext.Provider>

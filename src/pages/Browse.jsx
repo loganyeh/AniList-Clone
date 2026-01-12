@@ -73,7 +73,7 @@ function Browse() {
               <FilterTab />
             </div>
 
-            <div className="flex justify-between items-center flex-wrap border-red-600 border-2">
+            <div className="flex justify-between items-center flex-wrap">
               {animeList.map((anime) => (
                 <TrendingAnimePoster
                 key={anime.id} 

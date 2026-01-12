@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function BannerAndMidNav() {
   const linkData = [
     {id: "1", to: "/overview", title: "Overview"},
-    {id: "2", to: "/", title: "Anime List"},
+    {id: "2", to: "/animelist", title: "Anime List"},
     {id: "3", to: "/mangalist", title: "Manga List"},
     {id: "4", to: "/favorites", title: "Favorites"},
     {id: "5", to: "/stats", title: "Stats"},
